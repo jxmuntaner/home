@@ -1,0 +1,12 @@
+your-resume-project/
+├── api/
+│   └── submit-form.js   # Your serverless function
+├── .gitignore             # Important for node_modules
+├── index.html
+├── style.css
+├── script.js
+├── package.json           # To manage dependencies (like nodemailer)
+├── package-lock.json
+└── node_modules/          # Node.js dependencies (will be ignored by git)
+└── images/
+    └── ...

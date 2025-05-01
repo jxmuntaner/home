@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] - [Your Title]</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome for icons like the hamburger menu (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header id="navbar">
+        <nav>
+            <div class="container">
+                <a href="#home" class="logo">[Your Initials/Logo]</a>
+                <ul id="nav-links"> {/* Added ID */}
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                {/* --- Hamburger Menu Button --- */}
+                <button id="hamburger-button" class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {/* Hero Section */}
+        <section id="home" class="hero">
+            <div class="hero-content animate-on-scroll"> {/* Added animation class */}
+                <h1>[Your Name]</h1>
+                <p>[Your Title / Short Tagline]</p>
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                 {/* <a href="path/to/your/resume.pdf" target="_blank" class="btn btn-secondary">View Resume</a> */}
+            </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" class="about">
+            <div class="container section-content">
+                <h2 class="animate-on-scroll">About Me</h2>
+                <div class="about-flex animate-on-scroll"> {/* Added animation class */}
+                    <div class="about-image">
+                        <img src="images/profile.jpg" alt="[Your Name]">
+                    </div>
+                    <div class="about-text">
+                        <p>Hello! I'm [Your Name], a passionate and results-oriented [Your Profession] based in [Your Location]. I specialize in [mention 1-2 key skills or areas].</p>
+                        <p>I enjoy tackling complex problems and turning ideas into beautiful, functional realities. With a strong foundation in [mention a key technology/skill] and experience in [mention another], I thrive in collaborative environments and am always eager to learn and grow.</p>
+                        <p>When I'm not coding/designing/[your verb], you can find me [mention a hobby or interest].</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" class="experience">
+            <div class="container section-content">
+                <h2 class="animate-on-scroll">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item animate-on-scroll"> {/* Added animation class */}
+                        <div class="timeline-content">
+                            <h3>[Job Title]</h3>
+                            <span class="company">[Company Name] | [City, State]</span>
+                            <span class="date">[Start Date] - [End Date or Present]</span>
+                            <ul>
+                                <li>[Responsibility or accomplishment 1]</li>
+                                <li>[Responsibility or accomplishment 2]</li>
+                                <li>[Responsibility or accomplishment 3]</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="timeline-item animate-on-scroll"> {/* Added animation class */}
+                        <div class="timeline-content">
+                            <h3>[Previous Job Title]</h3>
+                            <span class="company">[Previous Company Name] | [City, State]</span>
+                            <span class="date">[Start Date] - [End Date]</span>
+                            <ul>
+                                <li>[Responsibility or accomplishment 1]</li>
+                                <li>[Responsibility or accomplishment 2]</li>
+                            </ul>
+                        </div>
+                    </div>
+                    {/* Add more timeline-item divs as needed, adding animate-on-scroll class */}
+                </div>
+            </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" class="projects">
+            <div class="container section-content">
+                <h2 class="animate-on-scroll">Projects</h2>
+                <div class="project-grid">
+                    {/* Added animation class to each card */}
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image-wrapper"> {/* Wrapper for image zoom effect */}
+                            <img src="images/project1.jpg" alt="Project 1 Thumbnail">
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Title 1</h3>
+                            <p>A brief description of the project, highlighting key features and technologies used.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="btn btn-secondary">Live Demo</a>
+                                <a href="#" target="_blank" class="btn btn-secondary">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image-wrapper">
+                            <img src="images/project2.jpg" alt="Project 2 Thumbnail">
+                        </div>
+                         <div class="project-content">
+                            <h3>Project Title 2</h3>
+                            <p>Another project description, focusing on the problem solved or the skills demonstrated.</p>
+                             <div class="project-links">
+                                <a href="#" target="_blank" class="btn btn-secondary">Live Demo</a>
+                                <a href="#" target="_blank" class="btn btn-secondary">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="project-card animate-on-scroll">
+                         <div class="project-image-wrapper">
+                            <img src="images/project3.jpg" alt="Project 3 Thumbnail">
+                         </div>
+                         <div class="project-content">
+                            <h3>Project Title 3</h3>
+                            <p>Showcase a different kind of project or technology stack here.</p>
+                             <div class="project-links">
+                                <a href="#" target="_blank" class="btn btn-secondary">Live Demo</a>
+                                <a href="#" target="_blank" class="btn btn-secondary">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Add more project-card divs, adding animate-on-scroll class */}
+                </div>
+            </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" class="contact">
+             <div class="container section-content">
+                <h2 class="animate-on-scroll">Contact Me</h2>
+                <p class="animate-on-scroll">Feel free to reach out! Send me an email or fill out the form below.</p>
+                <div class="contact-info animate-on-scroll">
+                     <p>Email: <a href="mailto:[your.email@example.com]">[your.email@example.com]</a></p>
+                     {/* <p>LinkedIn: <a href="[your-linkedin-url]" target="_blank">linkedin.com/in/[your-profile]</a></p> */}
+                </div>
+                <form action="https://formspree.io/f/[your_formspree_id]" method="POST" class="animate-on-scroll">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> [Your Name]. All rights reserved.</p>
+            {/* <div class="social-links"> ... </div> */}
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
