@@ -155,7 +155,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- NEW Profile Section Styles --- */
 .profile-section {
-    padding: 0 0 60px 0; /* Padding below the profile area */
+    padding: 40px 0 60px 0; /* Adjusted top padding slightly, keep bottom padding */
+    /* --- ADD THIS LINE --- */
+    background-color: var(--secondary-color); /* Match projects section background */
 }
 
 .profile-layout {
