@@ -3,69 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name] - [Your Title]</title>
+    <title>[Your Name] - [Your Title/Affiliation]</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Add Font Awesome for icons like the hamburger menu (optional) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-    <header id="navbar">
-        <nav>
-            <div class="container">
-                <a href="#home" class="logo">[Your Initials/Logo]</a>
-                <ul id="nav-links"> {/* Added ID */}
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
+    <!-- === NEW Simple Header === -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="header-logo">[Your Full Name]</a>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="#experience">Experience</a></li> {/* Update links as needed */}
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    {/* Add links like CV, Research, Teaching if applicable */}
+                    {/* <li><a href="path/to/cv.pdf" target="_blank">CV</a></li> */}
                 </ul>
-                {/* --- Hamburger Menu Button --- */}
-                <button id="hamburger-button" class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </button>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
     <main>
-        {/* Hero Section */}
-        <section id="home" class="hero">
-            <div class="hero-content animate-on-scroll"> {/* Added animation class */}
-                <h1>[Your Name]</h1>
-                <p>[Your Title / Short Tagline]</p>
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                 {/* <a href="path/to/your/resume.pdf" target="_blank" class="btn btn-secondary">View Resume</a> */}
-            </div>
-        </section>
+        <!-- === NEW Profile Section (Inspired by Screenshot) === -->
+        <section class="profile-section">
+            <div class="container">
+                <div class="profile-layout">
+                    <!-- Left Sidebar Column -->
+                    <aside class="profile-sidebar animate-on-scroll">
+                        <img src="images/profile.jpg" alt="[Your Name]" class="profile-picture">
+                        <h2 class="profile-name">[Your Full Name]</h2>
+                        <p class="profile-title">[Your Title/Affiliation Line 1]<br>[Line 2 if needed, e.g., PhD Program]</p>
+                        <ul class="profile-links">
+                            <li>
+                                <i class="fa-solid fa-location-dot fa-fw"></i> {/* Location Icon */}
+                                <span>[Your City, State/Country]</span>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-envelope fa-fw"></i> {/* Email Icon */}
+                                <a href="mailto:[your.email@example.com]">[your.email@example.com]</a>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-linkedin fa-fw"></i> {/* LinkedIn Icon */}
+                                <a href="[your-linkedin-url]" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-github fa-fw"></i> {/* GitHub Icon */}
+                                <a href="[your-github-url]" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </li>
+                             {/* Add other links like Google Scholar, Twitter etc. if needed */}
+                             {/* <li><i class="fa-solid fa-graduation-cap fa-fw"></i><a href="#">Google Scholar</a></li> */}
+                        </ul>
+                    </aside>
 
-        {/* About Section */}
-        <section id="about" class="about">
-            <div class="container section-content">
-                <h2 class="animate-on-scroll">About Me</h2>
-                <div class="about-flex animate-on-scroll"> {/* Added animation class */}
-                    <div class="about-image">
-                        <img src="images/profile.jpg" alt="[Your Name]">
-                    </div>
-                    <div class="about-text">
-                        <p>Hello! I'm [Your Name], a passionate and results-oriented [Your Profession] based in [Your Location]. I specialize in [mention 1-2 key skills or areas].</p>
-                        <p>I enjoy tackling complex problems and turning ideas into beautiful, functional realities. With a strong foundation in [mention a key technology/skill] and experience in [mention another], I thrive in collaborative environments and am always eager to learn and grow.</p>
-                        <p>When I'm not coding/designing/[your verb], you can find me [mention a hobby or interest].</p>
-                    </div>
+                    <!-- Right Main Content Column -->
+                    <section class="profile-main-content animate-on-scroll">
+                        <h1>Welcome!</h1> {/* Or another appropriate heading */}
+                        <p>
+                            I am a [Your Role] at [Your Company/Institution]. My work focuses on [briefly mention 1-2 key areas or your main practice].
+                            I recently [mention a key achievement or status, e.g., graduated from..., joined..., completed project...].
+                        </p>
+                        <p>
+                            My professional interests include [mention 2-3 specific interests like specific technologies, methodologies, research areas, etc.].
+                        </p>
+                        <p>
+                            Feel free to contact me at <a href="mailto:[your.email@example.com]">[your.email@example.com]</a>
+                            {/* Add secondary email if needed */}
+                            {/* or <a href="mailto:[secondary.email@example.edu]">[secondary.email@example.edu]</a>. */}
+                        </p>
+                    </section>
                 </div>
             </div>
         </section>
 
-        {/* Experience Section */}
-        <section id="experience" class="experience">
-            <div class="container section-content">
+        <!-- === KEEP Your Existing Sections Below === -->
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience section-content">
+            <div class="container">
                 <h2 class="animate-on-scroll">Experience</h2>
                 <div class="timeline">
-                    <div class="timeline-item animate-on-scroll"> {/* Added animation class */}
+                    <div class="timeline-item animate-on-scroll">
                         <div class="timeline-content">
                             <h3>[Job Title]</h3>
                             <span class="company">[Company Name] | [City, State]</span>
@@ -77,7 +98,7 @@
                             </ul>
                         </div>
                     </div>
-                     <div class="timeline-item animate-on-scroll"> {/* Added animation class */}
+                     <div class="timeline-item animate-on-scroll">
                         <div class="timeline-content">
                             <h3>[Previous Job Title]</h3>
                             <span class="company">[Previous Company Name] | [City, State]</span>
@@ -88,19 +109,18 @@
                             </ul>
                         </div>
                     </div>
-                    {/* Add more timeline-item divs as needed, adding animate-on-scroll class */}
+                    {/* Add more timeline items as needed */}
                 </div>
             </div>
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" class="projects">
-            <div class="container section-content">
+        <!-- Projects Section -->
+        <section id="projects" class="projects section-content">
+            <div class="container">
                 <h2 class="animate-on-scroll">Projects</h2>
                 <div class="project-grid">
-                    {/* Added animation class to each card */}
                     <div class="project-card animate-on-scroll">
-                        <div class="project-image-wrapper"> {/* Wrapper for image zoom effect */}
+                        <div class="project-image-wrapper">
                             <img src="images/project1.jpg" alt="Project 1 Thumbnail">
                         </div>
                         <div class="project-content">
@@ -125,32 +145,18 @@
                             </div>
                         </div>
                     </div>
-                     <div class="project-card animate-on-scroll">
-                         <div class="project-image-wrapper">
-                            <img src="images/project3.jpg" alt="Project 3 Thumbnail">
-                         </div>
-                         <div class="project-content">
-                            <h3>Project Title 3</h3>
-                            <p>Showcase a different kind of project or technology stack here.</p>
-                             <div class="project-links">
-                                <a href="#" target="_blank" class="btn btn-secondary">Live Demo</a>
-                                <a href="#" target="_blank" class="btn btn-secondary">View Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Add more project-card divs, adding animate-on-scroll class */}
+                     {/* Add more project cards as needed */}
                 </div>
             </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" class="contact">
-             <div class="container section-content">
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-content">
+             <div class="container">
                 <h2 class="animate-on-scroll">Contact Me</h2>
-                <p class="animate-on-scroll">Feel free to reach out! Send me an email or fill out the form below.</p>
+                <p class="animate-on-scroll">Feel free to reach out!</p>
                 <div class="contact-info animate-on-scroll">
                      <p>Email: <a href="mailto:[your.email@example.com]">[your.email@example.com]</a></p>
-                     {/* <p>LinkedIn: <a href="[your-linkedin-url]" target="_blank">linkedin.com/in/[your-profile]</a></p> */}
                 </div>
                 <form id="contact-form" class="animate-on-scroll">
                     <div class="form-group">
@@ -166,7 +172,6 @@
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" id="submit-button">Send Message</button>
-                    {/* --- Status Message Area --- */}
                     <div id="form-status" style="margin-top: 15px; text-align: center;"></div>
                 </form>
             </div>
@@ -175,8 +180,9 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> [Your Name]. All rights reserved.</p>
-            {/* <div class="social-links"> ... </div> */}
+            <p>© <span id="year"></span> [Your Name]. All rights reserved.</p>
+            <!-- Optional: Add social links -->
+            <!-- <div class="social-links"> ... </div> -->
         </div>
     </footer>
 
