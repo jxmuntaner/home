@@ -1,14 +1,15 @@
 /* --- Base Styles & Variables --- */
 :root {
     --primary-color: #0a66c2;
-    --secondary-color: #f8f9fa; /* Slightly lighter gray */
-    --dark-color: #212529; /* Darker shade */
+    --secondary-color: #f8f9fa;
+    --dark-color: #212529;
     --light-color: #fff;
-    --text-color: #495057; /* Softer text color */
+    --text-color: #495057;
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Lato', sans-serif;
-    --navbar-height: 65px; /* Slightly taller */
-    --base-transition: all 0.3s ease-in-out; /* Standard transition */
+    /* --- Increased Navbar Height --- */
+    --navbar-height: 75px; /* Was 65px */
+    --base-transition: all 0.3s ease-in-out;
     --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
     --shadow-dark: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
@@ -21,16 +22,18 @@
 
 html {
     scroll-behavior: smooth;
+    /* Ensure this uses the updated variable */
     scroll-padding-top: var(--navbar-height);
 }
 
 body {
     font-family: var(--font-secondary);
-    line-height: 1.7; /* Slightly more spacing */
+    /* --- Slightly increased line height --- */
+    line-height: 1.75; /* Was 1.7 */
     color: var(--text-color);
     background-color: var(--light-color);
-    font-size: 16px; /* Base font size */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-size: 16px;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -83,13 +86,14 @@ img {
 
 /* --- Utility Classes --- */
 .container {
-    max-width: 1140px; /* Slightly wider */
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 0 15px; /* Slightly less padding */
+    padding: 0 15px;
 }
 
 .section-content {
-    padding: 80px 0; /* More vertical padding */
+     /* --- Slightly more vertical padding --- */
+    padding: 90px 0; /* Was 80px */
 }
 
 .btn {
@@ -142,17 +146,19 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(5px); /* Subtle blur effect */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly less transparent initially */
+    backdrop-filter: blur(6px); /* Slightly stronger blur */
+    box-shadow: none; /* Remove initial shadow for cleaner look */
     z-index: 1000;
-    height: var(--navbar-height);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    height: var(--navbar-height); /* Uses the updated variable */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease; /* Added height transition */
 }
 
-#navbar.scrolled { /* Add styles for when scrolled */
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+#navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.98); /* More opaque on scroll */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtler shadow */
+    /* Optional: slightly reduce height on scroll for effect */
+    /* height: calc(var(--navbar-height) - 10px); */
 }
 
 #navbar .container {
@@ -163,7 +169,7 @@ img {
 }
 
 #navbar .logo {
-    font-size: 1.8rem; /* Larger logo */
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--dark-color);
     transition: var(--base-transition);
@@ -177,21 +183,25 @@ img {
     align-items: center; /* Vertically align items */
 }
 
+/* --- Increased Padding for Nav Links --- */
 #navbar ul li a {
-    padding: 10px 18px; /* More padding */
+    /* Increased vertical padding */
+    padding: 20px 18px; /* Was 10px 18px */
     color: var(--dark-color);
     font-weight: bold;
-    position: relative; /* For underline effect */
-    overflow: hidden; /* Hide underline initially */
+    position: relative;
+    overflow: hidden;
     transition: color 0.3s ease;
 }
 
-#navbar ul li a::after { /* Underline effect */
+/* Adjust underline position if needed due to padding change */
+#navbar ul li a::after {
     content: '';
     position: absolute;
-    bottom: 5px; /* Adjust position */
-    left: -100%; /* Start off-screen */
-    width: 100%;
+    bottom: 15px; /* Adjusted position */
+    left: -100%;
+    width: calc(100% - 36px); /* Adjust width based on horizontal padding */
+    margin-left: 18px; /* Center underline */
     height: 2px;
     background-color: var(--primary-color);
     transition: left 0.3s ease;
@@ -202,7 +212,7 @@ img {
 }
 
 #navbar ul li a:hover::after {
-    left: 0; /* Slide in underline */
+    left: 0;
 }
 
 /* --- Hamburger Menu --- */
@@ -290,10 +300,11 @@ img {
 }
 
 .hero p {
-    font-size: clamp(1.2rem, 3vw + 0.5rem, 1.6rem); /* Fluid tagline size */
+    font-size: clamp(1.2rem, 3vw + 0.5rem, 1.6rem);
     margin-bottom: 2rem;
     font-family: var(--font-secondary);
-    font-weight: 400;
+     /* --- Slightly lighter weight if desired --- */
+    font-weight: 300; /* Was 400 */
      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
@@ -593,27 +604,30 @@ footer a:hover { color: var(--light-color); }
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
-    :root { --navbar-height: 60px; } /* Adjust navbar height */
-    body { font-size: 15px; } /* Slightly smaller base font */
+    /* --- Update mobile navbar height variable if needed, or just use the main one --- */
+    /* :root { --navbar-height: 60px; } */ /* We keep the taller height now */
+
+    /* ... (other 768px styles) ... */
 
     /* --- Mobile Navbar --- */
     #navbar ul#nav-links {
         display: flex;
         flex-direction: column;
         position: absolute;
+        /* --- Ensure top matches navbar height --- */
         top: var(--navbar-height);
-        left: 0; /* Start hidden */
+        left: 0;
         width: 100%;
+        /* --- Ensure opaque background --- */
         background-color: var(--light-color);
         border-top: 1px solid var(--secondary-color);
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-        /* Use max-height for transition */
         max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-out; /* Smooth slide down */
+        overflow-y: auto; /* Allow scrolling if many items */
+        transition: max-height 0.4s ease-out;
     }
-    #navbar ul#nav-links.nav-active { /* Class added by JS */
-        max-height: 400px; /* Adjust as needed, large enough for links */
+    #navbar ul#nav-links.nav-active {
+        max-height: calc(100vh - var(--navbar-height)); /* Allow full height minus navbar */
     }
     #navbar ul li { width: 100%; } /* Full width list items */
     #navbar ul li a {
