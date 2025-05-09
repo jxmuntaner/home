@@ -94,7 +94,7 @@ img { max-width: 100%; height: auto; display: block; }
     background-color: var(--light-color);
     padding: 15px 0; /* Vertical padding */
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: 40px; /* Space below header */
+    margin-bottom: 15px; /* MODIFIED: Space below header reduced */
     position: relative; /* Needed if using absolute positioned effects */
     z-index: 999; /* Below potential modals but above content */
 }
@@ -155,8 +155,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- NEW Profile Section Styles --- */
 .profile-section {
-    padding: 40px 0 60px 0; /* Adjusted top padding slightly, keep bottom padding */
-    /* --- ADD THIS LINE --- */
+    padding: 20px 0 60px 0; /* MODIFIED: Top padding reduced */
     background-color: var(--secondary-color); /* Match projects section background */
 }
 
@@ -174,17 +173,21 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .profile-picture {
-    width: 100%;
+    width: 150px; /* MODIFIED: Specific smaller width */
+    height: auto; /* ADDED: Maintain aspect ratio */
+    display: block; /* ADDED: For centering */
+    margin-left: auto; /* ADDED: Center image */
+    margin-right: auto; /* ADDED: Center image */
     border: 1px solid var(--border-color); /* Subtle border */
     padding: 5px; /* Optional padding around image */
-    margin-bottom: 20px;
-    border-radius: 4px; /* Slightly rounded corners */
+    margin-bottom: 15px; /* MODIFIED: Adjusted margin */
+    border-radius: 4px; /* Slightly rounded corners, or 50% for circle */
 }
 
 .profile-name {
-    font-size: 1.6rem;
+    font-size: 1.2rem; /* MODIFIED: Reduced font size */
     margin-bottom: 0.5rem;
-    text-align: left;
+    text-align: center; /* MODIFIED: Centered text */
 }
 
 .profile-title {
@@ -202,7 +205,7 @@ img { max-width: 100%; height: auto; display: block; }
 .profile-links li {
     display: flex;
     align-items: center;
-    margin-bottom: 12px; /* Space between links */
+    margin-bottom: 4px; /* MODIFIED: Space between links reduced */
     font-size: 0.95rem;
 }
 
@@ -332,17 +335,20 @@ footer a:hover { color: var(--light-color); }
         text-align: center; /* Center sidebar content */
     }
     .profile-picture {
-        max-width: 200px; /* Limit image size when centered */
-        margin-left: auto;
-        margin-right: auto;
+        /* On smaller screens, the 150px width might be fine,
+           but if it looks too small relative to full width,
+           you might want to adjust it here, e.g., make it a bit larger
+           or use a percentage like width: 50%; max-width: 200px; */
+        max-width: 200px; /* Ensure it doesn't get too large even if centered, override the 150px if needed for mobile */
+        /* The margin-left: auto and margin-right: auto will still center it */
     }
-    .profile-name { text-align: center; }
+    .profile-name { text-align: center; } /* Already centered now */
     .profile-links {
-        display: inline-block; /* Allow centering */
-        text-align: left; /* Keep text left within list */
+        display: inline-block; /* Allow centering of the block */
+        text-align: left; /* Keep text left within list items */
     }
      .profile-links li {
-        /* Optional: Adjust centering if needed */
+        /* Optional: Adjust centering if needed for mobile */
         /* justify-content: center; */
     }
     .profile-main-content h1 { text-align: center; }
@@ -367,6 +373,12 @@ footer a:hover { color: var(--light-color); }
     .section-content { padding: 40px 0; }
     h2 { margin-bottom: 1.5rem; }
     .btn { padding: 10px 25px; font-size: 0.95rem; }
+
+    .profile-picture {
+        /* You might want to adjust the 150px width for very small screens if it feels too large.
+           For example: width: 120px; or slightly larger if 150px feels too constrained.
+           The max-width: 200px from the media query above will still apply if you make it larger. */
+    }
 
     .timeline-item { padding-left: 60px; padding-right: 15px; }
     .timeline-item::after { left: 16px; width: 14px; height: 14px; border-width: 3px;}
