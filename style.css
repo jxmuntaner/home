@@ -173,12 +173,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .profile-picture {
-    width: 180px; /* MODIFIED: Increased size, adjust as you like */
+    width: 210px; /* MODIFIED: Increased width. Adjust this (e.g., 205px, 215px) until it aligns with the "r" */
     height: auto;   /* Maintain aspect ratio */
-    /* REMOVED: display: block; margin-left: auto; margin-right: auto; to align left */
     border: 1px solid var(--border-color);
     padding: 5px;
-    margin-bottom: 20px; /* MODIFIED: Slightly adjusted margin-bottom if needed */
+    margin-bottom: 20px;
     border-radius: 4px; /* Or 50% for circular if you prefer */
 }
 
@@ -199,21 +198,19 @@ img { max-width: 100%; height: auto; display: block; }
 .profile-links {
     margin: 0;
     padding: 0;
-    /* text-align: left; /* Can be added to parent for explicitness if needed */
 }
 
 .profile-links li {
     display: flex;
     align-items: center;
-    margin-bottom: 4px; /* MODIFIED: Space between links reduced */
-    font-size: 0.95rem;
-    /* text-align: left; is default for content within the flex item */
+    margin-bottom: 3px; /* MODIFIED: Slightly reduced margin */
+    font-size: 0.85rem; /* MODIFIED: Reduced font size. Try 0.8rem or 0.9rem if this is too small/big */
 }
 
 .profile-links i {
-    margin-right: 10px; /* Space between icon and text */
-    color: var(--text-color); /* Icon color */
-    width: 1.2em; /* Ensure consistent icon width */
+    margin-right: 8px; /* MODIFIED: Slightly reduced margin */
+    color: var(--text-color);
+    width: 1.2em; /* This will now be relative to the new smaller font size */
     text-align: center;
 }
 
@@ -333,34 +330,22 @@ footer a:hover { color: var(--light-color); }
     }
     .profile-sidebar {
         max-width: 100%; /* Allow sidebar to take full width */
-        /* text-align: center; /* Remove this if you want left align on mobile too */
     }
     .profile-picture {
-        /* On smaller screens, the 180px width might be fine.
-           If it needs to be centered on mobile, you'd add back
-           margin-left: auto; margin-right: auto; here.
-           If it should remain left-aligned, no changes needed here for that. */
-        /* Example: if you want it centered on mobile only: */
+        /* Adjust if 210px is too large for mobile, or if you want it centered */
+        /* width: 180px; */
         /* margin-left: auto; */
         /* margin-right: auto; */
-        max-width: 200px; /* You can also adjust width here if 180px is too big/small for mobile */
+        max-width: 200px; /* Ensure it doesn't get too large */
     }
     .profile-name {
-        /* text-align: center; /* If you centered the image on mobile, center the name too */
-        /* If image is left-aligned on mobile, name should be left-aligned (already is) */
+        /* text-align: center; /* If picture is centered on mobile */
     }
     .profile-title {
-        /* text-align: center; /* If name is centered, title might also need centering */
+        /* text-align: center; /* If picture is centered on mobile */
     }
-    .profile-links {
-        /* If content above is centered, you might want to center this block too: */
-        /* display: inline-block; */ /* To allow margin auto centering if block is centered */
-        /* margin-left: auto; */
-        /* margin-right: auto; */
-        /* text-align: left; /* Keep text left within list items */
-    }
-     .profile-links li {
-        /* justify-content: center; /* If you want the icons+text centered within each line on mobile */
+    .profile-links li {
+        /* font-size: 0.9rem; /* Optionally adjust for mobile if 0.85rem is too small */
     }
     .profile-main-content h1 { text-align: center; }
 
@@ -386,8 +371,7 @@ footer a:hover { color: var(--light-color); }
     .btn { padding: 10px 25px; font-size: 0.95rem; }
 
     .profile-picture {
-        /* Adjust if 180px is too large for very small screens. */
-        /* width: 150px; */ /* Example */
+        /* width: 160px; /* Example adjustment for very small screens */
     }
 
     .timeline-item { padding-left: 60px; padding-right: 15px; }
