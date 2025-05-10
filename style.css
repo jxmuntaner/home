@@ -94,7 +94,7 @@ img { max-width: 100%; height: auto; display: block; }
     background-color: var(--light-color);
     padding: 15px 0; /* Vertical padding */
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: 15px; /* MODIFIED: Space below header reduced */
+    margin-bottom: 5px; /* MODIFIED: Space below header further reduced */
     position: relative; /* Needed if using absolute positioned effects */
     z-index: 999; /* Below potential modals but above content */
 }
@@ -155,7 +155,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- NEW Profile Section Styles --- */
 .profile-section {
-    padding: 20px 0 60px 0; /* MODIFIED: Top padding reduced */
+    padding: 0px 0 0px 0; /* MODIFIED: Top padding further reduced */
     background-color: var(--secondary-color); /* Match projects section background */
 }
 
@@ -173,26 +173,26 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .profile-picture {
-    width: 210px; /* MODIFIED: Increased width. Adjust this (e.g., 205px, 215px) until it aligns with the "r" */
-    height: auto;   /* Maintain aspect ratio */
-    border: 1px solid var(--border-color);
-    padding: 5px;
+    width: 210px; /* Keep this or adjust as needed for alignment with "Muntaner" */
+    height: auto;
+    border: none; /* MODIFIED: Remove border */
+    padding: 0; /* MODIFIED: Remove padding */
     margin-bottom: 20px;
-    border-radius: 4px; /* Or 50% for circular if you prefer */
+    border-radius: 4px; /* Or 0 if you want sharp corners for the image itself */
 }
 
 .profile-name {
-    font-size: 1.2rem; /* Keep or adjust slightly if desired */
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    text-align: left; /* MODIFIED: Align text to the left */
+    text-align: left;
 }
 
 .profile-title {
     font-size: 1rem;
     color: var(--text-color);
     line-height: 1.5;
-    margin-bottom: 25px; /* Adjust if too much space after making picture bigger */
-    text-align: left; /* Explicitly set, though it's default */
+    margin-bottom: 25px;
+    text-align: left;
 }
 
 .profile-links {
@@ -203,28 +203,30 @@ img { max-width: 100%; height: auto; display: block; }
 .profile-links li {
     display: flex;
     align-items: center;
-    margin-bottom: 3px; /* MODIFIED: Slightly reduced margin */
-    font-size: 0.85rem; /* MODIFIED: Reduced font size. Try 0.8rem or 0.9rem if this is too small/big */
+    margin-bottom: 3px;
+    font-size: 0.85rem; /* Reduced font size for links */
 }
 
-.profile-links i {
-    margin-right: 8px; /* MODIFIED: Slightly reduced margin */
+.profile-links li i { /* MODIFIED: More specific selector for icons */
+    font-size: inherit !important; /* Force inheritance from li's font-size for icon size */
+    margin-right: 8px;
     color: var(--text-color);
-    width: 1.2em; /* This will now be relative to the new smaller font size */
+    width: 1.2em; /* Relative to its own font-size (now inherited) */
     text-align: center;
+    line-height: 1; /* Helps with vertical alignment */
 }
 
 .profile-links a {
-    color: var(--primary-color); /* Link color */
+    color: var(--primary-color);
 }
 .profile-links span {
-    color: var(--text-color); /* Non-link text color */
+    color: var(--text-color);
 }
 
 
 .profile-main-content {
-    flex: 2; /* Takes up 2 parts of the space, making it wider */
-    min-width: 300px; /* Minimum width */
+    flex: 2;
+    min-width: 300px;
 }
 
 .profile-main-content h1 {
@@ -319,10 +321,6 @@ footer a:hover { color: var(--light-color); }
         flex-wrap: wrap; /* Allow nav links to wrap */
         padding-left: 0; /* Remove default padding */
     }
-    .header-nav li {
-        /* display: inline-block; */ /* Adjust if needed */
-    }
-
 
     .profile-layout {
         flex-direction: column; /* Stack columns */
@@ -332,20 +330,18 @@ footer a:hover { color: var(--light-color); }
         max-width: 100%; /* Allow sidebar to take full width */
     }
     .profile-picture {
-        /* Adjust if 210px is too large for mobile, or if you want it centered */
-        /* width: 180px; */
+        max-width: 200px; /* Ensure it doesn't get too large on mobile, can be centered */
+        /* If centering on mobile: */
         /* margin-left: auto; */
         /* margin-right: auto; */
-        max-width: 200px; /* Ensure it doesn't get too large */
     }
     .profile-name {
-        /* text-align: center; /* If picture is centered on mobile */
+        /* If picture is centered on mobile, center name: */
+        /* text-align: center; */
     }
     .profile-title {
-        /* text-align: center; /* If picture is centered on mobile */
-    }
-    .profile-links li {
-        /* font-size: 0.9rem; /* Optionally adjust for mobile if 0.85rem is too small */
+        /* If picture is centered on mobile, center title: */
+        /* text-align: center; */
     }
     .profile-main-content h1 { text-align: center; }
 
@@ -369,10 +365,6 @@ footer a:hover { color: var(--light-color); }
     .section-content { padding: 40px 0; }
     h2 { margin-bottom: 1.5rem; }
     .btn { padding: 10px 25px; font-size: 0.95rem; }
-
-    .profile-picture {
-        /* width: 160px; /* Example adjustment for very small screens */
-    }
 
     .timeline-item { padding-left: 60px; padding-right: 15px; }
     .timeline-item::after { left: 16px; width: 14px; height: 14px; border-width: 3px;}
