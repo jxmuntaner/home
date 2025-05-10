@@ -173,33 +173,33 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .profile-picture {
-    width: 150px; /* MODIFIED: Specific smaller width */
-    height: auto; /* ADDED: Maintain aspect ratio */
-    display: block; /* ADDED: For centering */
-    margin-left: auto; /* ADDED: Center image */
-    margin-right: auto; /* ADDED: Center image */
-    border: 1px solid var(--border-color); /* Subtle border */
-    padding: 5px; /* Optional padding around image */
-    margin-bottom: 15px; /* MODIFIED: Adjusted margin */
-    border-radius: 4px; /* Slightly rounded corners, or 50% for circle */
+    width: 180px; /* MODIFIED: Increased size, adjust as you like */
+    height: auto;   /* Maintain aspect ratio */
+    /* REMOVED: display: block; margin-left: auto; margin-right: auto; to align left */
+    border: 1px solid var(--border-color);
+    padding: 5px;
+    margin-bottom: 20px; /* MODIFIED: Slightly adjusted margin-bottom if needed */
+    border-radius: 4px; /* Or 50% for circular if you prefer */
 }
 
 .profile-name {
-    font-size: 1.2rem; /* MODIFIED: Reduced font size */
+    font-size: 1.2rem; /* Keep or adjust slightly if desired */
     margin-bottom: 0.5rem;
-    text-align: center; /* MODIFIED: Centered text */
+    text-align: left; /* MODIFIED: Align text to the left */
 }
 
 .profile-title {
     font-size: 1rem;
     color: var(--text-color);
     line-height: 1.5;
-    margin-bottom: 25px;
+    margin-bottom: 25px; /* Adjust if too much space after making picture bigger */
+    text-align: left; /* Explicitly set, though it's default */
 }
 
 .profile-links {
     margin: 0;
     padding: 0;
+    /* text-align: left; /* Can be added to parent for explicitness if needed */
 }
 
 .profile-links li {
@@ -207,6 +207,7 @@ img { max-width: 100%; height: auto; display: block; }
     align-items: center;
     margin-bottom: 4px; /* MODIFIED: Space between links reduced */
     font-size: 0.95rem;
+    /* text-align: left; is default for content within the flex item */
 }
 
 .profile-links i {
@@ -332,24 +333,34 @@ footer a:hover { color: var(--light-color); }
     }
     .profile-sidebar {
         max-width: 100%; /* Allow sidebar to take full width */
-        text-align: center; /* Center sidebar content */
+        /* text-align: center; /* Remove this if you want left align on mobile too */
     }
     .profile-picture {
-        /* On smaller screens, the 150px width might be fine,
-           but if it looks too small relative to full width,
-           you might want to adjust it here, e.g., make it a bit larger
-           or use a percentage like width: 50%; max-width: 200px; */
-        max-width: 200px; /* Ensure it doesn't get too large even if centered, override the 150px if needed for mobile */
-        /* The margin-left: auto and margin-right: auto will still center it */
+        /* On smaller screens, the 180px width might be fine.
+           If it needs to be centered on mobile, you'd add back
+           margin-left: auto; margin-right: auto; here.
+           If it should remain left-aligned, no changes needed here for that. */
+        /* Example: if you want it centered on mobile only: */
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        max-width: 200px; /* You can also adjust width here if 180px is too big/small for mobile */
     }
-    .profile-name { text-align: center; } /* Already centered now */
+    .profile-name {
+        /* text-align: center; /* If you centered the image on mobile, center the name too */
+        /* If image is left-aligned on mobile, name should be left-aligned (already is) */
+    }
+    .profile-title {
+        /* text-align: center; /* If name is centered, title might also need centering */
+    }
     .profile-links {
-        display: inline-block; /* Allow centering of the block */
-        text-align: left; /* Keep text left within list items */
+        /* If content above is centered, you might want to center this block too: */
+        /* display: inline-block; */ /* To allow margin auto centering if block is centered */
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        /* text-align: left; /* Keep text left within list items */
     }
      .profile-links li {
-        /* Optional: Adjust centering if needed for mobile */
-        /* justify-content: center; */
+        /* justify-content: center; /* If you want the icons+text centered within each line on mobile */
     }
     .profile-main-content h1 { text-align: center; }
 
@@ -375,9 +386,8 @@ footer a:hover { color: var(--light-color); }
     .btn { padding: 10px 25px; font-size: 0.95rem; }
 
     .profile-picture {
-        /* You might want to adjust the 150px width for very small screens if it feels too large.
-           For example: width: 120px; or slightly larger if 150px feels too constrained.
-           The max-width: 200px from the media query above will still apply if you make it larger. */
+        /* Adjust if 180px is too large for very small screens. */
+        /* width: 150px; */ /* Example */
     }
 
     .timeline-item { padding-left: 60px; padding-right: 15px; }
