@@ -520,14 +520,6 @@ h2 {
     color: #777;
     margin-bottom: 1rem;
 }
-.timeline-content ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-.timeline-content ul li {
-    margin-bottom: 0.4rem;
-    font-size: 0.8rem; /* Original font size as per initial CSS */
-}
 
 /* --- Styles for Desktop Timeline Expansion --- */
 @media (min-width: 768px) {
