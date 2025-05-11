@@ -110,22 +110,21 @@ img { max-width: 100%; height: auto; display: block; }
 
 .education-grid {
     display: grid;
-    /* Responsive columns: 1 on small, 2 on medium+, adjust minmax as needed */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-    gap: 25px; /* Gap between cards */
+    gap: 25px;
     margin-top: 1.5rem;
 }
 
-.edu-card { /* Styles for each education item card */
+.edu-card {
     display: flex;
-    align-items: flex-start; /* Logo and text aligned to top */
-    gap: 15px; /* Space between logo and details block */
+    align-items: flex-start;
+    gap: 15px;
     background-color: var(--light-color);
     border-radius: 8px;
     box-shadow: var(--shadow-light);
-    padding: 20px; /* Padding inside the card */
+    padding: 20px;
     transition: var(--base-transition), transform 0.3s ease;
-    border: 1px solid var(--border-color); /* Subtle card border */
+    border: 1px solid var(--border-color);
 }
 
 .edu-card:hover {
@@ -134,23 +133,23 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .edu-logo-small {
-    width: 50px; /* Smaller logo */
+    width: 50px;
     height: 50px;
     object-fit: contain;
-    flex-shrink: 0; /* Prevent logo from shrinking */
+    flex-shrink: 0;
     border-radius: 6px;
-    background-color: #fff; /* If logos are transparent */
+    background-color: #fff;
     padding: 3px;
-    border: 1px solid #eee; /* Lighter border for logo box */
+    border: 1px solid #eee;
 }
 
 .edu-details-compact {
-    flex-grow: 1; /* Allow details block to take remaining space */
-    min-width: 0; /* For proper text wrapping in flex items */
+    flex-grow: 1;
+    min-width: 0;
 }
 
-.edu-degree { /* This is an H4 in the HTML for education items */
-    font-size: 1rem; /* Matched to Experience role titles */
+.edu-degree {
+    font-size: 1rem;
     color: var(--primary-color);
     margin-bottom: 0.3rem;
     font-family: var(--font-primary);
@@ -173,14 +172,13 @@ img { max-width: 100%; height: auto; display: block; }
 .edu-period {
     font-size: 0.8rem;
     color: #6c757d;
-    margin-bottom: 0; /* Removed extra margin as most cards don't have .edu-extra-info now */
+    margin-bottom: 0;
 }
 
-/* Styling for the .edu-extra-info div (used for In Progress card) */
 .edu-extra-info {
-    margin-top: 10px; /* Space above if it exists */
-    padding-top: 8px; /* Space within if it exists */
-    border-top: 1px dashed var(--border-color); /* Separator line */
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border-color);
 }
 
 .edu-extra-info p {
@@ -194,22 +192,12 @@ img { max-width: 100%; height: auto; display: block; }
     margin-bottom: 0;
 }
 
-/* "In Progress" Study - Placed separately after the grid */
-.education-current-study-item {
-    margin-top: 30px; /* Space above this item */
-    /* If you want a separator line from the grid: */
-    /* padding-top: 30px; */
-    /* border-top: 1px solid var(--border-color); */
-}
-
-.education-current-study-item .edu-card.in-progress {
-    /* This card can take more width or be centered if it's the only one here */
-    margin-left: auto;  /* Center the card */
-    margin-right: auto;
-    max-width: 550px;   /* Control max width, can be 100% too */
-    width: 100%;        /* Default to full available width up to max-width */
-    border-left: 5px solid var(--primary-color); /* Highlight bar */
-    background-color: #fdfdff; /* Slightly different background */
+/* Styles for "In Progress" card, now part of the grid */
+.edu-card.in-progress {
+    border-left: 5px solid var(--primary-color);
+    background-color: #fdfdff;
+    /* Remove margin-left, margin-right, max-width as it's now a grid item */
+    /* width: auto; /* Let the grid determine its width */
 }
 
 .status-badge {
@@ -365,10 +353,10 @@ footer a:hover { color: var(--light-color); }
 
     /* Mobile for Education cards */
     .education-grid { gap: 15px; grid-template-columns: 1fr; /* Stack to single column */ }
-    .edu-card { padding: 15px; /* Slightly reduce padding for smaller cards */ }
+    .edu-card { padding: 15px; }
     .edu-logo-small { width: 45px; height: 45px; }
-    .education-current-study-item .edu-card.in-progress { max-width: 95%; }
-    .edu-degree {font-size: 0.95rem;} /* Adjust sizes for mobile */
+    /* .edu-card.in-progress styling for width/max-width is handled by it being a grid item now */
+    .edu-degree {font-size: 0.95rem;}
     .edu-institution { font-size: 0.85rem;}
     .edu-period { font-size: 0.75rem;}
     .edu-extra-info p { font-size: 0.8rem;}
