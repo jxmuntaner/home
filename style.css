@@ -17,7 +17,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 20px;
+    scroll-padding-top: 20px; /* Default, will be adjusted for sticky header on mobile */
 }
 
 body {
@@ -143,115 +143,93 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- Honors and Awards Section --- */
 .honors-awards { background-color: var(--light-color); }
-.honors-grid, .certifications-grid {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 15px; 
-    margin-top: 1rem;
-    /* justify-content: center; Let items align left by default */
-}
-.honor-item, .certification-item {
-    display: flex;
-    align-items: center;
-    gap: 10px; 
-    background-color: var(--secondary-color); 
-    padding: 10px 15px;
-    border-radius: 20px; 
-    font-size: 0.9rem;
-    color: var(--text-color);
-    box-shadow: var(--shadow-light);
-    transition: var(--base-transition);
-    border: 1px solid var(--border-color);
-}
-.honor-item:hover, .certification-item:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-dark);
-    background-color: #e9ecef; 
-}
-.honor-item i, .certification-item i {
-    color: var(--primary-color);
-    font-size: 1.1em; 
-}
-.certifications-subsection {
-    margin-top: 40px; 
-    padding-top: 30px;
-    border-top: 1px dashed var(--border-color); 
-}
-.subsection-title { /* For "Certifications" H3 */
-    text-align: left; /* MODIFIED from center to left */
-    font-size: 1.3rem; 
-    color: var(--dark-color);
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
+.honors-grid, .certifications-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 1rem; }
+.honor-item, .certification-item { display: flex; align-items: center; gap: 10px; background-color: var(--secondary-color); padding: 10px 15px; border-radius: 20px; font-size: 0.9rem; color: var(--text-color); box-shadow: var(--shadow-light); transition: var(--base-transition); border: 1px solid var(--border-color); }
+.honor-item:hover, .certification-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-dark); background-color: #e9ecef; }
+.honor-item i, .certification-item i { color: var(--primary-color); font-size: 1.1em; }
+.certifications-subsection { margin-top: 40px; padding-top: 30px; border-top: 1px dashed var(--border-color); }
+.subsection-title { text-align: left; font-size: 1.3rem; color: var(--dark-color); margin-bottom: 1.5rem; font-weight: 600; }
 
 /* --- Research and Publications Section --- */
 .research { background-color: var(--secondary-color); }
-.research-columns {
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 40px; 
-    margin-top: 1rem;
+.research-columns { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 1rem; }
+@media (min-width: 768px) { .research-columns { grid-template-columns: 1fr 1fr; } }
+.research-category h3 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--primary-color); display: inline-block; }
+.publication-list { list-style: none; padding-left: 0; }
+.publication-item { background-color: var(--light-color); padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: var(--shadow-light); border-left: 4px solid transparent; transition: var(--base-transition), border-left-color 0.3s ease; }
+.publication-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-dark); border-left-color: var(--primary-color); }
+.publication-item h4 { font-size: 1.05rem; color: var(--dark-color); margin-bottom: 0.3rem; font-weight: 600; }
+.publication-authors { font-size: 0.9rem; color: var(--text-color); margin-bottom: 0.2rem; font-style: italic; }
+.publication-details { font-size: 0.85rem; color: #6c757d; margin-bottom: 0; }
+.publication-details em { font-weight: 500; color: var(--dark-color); }
+.publication-details a { font-weight: 500; }
+
+/* --- Teaching Section --- */
+.teaching { background-color: var(--light-color); }
+.teaching-statement-link {
+    text-align: center; /* Center the button */
+    margin-bottom: 30px;
 }
-@media (min-width: 768px) { 
-    .research-columns {
-        grid-template-columns: 1fr 1fr;
-    }
+.teaching-statement-link .btn { /* Using existing .btn styles */
+    padding: 12px 25px; /* Example padding */
 }
-.research-category h3 { /* For "Publications" and "Working Papers" */
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-color);
-    display: inline-block; 
+.teaching-statement-link .btn i {
+    margin-right: 8px;
 }
-.publication-list {
-    list-style: none;
-    padding-left: 0;
+.teaching-courses-wrapper {
+    margin-top: 20px;
 }
-.publication-item {
-    background-color: var(--light-color);
-    padding: 15px;
-    margin-bottom: 20px;
+.teaching-courses-wrapper .subsection-title { /* Using existing .subsection-title */
+    text-align: left; /* Aligns "Courses Taught..." to the left */
+    margin-bottom: 1.5rem;
+}
+.table-responsive-wrapper {
+    overflow-x: auto; /* Allows table to scroll horizontally on small screens */
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     box-shadow: var(--shadow-light);
-    border-left: 4px solid transparent; 
-    transition: var(--base-transition), border-left-color 0.3s ease;
 }
-.publication-item:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-dark);
-    border-left-color: var(--primary-color);
+.courses-table {
+    width: 100%;
+    border-collapse: collapse; /* Clean look for borders */
+    background-color: var(--light-color);
 }
-.publication-item h4 { 
-    font-size: 1.05rem;
-    color: var(--dark-color);
-    margin-bottom: 0.3rem;
-    font-weight: 600;
-}
-.publication-authors {
+.courses-table th, .courses-table td {
+    text-align: left;
+    padding: 12px 15px; /* Cell padding */
+    border-bottom: 1px solid var(--border-color);
     font-size: 0.9rem;
-    color: var(--text-color);
-    margin-bottom: 0.2rem;
-    font-style: italic;
+    vertical-align: middle;
 }
-.publication-details {
-    font-size: 0.85rem;
-    color: #6c757d;
-    margin-bottom: 0;
-}
-.publication-details em { 
-    font-weight: 500;
+.courses-table thead th {
+    background-color: var(--secondary-color);
+    font-family: var(--font-primary);
+    font-weight: 600;
     color: var(--dark-color);
+    white-space: nowrap; /* Prevent headers from wrapping */
 }
-.publication-details a {
-    font-weight: 500;
+.courses-table tbody tr:last-child td {
+    border-bottom: none; /* Remove border from last row */
+}
+.courses-table tbody tr:hover {
+    background-color: #f8f9fa80; /* Slight hover effect for rows */
+}
+.courses-table td a {
+    display: inline-block; /* For icon alignment */
+    color: var(--primary-color);
+    transition: transform 0.2s ease;
+}
+.courses-table td a:hover {
+    transform: scale(1.1);
+    color: #084f9a;
+}
+.courses-table td i.fa-external-link-alt {
+    font-size: 0.9em; /* Icon size relative to cell text */
 }
 
 
 /* --- Projects Section --- */
-.projects { background-color: var(--light-color); } 
+.projects { background-color: var(--secondary-color); } 
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 35px; }
 .project-card { background-color: var(--light-color); border-radius: 10px; box-shadow: var(--shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); border: 1px solid var(--border-color); }
 .project-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-dark); }
@@ -265,7 +243,7 @@ img { max-width: 100%; height: auto; display: block; }
 .project-links .btn { font-size: 0.9rem; padding: 8px 18px; margin-top: 5px; }
 
 /* --- Contact Section --- */
-.contact { background: linear-gradient(to bottom, var(--secondary-color) 0%, #e9ecef 100%); } 
+.contact { background: linear-gradient(to bottom, var(--light-color) 0%, #e9ecef 100%); } 
 .contact-info { text-align: center; margin-bottom: 2.5rem; }
 .contact-info p { margin-bottom: 0.5rem; font-size: 1.1rem; }
 .contact-info a:hover { text-decoration: underline; }
@@ -349,6 +327,10 @@ footer a:hover { color: var(--light-color); }
     .publication-item { padding: 12px;}
     .publication-item h4 { font-size: 1rem;}
     
+    /* Teaching Table Mobile - cells will wrap text, horizontal scroll if too wide */
+    .courses-table th, .courses-table td { font-size: 0.85rem; padding: 10px 8px; }
+
+
     .project-grid { gap: 25px; }
     .project-image-wrapper { height: 200px; }
     .contact form { padding: 30px 25px; }
@@ -374,6 +356,11 @@ footer a:hover { color: var(--light-color); }
     .edu-institution { font-size: 0.8rem;}
     .edu-period { font-size: 0.7rem;}
     .edu-extra-info p { font-size: 0.75rem;}
+
+    /* Teaching table more compact for very small devices */
+    .courses-table th, .courses-table td { font-size: 0.8rem; padding: 8px 6px; }
+    .teaching-statement-link .btn { padding: 10px 20px; font-size: 0.9rem;}
+
 
     .contact form { padding: 25px 15px; }
 }
