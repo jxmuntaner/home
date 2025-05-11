@@ -299,6 +299,32 @@ h2 {
     margin-bottom: 1rem;
 }
 
+/* --- Styles for Ph.D. Specific Details in Education Cards --- */
+
+.phd-specific-details {
+    list-style-type: none; /* Removes bullets from all items in this specific list */
+    padding-left: 0;       /* Removes default indentation for an unstyled list */
+    margin-top: 0.75rem;   /* Space above these details */
+    margin-bottom: 0.5rem; /* Space below these details */
+    font-family: var(--font-secondary); /* Consistent font */
+    color: var(--text-color);         /* Consistent color */
+    line-height: 1.5;                 /* Consistent line height */
+}
+
+.phd-specific-details li {
+    font-size: 0.9rem;      /* Sets font size for both Dissertation and Supervisor lines */
+    margin-bottom: 0.35rem; /* Space between Dissertation and Supervisor lines */
+}
+
+/* Last item in this list should not have extra bottom margin if it's the last detail */
+.phd-specific-details li:last-child {
+    margin-bottom: 0;
+}
+
+.dissertation-title-cursive {
+    font-style: italic; /* Makes the dissertation title cursive */
+}
+
 .education-honors {
     margin-top: 10px;
     text-align: left; /* Align list items to the left within their centered block */
