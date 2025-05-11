@@ -328,6 +328,7 @@ img { max-width: 100%; height: auto; display: block; }
 .timeline-content h3 {
     margin-bottom: 0.3rem;
     color: var(--primary-color);
+    font-size: clamp(0.6rem, 1.5vw + 0.15rem, 0.75rem); /* Halved font size */
 }
 .timeline-content .company {
     display: block;
@@ -347,7 +348,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .timeline-content ul li {
     margin-bottom: 0.4rem;
-    font-size: 0.6rem; /* Original font size as per initial CSS */
+    font-size: 0.8rem; /* Original font size as per initial CSS */
 }
 
 /* --- Styles for Desktop Timeline Expansion --- */
