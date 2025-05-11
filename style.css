@@ -220,6 +220,139 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 2rem;
 }
 
+/* --- Education Section --- */
+.education {
+    background-color: var(--secondary-color); /* Or var(--light-color) if preferred */
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); /* Responsive columns */
+    gap: 30px; /* Space between cards */
+    margin-top: 20px;
+}
+
+.education-card {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    padding: 25px;
+    display: flex; /* For side-by-side logo and details */
+    flex-direction: column; /* Default stack for smaller screens */
+    align-items: center; /* Center items when stacked */
+    text-align: center; /* Center text when stacked */
+    transition: var(--base-transition), transform 0.3s ease;
+    overflow: hidden; /* Ensures content stays within rounded borders */
+}
+
+.education-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-dark);
+}
+
+.education-card-header {
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Prevent logo area from shrinking too much */
+}
+
+.education-logo {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    object-fit: contain; /* Ensures logo scales nicely without distortion */
+    border-radius: 8px; /* Optional: if logos are square and you want rounded corners */
+    background-color: #fff; /* Optional: if logos have transparent backgrounds and need a fill */
+    padding: 5px; /* Optional: small padding around the logo if it has a background */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Subtle shadow for the logo itself */
+}
+
+.education-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center details text when stacked */
+}
+
+.education-degree {
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+    font-size: clamp(1.2rem, 2.5vw + 0.3rem, 1.4rem); /* Slightly smaller than section H2 */
+    margin-bottom: 0.5rem;
+}
+
+.education-institution {
+    font-family: var(--font-secondary);
+    color: var(--dark-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.education-period,
+.education-grade {
+    font-family: var(--font-secondary);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.education-grade {
+    margin-bottom: 1rem;
+}
+
+.education-honors {
+    margin-top: 10px;
+    text-align: left; /* Align list items to the left within their centered block */
+    width: 100%;
+    max-width: 300px; /* Constrain width of honors for better readability */
+}
+
+.education-honors h4 {
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-align: center; /* Center the "Awards & Scholarships" title */
+}
+
+.education-honors ul {
+    list-style: disc;
+    padding-left: 20px; /* Indent list items */
+    margin: 0 auto; /* Center the ul block if its content is narrower */
+}
+
+.education-honors ul li {
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    color: var(--text-color);
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments for the card layout */
+@media (min-width: 576px) { /* Small devices (landscape phones) and up */
+    .education-card {
+        flex-direction: row; /* Logo and details side-by-side */
+        align-items: flex-start; /* Align items to the top */
+        text-align: left; /* Align text to the left */
+        gap: 25px; /* Space between logo and details */
+    }
+    .education-card-header {
+        margin-bottom: 0; /* Remove bottom margin when side-by-side */
+        margin-right: 0; /* Handled by gap now */
+    }
+    .education-details {
+        align-items: flex-start; /* Align details text to the left */
+    }
+    .education-honors {
+         margin-left: 0; /* Reset margin for left alignment in flex row */
+         margin-right: 0;
+    }
+    .education-honors h4 {
+        text-align: left; /* Align honors title to the left */
+    }
+}
+
 /* --- Experience Section (MODIFIED FOR EXPANSION) --- */
 .experience { background-color: var(--light-color); }
 
