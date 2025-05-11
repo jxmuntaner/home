@@ -275,7 +275,7 @@ h2 {
 .education-degree {
     font-family: var(--font-primary);
     color: var(--primary-color);
-    font-size: clamp(1.2rem, 2.5vw + 0.3rem, 1.4rem); /* Slightly smaller than section H2 */
+    font-size: 1rem;
     margin-bottom: 0.5rem;
 }
 
