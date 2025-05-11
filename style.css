@@ -158,16 +158,16 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .profile-picture {
-    width: 210px; /* Keep this or adjust as needed for alignment with "Muntaner" */
+    width: 210px; 
     height: auto;
-    border: none; /* MODIFIED: Remove border */
-    padding: 0; /* MODIFIED: Remove padding */
+    border: none;
+    padding: 0;
     margin-bottom: 20px;
     border-radius: 4px; /* Or 0 if you want sharp corners for the image itself */
 }
 
 .profile-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
     text-align: left;
 }
