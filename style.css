@@ -43,28 +43,13 @@ h2 { font-size: clamp(1.6rem, 4vw + 0.5rem, 2.2rem); margin-bottom: 1.5rem;}
 h3 { font-size: clamp(1.2rem, 3vw + 0.3rem, 1.5rem); }
 h4 { font-size: clamp(1.1rem, 2.5vw + 0.3rem, 1.3rem); }
 
+/* Rules for H2 underlines have been removed from here. */
 
-/* H2 Underline effect for sections */
-h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 2px;
-    background-color: var(--primary-color);
-     /* Centered style if H2 is still centered */
-     margin: 8px auto 0;
-}
-/* Adjust for specific H2s */
+/* Adjust for specific H2s (this rule was for other elements, not generic h2 section titles) */
 .profile-name::after,
 .profile-main-content h1::after {
     display: none; /* No underline for profile name or main heading */
 }
-.experience h2::after,
-.projects h2::after,
-.contact h2::after {
-    margin: 8px auto 0; /* Keep centered for section titles */
-}
-
 
 p {
     margin-bottom: 1.1rem;
@@ -235,158 +220,26 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 2rem;
 }
 
-/* --- Experience Section (MODIFIED FOR EXPANSION) --- */
+/* --- Experience Section (Keep Existing Styles) --- */
 .experience { background-color: var(--light-color); }
-
-/* Default timeline styles (apply to all sizes unless overridden by media queries) */
-.timeline {
-    position: relative;
-    max-width: 850px; /* Default max-width, will be overridden for larger screens */
-    margin: 0 auto;
-}
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: var(--primary-color);
-    opacity: 0.3;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
-    z-index: 1;
-}
-.timeline-item {
-    padding: 15px 40px; /* Default padding: 15px top/bottom, 40px left/right */
-    position: relative;
-    background-color: inherit;
-    width: 50%; /* Each item takes half the timeline width by default */
-}
-.timeline-item::after { /* The dot on the timeline */
-    content: '';
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    background-color: var(--light-color);
-    border: 4px solid var(--primary-color);
-    top: 25px;
-    border-radius: 50%;
-    z-index: 2;
-    transition: transform 0.3s ease;
-}
-.timeline-item:hover::after {
-    transform: scale(1.2);
-}
-
-.timeline-item:nth-child(odd) {
-    left: 0;
-}
-.timeline-item:nth-child(odd)::after { /* Dot for odd items */
-    right: -11px; /* Adjusted for 4px border + (18px/2 width - 2px for center line offset) */
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-}
-.timeline-item:nth-child(even)::after { /* Dot for even items */
-    left: -7px; /* Adjusted for 4px border + (18px/2 width - 2px for center line offset) */
-}
-
-.timeline-content {
-    padding: 25px 35px;
-    background-color: var(--secondary-color);
-    position: relative;
-    border-radius: 8px;
-    box-shadow: var(--shadow-light);
-    border-left: 5px solid var(--primary-color); /* Default for all, visual for odd items */
-    transition: var(--base-transition), transform 0.3s ease;
-}
-/* If you want the right-side items to have a right border instead: */
-/*
-.timeline-item:nth-child(even) .timeline-content {
-    border-left: none;
-    border-right: 5px solid var(--primary-color);
-}
-*/
-
-.timeline-item:hover .timeline-content {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-dark);
-}
-
-/* Arrows pointing to the center line */
-.timeline-item:nth-child(odd) .timeline-content::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 28px;
-    width: 0;
-    z-index: 1;
-    right: -12px; /* Points from the right edge of the content box */
-    border: medium solid var(--secondary-color);
-    border-width: 12px 0 12px 12px;
-    border-color: transparent transparent transparent var(--secondary-color);
-}
-.timeline-item:nth-child(even) .timeline-content::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 28px;
-    width: 0;
-    z-index: 1;
-    left: -12px; /* Points from the left edge of the content box */
-    border: medium solid var(--secondary-color);
-    border-width: 12px 12px 12px 0;
-    border-color: transparent var(--secondary-color) transparent transparent;
-}
-
-.timeline-content h3 {
-    margin-bottom: 0.3rem;
-    color: var(--primary-color);
-}
-.timeline-content .company {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.3rem;
-    color: var(--dark-color);
-}
-.timeline-content .date {
-    display: block;
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 1rem;
-}
-.timeline-content ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-.timeline-content ul li {
-    margin-bottom: 0.4rem;
-    font-size: 0.95rem; /* Original font size as per initial CSS */
-}
-
-/* --- Styles for Desktop Timeline Expansion --- */
-@media (min-width: 768px) {
-    .timeline {
-        max-width: 100%; /* Allow timeline to use full width of its container */
-    }
-
-    /*
-       The global .timeline-item rule has `padding: 15px 40px;`.
-       For odd items, we want to remove left padding (to align with container edge)
-       but keep the right padding (40px, towards the center line).
-       For even items, we want to remove right padding (to align with container edge)
-       but keep the left padding (40px, towards the center line).
-    */
-
-    .timeline-item:nth-child(odd) {
-        padding-left: 0; /* Align outer left edge. padding-right: 40px is inherited. */
-    }
-
-    .timeline-item:nth-child(even) {
-        padding-right: 0; /* Align outer right edge. padding-left: 40px is inherited. */
-    }
-}
+.timeline { position: relative; max-width: 850px; margin: 0 auto; }
+.timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--primary-color); opacity: 0.3; top: 0; bottom: 0; left: 50%; margin-left: -2px; z-index: 1; }
+.timeline-item { padding: 15px 40px; position: relative; background-color: inherit; width: 50%; }
+.timeline-item::after { content: ''; position: absolute; width: 18px; height: 18px; right: -11px; background-color: var(--light-color); border: 4px solid var(--primary-color); top: 25px; border-radius: 50%; z-index: 2; transition: transform 0.3s ease; }
+.timeline-item:hover::after { transform: scale(1.2); }
+.timeline-item:nth-child(odd) { left: 0; }
+.timeline-item:nth-child(even) { left: 50%; }
+.timeline-item:nth-child(even)::after { left: -7px; }
+.timeline-content { padding: 25px 35px; background-color: var(--secondary-color); position: relative; border-radius: 8px; box-shadow: var(--shadow-light); border-left: 5px solid var(--primary-color); transition: var(--base-transition), transform 0.3s ease; }
+.timeline-item:hover .timeline-content { transform: translateY(-5px); box-shadow: var(--shadow-dark); }
+/* Arrows */
+.timeline-item:nth-child(odd) .timeline-content::before { content: " "; height: 0; position: absolute; top: 28px; width: 0; z-index: 1; right: -12px; border: medium solid var(--secondary-color); border-width: 12px 0 12px 12px; border-color: transparent transparent transparent var(--secondary-color); }
+.timeline-item:nth-child(even) .timeline-content::before { content: " "; height: 0; position: absolute; top: 28px; width: 0; z-index: 1; left: -12px; border: medium solid var(--secondary-color); border-width: 12px 12px 12px 0; border-color: transparent var(--secondary-color) transparent transparent; }
+.timeline-content h3 { margin-bottom: 0.3rem; color: var(--primary-color); }
+.timeline-content .company { display: block; font-weight: bold; margin-bottom: 0.3rem; color: var(--dark-color); }
+.timeline-content .date { display: block; font-size: 0.9em; color: #777; margin-bottom: 1rem; }
+.timeline-content ul { list-style: disc; margin-left: 20px; }
+.timeline-content ul li { margin-bottom: 0.4rem; font-size: 0.95rem; }
 
 /* --- Projects Section (Keep Existing Styles) --- */
 .projects { background-color: var(--secondary-color); }
