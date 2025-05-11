@@ -337,7 +337,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .timeline-content .date {
     display: block;
-    font-size: 0.9em;
+    font-size: 0.7em;
     color: #777;
     margin-bottom: 1rem;
 }
@@ -347,7 +347,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .timeline-content ul li {
     margin-bottom: 0.4rem;
-    font-size: 0.55rem; /* Original font size as per initial CSS */
+    font-size: 0.6rem; /* Original font size as per initial CSS */
 }
 
 /* --- Styles for Desktop Timeline Expansion --- */
