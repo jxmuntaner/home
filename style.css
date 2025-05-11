@@ -76,14 +76,15 @@ img { max-width: 100%; height: auto; display: block; }
     padding: 15px 0;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 5px;
-    position: relative;
-    z-index: 999;
+    position: sticky; /* Make header sticky */
+    top: 0;           /* Stick to the top */
+    z-index: 1000;    /* Ensure it's above other content */
 }
 .header-container { display: flex; justify-content: space-between; align-items: center; }
 .header-logo { font-size: 1.5rem; font-weight: 700; color: var(--dark-color); text-decoration: none; }
 .header-logo:hover { text-decoration: none; color: var(--primary-color); }
-.header-nav ul { display: flex; gap: 25px; }
-.header-nav a { font-size: 1rem; font-weight: 500; color: var(--text-color); text-decoration: none; padding-bottom: 5px; position: relative; }
+.header-nav ul { display: flex; gap: 20px; /* Adjusted gap */ flex-wrap: wrap; /* Allow wrapping on small screens */ }
+.header-nav a { font-size: 0.95rem; /* Slightly smaller nav links */ font-weight: 500; color: var(--text-color); text-decoration: none; padding-bottom: 5px; position: relative; }
 .header-nav a:hover { color: var(--dark-color); text-decoration: none; }
 .header-nav a::after { content: ''; position: absolute; width: 0; height: 2px; display: block; margin-top: 3px; right: 0; background: var(--primary-color); transition: width 0.3s ease; -webkit-transition: width 0.3s ease; }
 .header-nav a:hover::after { width: 100%; left: 0; background-color: var(--primary-color); }
@@ -93,7 +94,7 @@ img { max-width: 100%; height: auto; display: block; }
 .profile-layout { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
 .profile-sidebar { flex: 1; min-width: 250px; max-width: 300px; }
 .profile-picture { width: 210px; height: auto; border: none; padding: 0; margin-bottom: 20px; border-radius: 4px; }
-.profile-name { font-size: 1.1rem; /* Adjusted as per previous request to fit pic width */ margin-bottom: 0.5rem; text-align: left; } /* CHECK THIS VALUE */
+.profile-name { font-size: 1.1rem; margin-bottom: 0.5rem; text-align: left; }
 .profile-title { font-size: 1rem; color: var(--text-color); line-height: 1.5; margin-bottom: 25px; text-align: left; }
 .profile-links { margin: 0; padding: 0; }
 .profile-links li { display: flex; align-items: center; margin-bottom: 3px; font-size: 0.85rem; }
@@ -101,124 +102,27 @@ img { max-width: 100%; height: auto; display: block; }
 .profile-links a { color: var(--primary-color); }
 .profile-links span { color: var(--text-color); }
 .profile-main-content { flex: 2; min-width: 300px; }
-.profile-main-content h1 { text-align: left; margin-bottom: 1.5rem; font-size: clamp(1.1rem, 2.5vw + 0.3rem, 1.5rem) !important; } /* Greeting */
+.profile-main-content h1 { text-align: left; margin-bottom: 1.5rem; font-size: clamp(1.1rem, 2.5vw + 0.3rem, 1.5rem) !important; }
 
 /* --- REVISED Education Section - Grid Layout, Compact --- */
-.education {
-    background-color: var(--secondary-color);
-}
-
-.education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-    gap: 25px;
-    margin-top: 1.5rem;
-}
-
-.edu-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    background-color: var(--light-color);
-    border-radius: 8px;
-    box-shadow: var(--shadow-light);
-    padding: 20px;
-    transition: var(--base-transition), transform 0.3s ease;
-    border: 1px solid var(--border-color);
-    /* To encourage same height in a row for grid items with similar content: */
-    height: 100%; /* Or align-self: stretch; if grid container has align-items: stretch */
-}
-
-.edu-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-dark);
-}
-
-.edu-logo-small {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    flex-shrink: 0;
-    border-radius: 6px;
-    background-color: #fff;
-    padding: 3px;
-    border: 1px solid #eee;
-}
-
-.edu-details-compact {
-    flex-grow: 1;
-    min-width: 0;
-    display: flex; /* Added to help manage vertical spacing if needed */
-    flex-direction: column; /* Stack details internally */
-}
-
-.edu-degree {
-    font-size: 1rem;
-    color: var(--primary-color);
-    margin-bottom: 0.3rem;
-    font-family: var(--font-primary);
-    font-weight: 600;
-    line-height: 1.3;
-}
-
-.edu-institution,
-.edu-period {
-    font-size: 0.9rem;
-    color: var(--dark-color);
-    margin-bottom: 0.2rem;
-    line-height: 1.4;
-    font-family: var(--font-secondary);
-}
-.edu-institution {
-    font-weight: 500;
-}
-
-.edu-period {
-    font-size: 0.8rem;
-    color: #6c757d;
-    margin-bottom: 0; /* No margin if it's the last item usually */
-}
-
-/* Styling for the .edu-extra-info div (only used if Ph.D. details are re-added) */
-.edu-extra-info {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px dashed var(--border-color);
-}
-
-.edu-extra-info p {
-    font-size: 0.85rem;
-    color: var(--text-color);
-    margin-bottom: 0.25rem;
-    line-height: 1.5;
-    font-family: var(--font-secondary);
-}
-.edu-extra-info p:last-child {
-    margin-bottom: 0;
-}
-
-/* Styles for "In Progress" card, now part of the grid */
-.edu-card.in-progress {
-    border-left: 5px solid var(--primary-color);
-    background-color: #fdfdff;
-}
-
-.status-badge {
-    display: inline-block; /* Keep as inline-block */
-    background-color: var(--primary-color);
-    opacity: 0.9;
-    color: var(--light-color);
-    font-size: 0.75rem;
-    padding: 3px 8px;
-    border-radius: 5px;
-    margin-left: 10px; /* Space between dates and badge */
-    font-weight: 500;
-    vertical-align: middle; /* Helps align with text if line height differs */
-}
-
+.education { background-color: var(--light-color); } /* Changed background for differentiation */
+.education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); gap: 25px; margin-top: 1.5rem; }
+.edu-card { display: flex; align-items: flex-start; gap: 15px; background-color: var(--light-color); border-radius: 8px; box-shadow: var(--shadow-light); padding: 20px; transition: var(--base-transition), transform 0.3s ease; border: 1px solid var(--border-color); height: 100%; }
+.edu-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-dark); }
+.edu-logo-small { width: 50px; height: 50px; object-fit: contain; flex-shrink: 0; border-radius: 6px; background-color: #fff; padding: 3px; border: 1px solid #eee; }
+.edu-details-compact { flex-grow: 1; min-width: 0; display: flex; flex-direction: column; }
+.edu-degree { font-size: 1rem; color: var(--primary-color); margin-bottom: 0.3rem; font-family: var(--font-primary); font-weight: 600; line-height: 1.3; }
+.edu-institution, .edu-period { font-size: 0.9rem; color: var(--dark-color); margin-bottom: 0.2rem; line-height: 1.4; font-family: var(--font-secondary); }
+.edu-institution { font-weight: 500; }
+.edu-period { font-size: 0.8rem; color: #6c757d; margin-bottom: 0; }
+.edu-extra-info { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border-color); }
+.edu-extra-info p { font-size: 0.85rem; color: var(--text-color); margin-bottom: 0.25rem; line-height: 1.5; font-family: var(--font-secondary); }
+.edu-extra-info p:last-child { margin-bottom: 0; }
+.edu-card.in-progress { border-left: 5px solid var(--primary-color); background-color: #fdfdff; }
+.status-badge { display: inline-block; background-color: var(--primary-color); opacity: 0.9; color: var(--light-color); font-size: 0.75rem; padding: 3px 8px; border-radius: 5px; margin-left: 10px; font-weight: 500; vertical-align: middle; }
 
 /* --- Experience Section - WITH LOGOS (Side-by-Side Layout) --- */
-.experience { background-color: var(--light-color); }
+.experience { background-color: var(--secondary-color); } /* Changed background */
 .timeline { position: relative; max-width: 850px; margin: 0 auto; }
 .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--primary-color); opacity: 0.3; top: 0; bottom: 0; left: 50%; margin-left: -2px; z-index: 1; }
 .timeline-item { padding: 15px 40px; position: relative; background-color: inherit; width: 50%; }
@@ -227,69 +131,129 @@ img { max-width: 100%; height: auto; display: block; }
 .timeline-item:nth-child(odd) { left: 0; }
 .timeline-item:nth-child(even) { left: 50%; }
 .timeline-item:nth-child(even)::after { left: -7px; }
-
-.timeline-content {
-    padding: 20px;
-    background-color: var(--secondary-color);
-    position: relative;
-    border-radius: 8px;
-    box-shadow: var(--shadow-light);
-    border-left: 5px solid var(--primary-color);
-    transition: var(--base-transition), transform 0.3s ease;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 15px;
-}
+.timeline-content { padding: 20px; background-color: var(--light-color); /* Matched to cards */ position: relative; border-radius: 8px; box-shadow: var(--shadow-light); border-left: 5px solid var(--primary-color); transition: var(--base-transition), transform 0.3s ease; display: flex; flex-direction: row; align-items: flex-start; gap: 15px; }
 .timeline-item:hover .timeline-content { transform: translateY(-5px); box-shadow: var(--shadow-dark); }
-.timeline-item:nth-child(odd) .timeline-content::before { content: " "; height: 0; position: absolute; top: 28px; width: 0; z-index: 1; right: -12px; border: medium solid var(--secondary-color); border-width: 12px 0 12px 12px; border-color: transparent transparent transparent var(--secondary-color); }
-.timeline-item:nth-child(even) .timeline-content::before { content: " "; height: 0; position: absolute; top: 28px; width: 0; z-index: 1; left: -12px; border: medium solid var(--secondary-color); border-width: 12px 12px 12px 0; border-color: transparent var(--secondary-color) transparent transparent; }
+.timeline-item:nth-child(odd) .timeline-content::before { content: " "; height: 0; position: absolute; top: 28px; width: 0; z-index: 1; right: -12px; border: medium solid var(--light-color); border-width: 12px 0 12px 12px; border-color: transparent transparent transparent var(--light-color); } /* Arrow color matches content */
+.timeline-item:nth-child(even) .timeline-content::before { content: " "; height: 0; position: absolute; top: 28px; width: 0; z-index: 1; left: -12px; border: medium solid var(--light-color); border-width: 12px 12px 12px 0; border-color: transparent var(--light-color) transparent transparent; } /* Arrow color matches content */
+.company-logo { width: 50px; height: 50px; object-fit: contain; flex-shrink: 0; border-radius: 4px; background-color: #fff; padding: 3px; border: 1px solid var(--border-color); }
+.timeline-text-details { flex-grow: 1; min-width: 0; }
+.timeline-content h3 { margin-bottom: 0.2rem; color: var(--primary-color); font-size: 1rem; }
+.timeline-content .company { display: block; font-weight: 600; margin-bottom: 0.2rem; color: var(--dark-color); font-size: 0.9rem; }
+.timeline-content .date { display: block; font-size: 0.8rem; color: #6c757d; margin-bottom: 0; }
 
-.company-logo {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    flex-shrink: 0;
-    border-radius: 4px;
-    background-color: #fff;
-    padding: 3px;
+/* --- Honors and Awards Section --- */
+.honors-awards { background-color: var(--light-color); }
+.honors-grid, .certifications-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 15px; /* Space between items */
+    margin-top: 1rem;
+    justify-content: center; /* Center items if they don't fill the row */
+}
+.honor-item, .certification-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    background-color: var(--secondary-color); /* Light background for items */
+    padding: 10px 15px;
+    border-radius: 20px; /* Pill shape */
+    font-size: 0.9rem;
+    color: var(--text-color);
+    box-shadow: var(--shadow-light);
+    transition: var(--base-transition);
     border: 1px solid var(--border-color);
 }
-
-.timeline-text-details {
-    flex-grow: 1;
-    min-width: 0;
+.honor-item:hover, .certification-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-dark);
+    background-color: #e9ecef; /* Slightly darker on hover */
 }
-
-.timeline-content h3 {
-    margin-bottom: 0.2rem;
+.honor-item i, .certification-item i {
     color: var(--primary-color);
-    font-size: 1rem;
+    font-size: 1.1em; /* Icon size relative to text */
 }
-.timeline-content .company {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.2rem;
+.certifications-subsection {
+    margin-top: 40px; /* Space above certifications */
+    padding-top: 30px;
+    border-top: 1px dashed var(--border-color); /* Separator */
+}
+.subsection-title { /* For "Certifications" H3 */
+    text-align: center;
+    font-size: 1.3rem; /* Slightly smaller than main section H2 */
     color: var(--dark-color);
-    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
 }
-.timeline-content .date {
-    display: block;
-    font-size: 0.8rem;
+
+/* --- Research and Publications Section --- */
+.research { background-color: var(--secondary-color); }
+.research-columns {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column */
+    gap: 40px; /* Gap between "Publications" and "Working Papers" if they stack */
+    margin-top: 1rem;
+}
+@media (min-width: 768px) { /* Two columns on medium screens and up */
+    .research-columns {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.research-category h3 { /* For "Publications" and "Working Papers" */
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block; /* So border only spans text width */
+}
+.publication-list {
+    list-style: none;
+    padding-left: 0;
+}
+.publication-item {
+    background-color: var(--light-color);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid transparent; /* For hover effect */
+    transition: var(--base-transition), border-left-color 0.3s ease;
+}
+.publication-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-dark);
+    border-left-color: var(--primary-color);
+}
+.publication-item h4 { /* Publication/Paper Title */
+    font-size: 1.05rem;
+    color: var(--dark-color);
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+.publication-authors {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 0.2rem;
+    font-style: italic;
+}
+.publication-details {
+    font-size: 0.85rem;
     color: #6c757d;
     margin-bottom: 0;
 }
-
-@media (min-width: 768px) {
-    .timeline { max-width: 100%; }
-    .timeline-item:nth-child(odd) { padding-left: 0; }
-    .timeline-item:nth-child(even) { padding-right: 0; }
+.publication-details em { /* For Journal Name */
+    font-weight: 500;
+    color: var(--dark-color);
+}
+.publication-details a {
+    font-weight: 500;
 }
 
+
 /* --- Projects Section --- */
-.projects { background-color: var(--secondary-color); }
+.projects { background-color: var(--light-color); } /* Changed background */
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 35px; }
-.project-card { background-color: var(--light-color); border-radius: 10px; box-shadow: var(--shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.project-card { background-color: var(--light-color); border-radius: 10px; box-shadow: var(--shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); border: 1px solid var(--border-color); }
 .project-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-dark); }
 .project-image-wrapper { overflow: hidden; height: 220px; }
 .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
@@ -301,10 +265,11 @@ img { max-width: 100%; height: auto; display: block; }
 .project-links .btn { font-size: 0.9rem; padding: 8px 18px; margin-top: 5px; }
 
 /* --- Contact Section --- */
-.contact { background: linear-gradient(to bottom, var(--light-color) 0%, var(--secondary-color) 100%); }
+.contact { background: linear-gradient(to bottom, var(--secondary-color) 0%, #e9ecef 100%); } /* Adjusted gradient */
 .contact-info { text-align: center; margin-bottom: 2.5rem; }
 .contact-info p { margin-bottom: 0.5rem; font-size: 1.1rem; }
 .contact-info a:hover { text-decoration: underline; }
+/* Form styling kept as is, assuming it's not part of this request's focus */
 .contact form { max-width: 650px; margin: 0 auto; background: var(--light-color); padding: 40px; border-radius: 10px; box-shadow: var(--shadow-dark); border-top: 5px solid var(--primary-color); }
 .form-group { margin-bottom: 1.8rem; }
 .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--dark-color); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -330,14 +295,27 @@ footer a:hover { color: var(--light-color); }
 .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
 /* --- Responsiveness --- */
+@media (min-width: 768px) { /* Desktop timeline expansion */
+    .timeline { max-width: 100%; }
+    .timeline-item:nth-child(odd) { padding-left: 0; }
+    .timeline-item:nth-child(even) { padding-right: 0; }
+}
+
 @media (max-width: 991.98px) {
-    /* Timeline expansion is handled by min-width: 768px rule for desktop */
+    .header-nav ul { gap: 15px;} /* Reduce gap more for tablets */
+    .header-nav a { font-size: 0.9rem;}
 }
 
 @media (max-width: 767.98px) {
     body { font-size: 15px; }
+    html { scroll-padding-top: 100px; } /* Adjust for potentially taller sticky header on mobile when nav stacks */
+    .site-header { padding: 10px 0;}
     .header-container { flex-direction: column; align-items: flex-start; gap: 10px; }
-    .header-nav ul { gap: 15px; flex-wrap: wrap; padding-left: 0; }
+    .header-nav ul { gap: 10px; flex-direction: column; align-items: flex-start; width: 100%; }
+    .header-nav a { padding: 8px 0; width: 100%;}
+    .header-nav a:hover::after { width: 50px; /* Shorter underline for mobile */ }
+
+
     .profile-layout { flex-direction: column; gap: 30px; }
     .profile-sidebar { max-width: 100%; }
     .profile-picture { max-width: 200px; }
@@ -352,16 +330,25 @@ footer a:hover { color: var(--light-color); }
     .timeline-content { flex-direction: column; align-items: flex-start; padding: 15px; gap: 10px; }
     .company-logo { width: 40px; height: 40px; margin-bottom: 10px; align-self: flex-start; }
     .timeline-item .timeline-content::before,
-    .timeline-item:nth-child(even) .timeline-content::before { left: -10px; right: auto; border-width: 10px 10px 10px 0; border-color: transparent var(--secondary-color) transparent transparent; top: 20px; }
+    .timeline-item:nth-child(even) .timeline-content::before { left: -10px; right: auto; border-width: 10px 10px 10px 0; border-color: transparent var(--light-color) transparent transparent; top: 20px; }
 
     /* Mobile for Education cards */
-    .education-grid { gap: 15px; grid-template-columns: 1fr; /* Stack to single column */ }
+    .education-grid { gap: 15px; grid-template-columns: 1fr; }
     .edu-card { padding: 15px; }
     .edu-logo-small { width: 45px; height: 45px; }
     .edu-degree {font-size: 0.95rem;}
     .edu-institution { font-size: 0.85rem;}
     .edu-period { font-size: 0.75rem;}
     .edu-extra-info p { font-size: 0.8rem;}
+
+    /* Honors and Awards mobile */
+    .honors-grid, .certifications-grid {justify-content: flex-start; gap: 10px;}
+    .honor-item, .certification-item { padding: 8px 12px; font-size: 0.85rem; }
+
+    /* Research mobile */
+    .research-columns { grid-template-columns: 1fr; gap: 30px;} /* Stack categories */
+    .publication-item { padding: 12px;}
+    .publication-item h4 { font-size: 1rem;}
     
     .project-grid { gap: 25px; }
     .project-image-wrapper { height: 200px; }
@@ -388,7 +375,6 @@ footer a:hover { color: var(--light-color); }
     .edu-institution { font-size: 0.8rem;}
     .edu-period { font-size: 0.7rem;}
     .edu-extra-info p { font-size: 0.75rem;}
-
 
     .contact form { padding: 25px 15px; }
 }
