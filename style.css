@@ -225,157 +225,188 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-.education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); /* Responsive columns */
-    gap: 30px; /* Space between cards */
-    margin-top: 20px;
+.education {
+    background-color: var(--secondary-color); /* Or var(--light-color) */
 }
 
-.education-card {
+.education-timeline-container {
+    margin-top: 1.5rem;
+}
+
+.timeline-scroll-hint {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.education-timeline-wrapper {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scroll */
+    padding: 10px 0 25px 10px; /* Padding for items and scrollbar space */
+    gap: 25px; /* Space between cards */
+    margin-left: -10px; /* Counteract padding for edge alignment if container has padding */
+    margin-right: -10px;
+}
+
+/* Visual styling for scrollbar (optional, but nice) */
+.education-timeline-wrapper::-webkit-scrollbar {
+    height: 10px;
+}
+.education-timeline-wrapper::-webkit-scrollbar-track {
+    background: var(--secondary-color); /* Or transparent */
+    border-radius: 5px;
+}
+.education-timeline-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 5px;
+    border: 2px solid var(--secondary-color); /* Creates padding around thumb */
+}
+.education-timeline-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #b3b3b3; /* Darker on hover */
+}
+/* For Firefox */
+.education-timeline-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--secondary-color);
+}
+
+.edu-timeline-card {
+    display: flex;
+    align-items: flex-start; /* Align logo and text block to the top */
+    gap: 15px; /* Space between logo and details block */
     background-color: var(--light-color);
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: var(--shadow-light);
-    padding: 25px;
-    display: flex; /* For side-by-side logo and details */
-    flex-direction: column; /* Default stack for smaller screens */
-    align-items: center; /* Center items when stacked */
-    text-align: center; /* Center text when stacked */
+    padding: 18px;
+    flex: 0 0 auto; /* Prevent shrinking, allow natural width based on content or set width */
+    width: 330px; /* Adjust card width as desired */
     transition: var(--base-transition), transform 0.3s ease;
-    overflow: hidden; /* Ensures content stays within rounded borders */
 }
 
-.education-card:hover {
-    transform: translateY(-8px);
+.edu-timeline-card:hover {
+    transform: translateY(-5px);
     box-shadow: var(--shadow-dark);
 }
 
-.education-card-header {
-    margin-bottom: 20px;
-    flex-shrink: 0; /* Prevent logo area from shrinking too much */
+.edu-logo-small {
+    width: 55px; /* Smaller logo */
+    height: 55px;
+    object-fit: contain; /* Scales logo nicely */
+    flex-shrink: 0; /* Prevent logo from shrinking */
+    border-radius: 6px; /* Optional subtle rounding for logo container */
+    background-color: #fff; /* If logos have transparent parts */
+    padding: 3px; /* Small padding if background is used */
+    border: 1px solid var(--border-color); /* Subtle border for logo */
 }
 
-.education-logo {
-    width: 100px; /* Adjust as needed */
-    height: 100px; /* Adjust as needed */
-    object-fit: contain; /* Ensures logo scales nicely without distortion */
-    border-radius: 8px; /* Optional: if logos are square and you want rounded corners */
-    background-color: #fff; /* Optional: if logos have transparent backgrounds and need a fill */
-    padding: 5px; /* Optional: small padding around the logo if it has a background */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Subtle shadow for the logo itself */
+.edu-details-compact {
+    flex-grow: 1; /* Allow details block to take remaining space */
+    min-width: 0; /* Important for flex item text wrapping */
 }
 
-.education-details {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center details text when stacked */
-}
-
-.education-degree {
-    font-family: var(--font-primary);
+.edu-degree { /* This is an H4 in the HTML */
+    font-size: 1rem; /* Matches Experience role titles */
     color: var(--primary-color);
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.education-institution {
-    font-family: var(--font-secondary);
-    color: var(--dark-color);
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
-}
-
-.education-period,
-.education-grade {
-    font-family: var(--font-secondary);
-    color: var(--text-color);
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-}
-
-.education-grade {
-    margin-bottom: 1rem;
-}
-
-/* --- Styles for Ph.D. Specific Details in Education Cards --- */
-
-.phd-specific-details {
-    list-style-type: none; /* Removes bullets from all items in this specific list */
-    padding-left: 0;       /* Removes default indentation for an unstyled list */
-    margin-top: 0.75rem;   /* Space above these details */
-    margin-bottom: 0.5rem; /* Space below these details */
-    font-family: var(--font-secondary); /* Consistent font */
-    color: var(--text-color);         /* Consistent color */
-    line-height: 1.5;                 /* Consistent line height */
-}
-
-.phd-specific-details li {
-    font-size: 0.9rem;      /* Sets font size for both Dissertation and Supervisor lines */
-    margin-bottom: 0.35rem; /* Space between Dissertation and Supervisor lines */
-}
-
-/* Last item in this list should not have extra bottom margin if it's the last detail */
-.phd-specific-details li:last-child {
-    margin-bottom: 0;
-}
-
-.dissertation-title-cursive {
-    font-style: italic; /* Makes the dissertation title cursive */
-}
-
-.education-honors {
-    margin-top: 10px;
-    text-align: left; /* Align list items to the left within their centered block */
-    width: 100%;
-    max-width: 300px; /* Constrain width of honors for better readability */
-}
-
-.education-honors h4 {
+    margin-bottom: 0.3rem;
     font-family: var(--font-primary);
-    font-size: 0.95rem;
+    font-weight: 600; /* Slightly bolder than paragraph text */
+    line-height: 1.3;
+}
+
+.edu-institution,
+.edu-period {
+    font-size: 0.9rem;
     color: var(--dark-color);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    text-align: center; /* Center the "Awards & Scholarships" title */
-}
-
-.education-honors ul {
-    list-style: disc;
-    padding-left: 20px; /* Indent list items */
-    margin: 0 auto; /* Center the ul block if its content is narrower */
-}
-
-.education-honors ul li {
+    margin-bottom: 0.2rem;
+    line-height: 1.4;
     font-family: var(--font-secondary);
+}
+.edu-institution {
+    font-weight: 500;
+}
+
+.edu-period {
+    font-size: 0.8rem;
+    color: #6c757d; /* Lighter color for dates */
+    margin-bottom: 0.5rem;
+}
+
+.edu-extra-info {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border-color); /* Subtle separator */
+}
+
+.edu-extra-info p {
     font-size: 0.85rem;
     color: var(--text-color);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
     line-height: 1.5;
+    font-family: var(--font-secondary);
 }
 
-/* Responsive adjustments for the card layout */
-@media (min-width: 576px) { /* Small devices (landscape phones) and up */
-    .education-card {
-        flex-direction: row; /* Logo and details side-by-side */
-        align-items: flex-start; /* Align items to the top */
-        text-align: left; /* Align text to the left */
-        gap: 25px; /* Space between logo and details */
+.dissertation-title { /* This is an <em> tag in the HTML */
+    font-style: italic;
+}
+
+/* --- "In Progress" Study Section --- */
+.education-current-study {
+    margin-top: 50px; /* Space above this section */
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color); /* Separator line */
+}
+
+.current-study-title { /* This is an H3 in the HTML */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: clamp(1.1rem, 2.5vw + 0.3rem, 1.5rem) !important; /* Matches other section titles (H2s) */
+    color: var(--dark-color);
+    font-family: var(--font-primary);
+}
+
+.edu-timeline-card.in-progress {
+    border-left: 5px solid var(--primary-color); /* Highlight bar */
+    /* Center the single card if it's the only one in its container */
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%; /* Allow it to be a bit wider if centered */
+    max-width: 480px; /* Max width for the centered card */
+}
+
+.status-badge {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-left: 8px;
+    font-weight: 500;
+    vertical-align: middle; /* Aligns badge nicely with text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .education-timeline-wrapper {
+        gap: 15px; /* Slightly smaller gap on mobile */
     }
-    .education-card-header {
-        margin-bottom: 0; /* Remove bottom margin when side-by-side */
-        margin-right: 0; /* Handled by gap now */
+    .edu-timeline-card {
+        width: 290px; /* Slightly narrower cards if needed on mobile */
+        padding: 15px;
     }
-    .education-details {
-        align-items: flex-start; /* Align details text to the left */
+    .edu-logo-small {
+        width: 45px;
+        height: 45px;
     }
-    .education-honors {
-         margin-left: 0; /* Reset margin for left alignment in flex row */
-         margin-right: 0;
+    .timeline-scroll-hint {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
     }
-    .education-honors h4 {
-        text-align: left; /* Align honors title to the left */
+    .edu-timeline-card.in-progress {
+        width: 90%;
+        max-width: none; /* Allow it to be 90% of container */
     }
 }
 
