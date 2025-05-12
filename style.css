@@ -123,25 +123,177 @@ img { max-width: 100%; height: auto; display: block; }
 .edu-card.in-progress { border-left: 5px solid var(--primary-color); background-color: #fdfdff; }
 .status-badge { display: inline-block; background-color: var(--primary-color); opacity: 0.9; color: var(--light-color); font-size: 0.75rem; padding: 3px 8px; border-radius: 5px; margin-left: 10px; font-weight: 500; vertical-align: middle; }
 
-/* --- Experience Section - WITH LOGOS (Side-by-Side Layout) --- */
-.experience { background-color: var(--secondary-color); }
-.timeline { position: relative; max-width: 850px; margin: 0 auto; }
-.timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--primary-color); opacity: 0.3; top: 0; bottom: 0; left: 50%; margin-left: -2px; z-index: 1; }
-.timeline-item { padding: 15px 40px; position: relative; background-color: inherit; width: 50%; }
-.timeline-item::after { content: ''; position: absolute; width: 18px; height: 18px; right: -11px; background-color: var(--light-color); border: 4px solid var(--primary-color); top: 25px; border-radius: 50%; z-index: 2; transition: transform 0.3s ease; }
-.timeline-item:hover::after { transform: scale(1.2); }
+/* --- Experience Section - REFINED - Polished, Modern, Elegant --- */
+.experience {
+    background-color: var(--secondary-color);
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px; /* Wider for better spacing */
+    margin: 0 auto;
+    padding: 30px 0; /* Vertical padding for the timeline itself */
+}
+
+/* The actual timeline line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--border-color); /* Softer line color */
+    top: 15px; /* Start slightly below top */
+    bottom: 15px; /* End slightly above bottom */
+    left: 50%;
+    margin-left: -1.5px;
+    z-index: 1;
+    border-radius: 3px;
+}
+
+.timeline-item {
+    padding: 20px 50px; /* Horizontal padding from center line */
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px; /* Diameter of the main circle part */
+    height: 20px;
+    background-color: var(--light-color);
+    border: 5px solid var(--primary-color); /* This border adds to the visual size */
+    top: 30px; /* Adjust vertical alignment of the dot */
+    border-radius: 50%;
+    z-index: 3; /* Above line and arrow borders */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
 .timeline-item:nth-child(odd) { left: 0; }
 .timeline-item:nth-child(even) { left: 50%; }
-.timeline-item:nth-child(even)::after { left: -7px; }
-.timeline-content { padding: 20px; background-color: var(--light-color); position: relative; border-radius: 8px; box-shadow: var(--shadow-light); border-left: 5px solid var(--primary-color); transition: var(--base-transition), transform 0.3s ease; display: flex; flex-direction: row; align-items: flex-start; gap: 15px; }
-.timeline-item:hover .timeline-content { transform: translateY(-5px); box-shadow: var(--shadow-dark); }
-.timeline-item:nth-child(odd) .timeline-content::before { content: " "; height: 0; position: absolute; top: 28px; width: 0; z-index: 1; right: -12px; border: medium solid var(--light-color); border-width: 12px 0 12px 12px; border-color: transparent transparent transparent var(--light-color); }
-.timeline-item:nth-child(even) .timeline-content::before { content: " "; height: 0; position: absolute; top: 28px; width: 0; z-index: 1; left: -12px; border: medium solid var(--light-color); border-width: 12px 12px 12px 0; border-color: transparent var(--light-color) transparent transparent; }
-.company-logo { width: 50px; height: 50px; object-fit: contain; flex-shrink: 0; border-radius: 4px; background-color: #fff; padding: 3px; border: 1px solid var(--border-color); }
-.timeline-text-details { flex-grow: 1; min-width: 0; }
-.timeline-content h3 { margin-bottom: 0.2rem; color: var(--primary-color); font-size: 1rem; }
-.timeline-content .company { display: block; font-weight: 600; margin-bottom: 0.2rem; color: var(--dark-color); font-size: 0.9rem; }
-.timeline-content .date { display: block; font-size: 0.8rem; color: #6c757d; margin-bottom: 0; }
+
+.timeline-item:nth-child(odd)::after { right: -10px; /* (dot width / 2)  - Adjust if dot's visual diameter changes */ }
+.timeline-item:nth-child(even)::after { left: -10px; } /* Half of 20px main circle part */
+
+.timeline-item:hover::after {
+    transform: scale(1.15);
+    background-color: var(--primary-color); /* Fill dot on hover */
+}
+
+.timeline-content {
+    padding: 25px;
+    background-color: var(--light-color);
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Softer shadow */
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center; /* Vertically align logo and text block */
+    gap: 20px;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px) scale(1.01); /* Subtle lift and scale */
+    box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.1); /* Primary color themed shadow */
+}
+
+/* Arrow Pointers - Main Arrow Body */
+.timeline-content::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 33px; /* Align with dot's center ( (dot_height(20) + border_thickness(5*2)) / 2 + top_offset(30) = (30/2)+30 = 45px (this calculation seems off. It needs to align with the center of the visual dot) Should be 30px (dot_top) + 10px (half_dot_height) - 12px (half_arrow_height) = 28px */
+                /* Simpler: dot top is 30. Arrow should align with its center. Visual center of dot is top (30) + diameter (20)/2 = 40px. Arrow tip to be at 40px. Arrow base needs adjustment. */
+                /* Let's align top edge of arrow base (which is triangle side) with `top` of `::after` which is 30px. arrow height is 12*2 = 24px. center is 12px from edge. So `top: 30px (dot-top) + 10px (half_dot_visual_diameter) - 12px (half_arrow_visual_height)` -> 30 + (20/2) - (24/2) -> 30+10-12 = 28px for arrow tip to be centered */
+    /* Or top for the pseudo element such that its middle aligns with dot's middle (at 40px for dot). For arrow 24px high, its middle is at 12px. So `top` of arrow is `40-12 = 28px`.*/
+    top: 28px; /* Adjusted: (dot top + dot height/2) - (arrow visual height/2) */
+    width: 0;
+    z-index: 2; /* Above arrow border, below dot */
+    border-style: solid;
+}
+
+/* Arrow Pointers - Arrow Border */
+.timeline-content::after { /* This is the border for the arrow */
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: calc(28px - 1px); /* Offset by 1px (border thickness for arrow border visual effect) */
+    width: 0;
+    z-index: 1; /* Behind main arrow body */
+    border-style: solid;
+}
+
+/* Desktop: Item on the Left, Arrow points Right */
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -12px; /* Arrow width */
+    border-width: 12px; /* This creates a triangle 24px high */
+    border-color: transparent transparent transparent var(--light-color);
+}
+.timeline-item:nth-child(odd) .timeline-content::after { /* Arrow border */
+    right: -14px; /* Arrow width + border offset */
+    border-width: 13px; /* Arrow width + border thickness */
+    border-color: transparent transparent transparent var(--border-color);
+}
+
+/* Desktop: Item on the Right, Arrow points Left */
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -12px;
+    border-width: 12px;
+    border-color: transparent var(--light-color) transparent transparent;
+}
+.timeline-item:nth-child(even) .timeline-content::after { /* Arrow border */
+    left: -14px;
+    border-width: 13px;
+    border-color: transparent var(--border-color) transparent transparent;
+}
+
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background-color: var(--secondary-color); /* Light bg for logo */
+    padding: 5px;
+    border: 1px solid var(--border-color);
+}
+
+.timeline-text-details {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.4rem; /* Slightly more space */
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    line-height: 1.3;
+}
+
+.timeline-content .company {
+    display: block;
+    font-weight: 600; /* Bolder for company name */
+    margin-bottom: 0.4rem;
+    color: var(--dark-color);
+    font-size: 0.95rem;
+    font-family: var(--font-secondary);
+    line-height: 1.4;
+}
+
+.timeline-content .date {
+    display: block;
+    font-size: 0.85rem;
+    color: #555; /* Darker grey for better contrast */
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
 
 /* --- Honors and Awards Section --- */
 .honors-awards { background-color: var(--light-color); }
@@ -352,9 +504,9 @@ footer a:hover { color: var(--light-color); }
 
 /* --- Responsiveness --- */
 @media (min-width: 768px) {
-    .timeline { max-width: 100%; }
-    .timeline-item:nth-child(odd) { padding-left: 0; }
-    .timeline-item:nth-child(even) { padding-right: 0; }
+    /* .timeline { max-width: 100%; } /* This was in original, check if needed with new design */
+    .timeline-item:nth-child(odd) { /* padding-left: 0; */ /* Check if still needed or handled by new padding */ }
+    .timeline-item:nth-child(even) { /* padding-right: 0; */ }
 }
 
 @media (max-width: 991.98px) {
@@ -377,15 +529,88 @@ footer a:hover { color: var(--light-color); }
     .profile-picture { max-width: 200px; }
     .profile-main-content h1 { text-align: center; }
 
-    .timeline::after { left: 31px; }
-    .timeline-item { width: 100%; padding-left: 20px; padding-right: 15px; left: 0 !important; }
-    .timeline-item::after { left: 21px; right: auto; width: 16px; height: 16px;}
-    .timeline-item:nth-child(even) { left: 0 !important; }
-    .timeline-item:nth-child(even)::after { left: 21px; }
-    .timeline-content { flex-direction: column; align-items: flex-start; padding: 15px; gap: 10px; }
-    .company-logo { width: 40px; height: 40px; margin-bottom: 10px; align-self: flex-start; }
-    .timeline-item .timeline-content::before,
-    .timeline-item:nth-child(even) .timeline-content::before { left: -10px; right: auto; border-width: 10px 10px 10px 0; border-color: transparent var(--light-color) transparent transparent; top: 20px; }
+    /* --- Responsive Adjustments for REFINED Experience Section --- */
+    .timeline::after { /* The main vertical line on mobile */
+        left: 15px; /* Desired center of the dots from the left of .timeline */
+        margin-left: -1.5px; /* (line width / 2) */
+        top: 10px;
+        bottom: 10px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 45px; /* Space for dot and arrow (dot needs ~15px, arrow 10px, so this gives margin) */
+        padding-right: 15px;
+        padding-top: 15px; /* Add some top/bottom space between items */
+        padding-bottom: 15px;
+    }
+    .timeline-item:nth-child(even) { left: 0; } /* Stack them */
+    .timeline-item:first-child { padding-top: 0;} /* Remove extra top padding for first item */
+    .timeline-item:last-child { padding-bottom: 0;} /* Remove extra bottom padding for last item */
+
+
+    .timeline-item::after { /* Mobile timeline dot */
+        /*
+        The line is at 15px from parent.
+        The dot itself is 20px + 5px border * 2 = 30px visual diameter.
+        We want dot center on the line. Dot center is at 15px (from its own edge).
+        So, dot's left edge starts at `15px (line_pos) - 15px (dot_half_visual_diameter) = 0px` relative to line.
+        Since dot is positioned relative to .timeline-item which has padding,
+        Dot visual center is desired at '15px' from left edge of .timeline container.
+        If .timeline-item has padding-left 45px, the dot needs to be visually at `15px - 45px = -30px` from content start.
+        Better to set it absolutely based on target 15px line and its own width.
+        Visual dot width is 20px (base) + 2 * 5px (border) = 30px. Half width = 15px.
+        To center a 30px visual dot on a line at 15px, its left edge must be 15px - 15px = 0px, from the reference of where line is drawn.
+        The .timeline-item has no margin, so it starts where .timeline container starts.
+        The dot (::after) is positioned relative to .timeline-item.
+        So, dot.left (for border) = `15px (line position) - (dot_visual_width / 2)`
+                                  = `15px - ( (20px_base + 2*5px_border) / 2 )`
+                                  = `15px - (30px / 2)`
+                                  = `15px - 15px = 0px` from the .timeline-item's left edge.
+        */
+        left: 0px;
+        width: 16px; /* Smaller dot on mobile - base circle part */
+        height: 16px;
+        border-width: 4px; /* Thinner border on mobile. Visual Diameter = 16 + 2*4 = 24px */
+        /* New calculation for `left` with 24px visual width:
+           left = 15px (line_pos) - (24px / 2) = 15px - 12px = 3px from timeline-item's left edge */
+        left: 3px;
+        top: 30px; /* (dot visual height 24px. Top 30. Middle is 30+12=42px. Arrow needs to center on 42px) */
+    }
+
+    .timeline-content {
+        margin-left: 0; /* Ensure no extra margin pulls it away */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    /* Mobile: Arrow points Right from the card to the Left timeline */
+    .timeline-content::before,
+    .timeline-item:nth-child(even) .timeline-content::before { /* Apply to all on mobile */
+        left: -10px; /* Arrow width (10px for 20px high triangle) */
+        border-width: 10px; /* Triangle visual height = 20px */
+        /* top: 32px;  /* dot center 30+12=42. Arrow tip at 42. Arrow center is 10 from edge. So top = 42-10 = 32px */
+        top: calc(30px + (16px / 2) - 10px); /* (dot_top + dot_base_height/2) - arrow_visual_half_height -> 30+8-10 = 28px */
+        top: 28px;
+        border-color: transparent var(--light-color) transparent transparent;
+    }
+    .timeline-content::after,
+    .timeline-item:nth-child(even) .timeline-content::after {  /* Arrow border */
+        left: -12px; /* Arrow width + border offset */
+        border-width: 11px; /* Arrow width + border thickness */
+        top: calc(28px - 1px); /* Adjust for border */
+        border-color: transparent var(--border-color) transparent transparent;
+    }
+
+    .company-logo {
+        width: 50px;
+        height: 50px;
+        align-self: flex-start;
+    }
+    .timeline-text-details { width: 100%; }
+
 
     .education-grid { gap: 15px; grid-template-columns: 1fr; }
     .edu-card { padding: 15px; }
@@ -417,13 +642,32 @@ footer a:hover { color: var(--light-color); }
     .section-content { padding: 40px 0; }
     .btn { padding: 10px 25px; font-size: 0.95rem; }
 
-    .timeline-item { padding-left: 15px; padding-right: 10px; }
-    .timeline-item::after { left: 16px; width: 14px; height: 14px; border-width: 3px;}
-    .timeline-item:nth-child(even)::after { left: 16px; }
-    .timeline-content { padding: 12px; gap: 8px; }
-    .company-logo { width: 35px; height: 35px; margin-bottom: 8px;}
-    .timeline-item .timeline-content::before,
-    .timeline-item:nth-child(even) .timeline-content::before { top: 18px; left: -8px; border-width: 8px 8px 8px 0; }
+    /* Refined experience section for smaller mobiles */
+    .timeline::after { left: 15px; margin-left: -1.5px; } /* Consistent line position */
+    .timeline-item { padding-left: 40px; padding-right: 10px; }
+
+    .timeline-item::after { /* Mobile dot small screens */
+        left: 3px; /* Keep consistent with 768px breakpoint */
+        top: 30px; /* (dot visual height 24px. Top 30. Middle is 30+12=42px. Arrow needs to center on 42px) */
+         /* Arrow center target: dot top (30px) + dot_half_visual_height (16/2+4 = 12px) = 42px. */
+         /* Dot size from above is fine, these already create visual width of 24px */
+    }
+
+    .timeline-content { padding: 15px; } /* Slightly less padding */
+    .timeline-content h3 { font-size: 1.05rem; }
+    .timeline-content .company { font-size: 0.9rem; }
+    .timeline-content .date { font-size: 0.8rem; }
+
+
+    .timeline-content::before, /* Arrow for mobile - small screens */
+    .timeline-item:nth-child(even) .timeline-content::before {
+        top: 28px; /* Re-verify: dot top 30 + half_dot_base_height(8) = 38px. (Target for arrow tip). Arrow top is 38-half_arrow_visual_height(10) = 28px. */
+    }
+    .timeline-content::after, /* Arrow border for mobile - small screens */
+    .timeline-item:nth-child(even) .timeline-content::after {
+        top: calc(28px - 1px); /* Offset by border */
+    }
+
 
     .edu-card { padding: 12px; }
     .edu-logo-small { width: 40px; height: 40px;}
