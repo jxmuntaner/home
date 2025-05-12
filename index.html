@@ -41,7 +41,7 @@
                         <ul class="profile-links">
                             <li><i class="fa-solid fa-location-dot fa-fw"></i><span>Barcelona, Spain</span></li>
                             <li><i class="fa-solid fa-file-pdf fa-fw"></i><a href="path/to/your-cv.pdf" target="_blank">CV</a></li>
-                            <li><i class="fa-solid fa-envelope fa-fw"></i><a href="mailto:your.actual.email@example.com" class="__cf_email__" data-cfemail="YOUR_CLOUDFLARE_ENCODED_EMAIL_IF_USED">your.actual.email@example.com</a></li>
+                            <li><i class="fa-solid fa-envelope fa-fw"></i><a href="mailto:muntaner@icab.cat" class="__cf_email__" data-cfemail="YOUR_CLOUDFLARE_ENCODED_EMAIL_IF_USED">muntaner@icab.cat</a></li>
                             <li><i class="fa-brands fa-github fa-fw"></i><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
                         </ul>
                     </aside>
@@ -402,6 +402,7 @@
             <span class="close-button">×</span>
             <h2>Access Restricted</h2>
             <p>If you are a partner or collaborator, please introduce your credentials below.</p>
+            <p id="modalErrorMessage" class="modal-error-message" style="display:none;"></p> <!-- Error message placeholder -->
             <form id="accessForm">
                 <div class="form-group">
                     <label for="username">Username:</label>
@@ -436,10 +437,16 @@
             const projectButtons = document.querySelectorAll('.project-button');
             const closeButton = document.querySelector('#accessModal .close-button');
             const accessForm = document.getElementById('accessForm');
+            const modalErrorMessage = document.getElementById('modalErrorMessage'); // Get error message element
 
             function openModal() {
                 if (modal) {
-                    modal.style.display = 'flex';
+                    modal.style.display = 'flex'; // Changed to flex for centering
+                    if(modalErrorMessage) { // Clear previous errors when opening
+                        modalErrorMessage.textContent = '';
+                        modalErrorMessage.style.display = 'none';
+                    }
+                    if(accessForm) accessForm.reset(); // Reset form on open
                     setTimeout(() => {
                         modal.classList.add('modal-show');
                     }, 10);
@@ -474,17 +481,37 @@
             });
 
             window.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape' && modal.classList.contains('modal-show')) {
+                if (event.key === 'Escape' && modal && modal.classList.contains('modal-show')) {
                     closeModal();
                 }
             });
 
             if (accessForm) {
                 accessForm.addEventListener('submit', function(event) {
-                    event.preventDefault(); 
-                    alert('Credentials submitted (demo only).'); 
-                    closeModal();
-                    // accessForm.reset(); 
+                    event.preventDefault();
+                    
+                    const usernameInput = document.getElementById('username');
+                    const passwordInput = document.getElementById('password');
+                    const username = usernameInput ? usernameInput.value.trim() : '';
+                    const password = passwordInput ? passwordInput.value.trim() : '';
+
+                    if (modalErrorMessage) {
+                        modalErrorMessage.textContent = ''; // Clear previous message
+                        modalErrorMessage.style.display = 'none';
+                    } else {
+                        console.error("Error message element not found in modal.");
+                        return; // Critical element missing
+                    }
+
+                    if (username === '' || password === '') {
+                        modalErrorMessage.textContent = 'Username and Password cannot be empty.';
+                        modalErrorMessage.style.display = 'block';
+                    } else {
+                        // Since there's no backend, any filled input is treated as "incorrect" for this demo
+                        modalErrorMessage.textContent = 'Invalid credentials. Please try again.';
+                        modalErrorMessage.style.display = 'block';
+                    }
+                    // Do NOT close modal or reset form here, so user can see the error and correct input
                 });
             }
         });
