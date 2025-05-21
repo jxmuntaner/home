@@ -190,7 +190,7 @@ img { max-width: 100%; height: auto; display: block; }
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
-    align-items: center; /* Vertically align logo and text block */
+    align-items: flex-start; /* MODIFIED FOR ALIGNMENT (was center) - This will align top of image with top of text */
     gap: 20px;
 }
 
@@ -204,10 +204,6 @@ img { max-width: 100%; height: auto; display: block; }
     content: " ";
     height: 0;
     position: absolute;
-    top: 33px; /* Align with dot's center ( (dot_height(20) + border_thickness(5*2)) / 2 + top_offset(30) = (30/2)+30 = 45px (this calculation seems off. It needs to align with the center of the visual dot) Should be 30px (dot_top) + 10px (half_dot_height) - 12px (half_arrow_height) = 28px */
-                /* Simpler: dot top is 30. Arrow should align with its center. Visual center of dot is top (30) + diameter (20)/2 = 40px. Arrow tip to be at 40px. Arrow base needs adjustment. */
-                /* Let's align top edge of arrow base (which is triangle side) with `top` of `::after` which is 30px. arrow height is 12*2 = 24px. center is 12px from edge. So `top: 30px (dot-top) + 10px (half_dot_visual_diameter) - 12px (half_arrow_visual_height)` -> 30 + (20/2) - (24/2) -> 30+10-12 = 28px for arrow tip to be centered */
-    /* Or top for the pseudo element such that its middle aligns with dot's middle (at 40px for dot). For arrow 24px high, its middle is at 12px. So `top` of arrow is `40-12 = 28px`.*/
     top: 28px; /* Adjusted: (dot top + dot height/2) - (arrow visual height/2) */
     width: 0;
     z-index: 2; /* Above arrow border, below dot */
@@ -249,14 +245,14 @@ img { max-width: 100%; height: auto; display: block; }
     border-color: transparent var(--border-color) transparent transparent;
 }
 
-
+/* UPDATED RULE for .company-logo */
 .company-logo {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+    width: 100px;  /* Increased from 60px - adjust as you like */
+    height: 80px;  /* Increased from 60px to make it rectangular - adjust as you like */
+    object-fit: contain; /* Ensures the image fits well without distortion */
     flex-shrink: 0;
     border-radius: 8px;
-    background-color: var(--secondary-color); /* Light bg for logo */
+    background-color: var(--secondary-color);
     padding: 5px;
     border: 1px solid var(--border-color);
 }
@@ -505,8 +501,8 @@ footer a:hover { color: var(--light-color); }
 /* --- Responsiveness --- */
 @media (min-width: 768px) {
     /* .timeline { max-width: 100%; } /* This was in original, check if needed with new design */
-    .timeline-item:nth-child(odd) { /* padding-left: 0; */ /* Check if still needed or handled by new padding */ }
-    .timeline-item:nth-child(even) { /* padding-right: 0; */ }
+    /* .timeline-item:nth-child(odd) { /* padding-left: 0; */ /* Check if still needed or handled by new padding */ }
+    /* .timeline-item:nth-child(even) { /* padding-right: 0; */ }
 }
 
 @media (max-width: 991.98px) {
@@ -550,32 +546,11 @@ footer a:hover { color: var(--light-color); }
 
 
     .timeline-item::after { /* Mobile timeline dot */
-        /*
-        The line is at 15px from parent.
-        The dot itself is 20px + 5px border * 2 = 30px visual diameter.
-        We want dot center on the line. Dot center is at 15px (from its own edge).
-        So, dot's left edge starts at `15px (line_pos) - 15px (dot_half_visual_diameter) = 0px` relative to line.
-        Since dot is positioned relative to .timeline-item which has padding,
-        Dot visual center is desired at '15px' from left edge of .timeline container.
-        If .timeline-item has padding-left 45px, the dot needs to be visually at `15px - 45px = -30px` from content start.
-        Better to set it absolutely based on target 15px line and its own width.
-        Visual dot width is 20px (base) + 2 * 5px (border) = 30px. Half width = 15px.
-        To center a 30px visual dot on a line at 15px, its left edge must be 15px - 15px = 0px, from the reference of where line is drawn.
-        The .timeline-item has no margin, so it starts where .timeline container starts.
-        The dot (::after) is positioned relative to .timeline-item.
-        So, dot.left (for border) = `15px (line position) - (dot_visual_width / 2)`
-                                  = `15px - ( (20px_base + 2*5px_border) / 2 )`
-                                  = `15px - (30px / 2)`
-                                  = `15px - 15px = 0px` from the .timeline-item's left edge.
-        */
-        left: 0px;
+        left: 3px;
         width: 16px; /* Smaller dot on mobile - base circle part */
         height: 16px;
         border-width: 4px; /* Thinner border on mobile. Visual Diameter = 16 + 2*4 = 24px */
-        /* New calculation for `left` with 24px visual width:
-           left = 15px (line_pos) - (24px / 2) = 15px - 12px = 3px from timeline-item's left edge */
-        left: 3px;
-        top: 30px; /* (dot visual height 24px. Top 30. Middle is 30+12=42px. Arrow needs to center on 42px) */
+        top: 30px; 
     }
 
     .timeline-content {
@@ -591,8 +566,6 @@ footer a:hover { color: var(--light-color); }
     .timeline-item:nth-child(even) .timeline-content::before { /* Apply to all on mobile */
         left: -10px; /* Arrow width (10px for 20px high triangle) */
         border-width: 10px; /* Triangle visual height = 20px */
-        /* top: 32px;  /* dot center 30+12=42. Arrow tip at 42. Arrow center is 10 from edge. So top = 42-10 = 32px */
-        top: calc(30px + (16px / 2) - 10px); /* (dot_top + dot_base_height/2) - arrow_visual_half_height -> 30+8-10 = 28px */
         top: 28px;
         border-color: transparent var(--light-color) transparent transparent;
     }
@@ -604,7 +577,7 @@ footer a:hover { color: var(--light-color); }
         border-color: transparent var(--border-color) transparent transparent;
     }
 
-    .company-logo {
+    .company-logo { /* This is the existing mobile style for company-logo, keeping it as is unless specified */
         width: 50px;
         height: 50px;
         align-self: flex-start;
@@ -647,10 +620,8 @@ footer a:hover { color: var(--light-color); }
     .timeline-item { padding-left: 40px; padding-right: 10px; }
 
     .timeline-item::after { /* Mobile dot small screens */
-        left: 3px; /* Keep consistent with 768px breakpoint */
-        top: 30px; /* (dot visual height 24px. Top 30. Middle is 30+12=42px. Arrow needs to center on 42px) */
-         /* Arrow center target: dot top (30px) + dot_half_visual_height (16/2+4 = 12px) = 42px. */
-         /* Dot size from above is fine, these already create visual width of 24px */
+        left: 3px; 
+        top: 30px; 
     }
 
     .timeline-content { padding: 15px; } /* Slightly less padding */
@@ -661,7 +632,7 @@ footer a:hover { color: var(--light-color); }
 
     .timeline-content::before, /* Arrow for mobile - small screens */
     .timeline-item:nth-child(even) .timeline-content::before {
-        top: 28px; /* Re-verify: dot top 30 + half_dot_base_height(8) = 38px. (Target for arrow tip). Arrow top is 38-half_arrow_visual_height(10) = 28px. */
+        top: 28px; 
     }
     .timeline-content::after, /* Arrow border for mobile - small screens */
     .timeline-item:nth-child(even) .timeline-content::after {
