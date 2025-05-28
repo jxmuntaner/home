@@ -339,7 +339,12 @@ img { max-width: 100%; height: auto; display: block; }
 .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .project-card:hover img { transform: scale(1.1); }
 .project-content { padding: 20px 25px; flex-grow: 1; display: flex; flex-direction: column; }
-.project-card h3 { margin-bottom: 0.5rem; color: var(--primary-color); }
+.project-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.1rem; /* MODIFIED: Set to match timeline-content h3 */
+    /* font-family, font-weight, and line-height are inherited from global h3 or are consistent */
+}
 .project-card p { flex-grow: 1; font-size: 0.95rem; margin-bottom: 1rem; }
 .project-links { margin-top: auto; display: flex; gap: 10px; }
 .project-links .btn { font-size: 0.9rem; padding: 8px 18px; }
@@ -550,7 +555,7 @@ footer a:hover { color: var(--light-color); }
         width: 16px; /* Smaller dot on mobile - base circle part */
         height: 16px;
         border-width: 4px; /* Thinner border on mobile. Visual Diameter = 16 + 2*4 = 24px */
-        top: 30px; 
+        top: 30px;
     }
 
     .timeline-content {
@@ -620,8 +625,8 @@ footer a:hover { color: var(--light-color); }
     .timeline-item { padding-left: 40px; padding-right: 10px; }
 
     .timeline-item::after { /* Mobile dot small screens */
-        left: 3px; 
-        top: 30px; 
+        left: 3px;
+        top: 30px;
     }
 
     .timeline-content { padding: 15px; } /* Slightly less padding */
@@ -632,7 +637,7 @@ footer a:hover { color: var(--light-color); }
 
     .timeline-content::before, /* Arrow for mobile - small screens */
     .timeline-item:nth-child(even) .timeline-content::before {
-        top: 28px; 
+        top: 28px;
     }
     .timeline-content::after, /* Arrow border for mobile - small screens */
     .timeline-item:nth-child(even) .timeline-content::after {
