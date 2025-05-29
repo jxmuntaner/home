@@ -337,11 +337,12 @@
                     <!-- Project Card 1 -->
                     <div class="project-card animate-on-scroll">
                         <div class="project-image-wrapper">
-                            <img src="images/project1.jpg" alt="Project One Title">
+                            <img src="images/aventinelab.gif" alt="Project One Title">
                         </div>
                         <div class="project-content">
-                            <h3>Project One Title</h3>
-                            <p>A brief and engaging description of Project One, highlighting its key features and technologies used.</p>
+                            <h3>Aventine Lab</h3>
+                            <p>A non-aligned collaborative initiative to offer geoeconomic intelligence and strategies in a multipolar world. 
+</p>
                             <div class="project-links">
                                 <button class="btn btn-primary project-button">Live Demo</button>
                                 <button class="btn btn-secondary project-button">View Code</button>
@@ -351,11 +352,11 @@
                      <!-- Project Card 2 -->
                      <div class="project-card animate-on-scroll">
                         <div class="project-image-wrapper">
-                            <img src="images/project2.jpg" alt="Project Two Title">
+                            <img src="images/lexiform.jpg" alt="Project Two Title">
                         </div>
                         <div class="project-content">
-                            <h3>Project Two Title</h3>
-                            <p>Description for Project Two. This project focused on innovative solutions for X, leveraging Y technology.</p>
+                            <h3>LexiForm</h3>
+                            <p>A project focused on streamlining legal processes in Spain leveraging the power of AI Agents.</p>
                             <div class="project-links">
                                 <button class="btn btn-primary project-button">Live Demo</button>
                                 <button class="btn btn-secondary project-button">View Code</button>
@@ -365,13 +366,13 @@
                     <!-- Project Card 3 (Live Demo Only) -->
                     <div class="project-card animate-on-scroll">
                         <div class="project-image-wrapper">
-                            <img src="images/project3.jpg" alt="Project Three Title">
+                            <img src="images/CAA.jpg" alt="Project Three Title">
                         </div>
                         <div class="project-content">
-                            <h3>Project Three Title</h3>
-                            <p>An exciting third project that showcases Z. Currently available as a live demonstration only.</p>
+                            <h3>Cybercrime Accountability Consortium</h3>
+                            <p>The internet crime business worldwide has reached epic proportions. Overlooked actors and enablers need to be held accountable. 17</p>
                             <div class="project-links">
-                                <button class="btn btn-primary project-button">Live Demo</button>
+                                <button class="btn btn-primary project-button">Explore</button>
                             </div>
                         </div>
                     </div>
@@ -380,16 +381,86 @@
         </section>
 
         <!-- === Contact Section === -->
-        <section id="contact" class="contact section-content">
-            <div class="container">
-                <h2 class="animate-on-scroll">Contact</h2>
-                <div class="contact-info animate-on-scroll">
-                    <p>Feel free to reach out via email or connect with me on professional networks.</p>
-                    <p><a href="mailto:your.actual.email@example.com">your.actual.email@example.com</a></p>
-                </div>
+<section id="contact" class="contact section-content">
+    <div class="container">
+        <h2 class="animate-on-scroll">Contact</h2>
+        <div class="contact-layout">
+            <div class="contact-form-column animate-on-scroll">
+                <h3>Contact Me</h3> <form id="mainContactForm" action="YOUR_FORM_HANDLER_ENDPOINT" method="POST">
+                    <div class="form-group">
+                        <label for="contactName">Name:</label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email:</label>
+                        <input type="email" id="contactEmail" name="contactEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Message:</label>
+                        <textarea id="contactMessage" name="contactMessage" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
             </div>
-        </section>
-    </main>
+
+            <div class="contact-privacy-column animate-on-scroll">
+                <h3>Privacy matters</h3>
+                <p class="privacy-subtitle">If your contact request is sensitive or confidential in nature, please contact me securely using one of the following options.</p>
+                <div class="privacy-options">
+                    <details class="privacy-option">
+                        <summary>SecureDrop</summary>
+                        <div class="privacy-option-content">
+                            <p><strong>What is SecureDrop?</strong> SecureDrop is an open-source whistleblower submission system that media organizations and NGOs can use to securely accept documents from and communicate with anonymous sources.</p>
+                            <p><strong>How to use:</strong> <em>[You will need to provide your specific SecureDrop instance address and instructions here. If you don't have one, you might explain how to find organizations that use it or remove this option.]</em></p>
+                            <p>Example: "Our organization uses SecureDrop. You can access our SecureDrop instance by visiting [Your SecureDrop Onion Address] using the Tor Browser. Follow the on-screen instructions to submit information."</p>
+                            <p><em><strong>Placeholder:</strong> [Replace with your actual SecureDrop instructions or link if applicable.]</em></p>
+                        </div>
+                    </details>
+
+                    <details class="privacy-option">
+                        <summary>Encrypted Email (PGP/GPG)</summary>
+                        <div class="privacy-option-content">
+                            <p>You can send me an encrypted email using PGP/GPG. This ensures that only I can read the content of your message.</p>
+                            <p><strong>My PGP Public Key:</strong></p>
+                            <pre><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: Joseph Xavier Muntaner - PGP Key
+
+[Your Actual PGP Public Key Block ASCII Armor]
+Example:
+xjMEX.........long string of characters...................
+..........................................................
+=XXXX
+-----END PGP PUBLIC KEY BLOCK-----</code></pre>
+                            <p><strong>Fingerprint:</strong> <em>[Your PGP Key Fingerprint, e.g., XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX]</em></p>
+                            <p><strong>Email for PGP:</strong> <a href="mailto:your-secure-pgp-email@example.com">your-secure-pgp-email@example.com</a></p>
+                            <p>You can use tools like GPG Suite (macOS), Kleopatra (Windows/Linux), or Mailvelope (browser extension) to encrypt your message.</p>
+                            <p><em><strong>Placeholder:</strong> [Replace with your actual PGP key, fingerprint, and dedicated PGP email address.]</em></p>
+                        </div>
+                    </details>
+
+                    <details class="privacy-option">
+                        <summary>Post / Physical Mail</summary>
+                        <div class="privacy-option-content">
+                            <p>For highly sensitive materials where digital methods are not preferred, you can send physical mail to the following address:</p>
+                            <address>
+                                Joseph Xavier Muntaner<br>
+                                <em>[Your P.O. Box or Secure Mailing Address Line 1]</em><br>
+                                <em>[Address Line 2, if any]</em><br>
+                                <em>[City, Postal Code]</em><br>
+                                <em>[Country]</em>
+                            </address>
+                            <p>Consider taking precautions such as not including a return address on the envelope and mailing it from an unfamiliar postbox if anonymity is critical.</p>
+                            <p><em><strong>Placeholder:</strong> [Replace with your actual secure postal address.]</em></p>
+                        </div>
+                    </details>
+                </div>
+                <p class="privacy-final-note">
+                    <i class="fas fa-info-circle"></i> Please note that telephone or mobile messaging, including apps like Signal or Telegram, are not secure forms of communication for all threat models and are therefore not offered for initial confidential contact. If we establish contact through a secure channel, we can discuss further communication options if necessary.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <footer>
         <div class="container">
