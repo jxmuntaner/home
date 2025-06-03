@@ -1,25 +1,15 @@
 {
   "name": "jx-muntaner",
   "version": "1.0.0",
-  "lockfileVersion": 3,
-  "requires": true,
-  "packages": {
-    "": {
-      "name": "jx-muntaner",
-      "version": "1.0.0",
-      "license": "ISC",
-      "dependencies": {
-        "nodemailer": "^6.10.1"
-      }
-    },
-    "node_modules/nodemailer": {
-      "version": "6.10.1",
-      "resolved": "https://registry.npmjs.org/nodemailer/-/nodemailer-6.10.1.tgz",
-      "integrity": "sha512-Z+iLaBGVaSjbIzQ4pX6XV41HrooLsQ10ZWPUehGmuantvzWoDVBnmsdUcOIDM1t+yPor5pDhVlDESgOMEGxhHA==",
-      "license": "MIT-0",
-      "engines": {
-        "node": ">=6.0.0"
-      }
-    }
+  "description": "Contact form backend for jx-muntaner website",
+  "main": "index.js",  // This might not be strictly necessary for Vercel serverless functions
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Joseph Xavier Muntaner", // You can put your name here
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.10.1" // Or the specific version installed by `npm install nodemailer`
   }
 }
