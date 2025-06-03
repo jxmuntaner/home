@@ -99,18 +99,17 @@ img { max-width: 100%; height: auto; display: block; }
     padding: 0;
     margin-bottom: 20px;
     border-radius: 4px;
-    /* Added for centering */
-    display: block; /* Ensured by global img style, but explicit here for clarity */
+    display: block; 
     margin-left: auto;
     margin-right: auto;
 }
 
 .profile-name {
-    font-size: 1.1rem; /* Overrides general h2 rule if more specific or if general h2 font-size wasn't !important */
+    font-size: 1rem !important; /* MODIFIED: Explicitly set smaller font size. Adjust this value if needed. */
+    line-height: 1.3;           /* Ensured consistent line height */
     margin-bottom: 0.5rem;
     text-align: left;
-    /* Added for alignment with profile-picture */
-    width: 210px;
+    width: 210px;                /* To match image width on desktop */
     margin-left: auto;
     margin-right: auto;
 }
@@ -121,13 +120,12 @@ img { max-width: 100%; height: auto; display: block; }
     line-height: 1.5;
     margin-bottom: 25px;
     text-align: left;
-    /* Added for alignment with profile-picture */
-    width: 210px;
+    width: 210px;                /* To match image width on desktop */
     margin-left: auto;
     margin-right: auto;
 }
 
-.profile-links { margin: 0; padding: 0; /* Assuming this should also be within the 210px width or centered below. If so, needs similar treatment or parent text-align:center */ }
+.profile-links { margin: 0; padding: 0; }
 .profile-links li { display: flex; align-items: center; margin-bottom: 3px; font-size: 0.85rem; }
 .profile-links li i { font-size: inherit !important; margin-right: 8px; color: var(--text-color); width: 1.2em; text-align: center; line-height: 1; }
 .profile-links a { color: var(--primary-color); }
@@ -729,20 +727,16 @@ footer a:hover { color: var(--light-color); }
     .profile-layout { flex-direction: column; gap: 30px; }
     .profile-sidebar { max-width: 100%; }
     .profile-picture {
-        max-width: 200px; /* Existing */
-        /* margin-left: auto; and margin-right: auto; inherited from desktop, still applies */
+        max-width: 200px; 
     }
     .profile-name {
-        width: auto; /* Override fixed desktop width */
-        max-width: 200px; /* Match image's max-width constraint */
-        /* margin-left: auto; margin-right: auto; inherited for centering */
-        /* text-align: left; inherited */
+        width: auto; 
+        max-width: 200px; 
+        /* font-size: 1rem !important; is inherited from desktop rule */
     }
     .profile-title {
-        width: auto; /* Override fixed desktop width */
-        max-width: 200px; /* Match image's max-width constraint */
-        /* margin-left: auto; margin-right: auto; inherited for centering */
-        /* text-align: left; inherited */
+        width: auto; 
+        max-width: 200px; 
     }
     .profile-main-content h1 { text-align: center; }
 
