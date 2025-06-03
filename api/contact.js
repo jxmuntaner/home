@@ -23,16 +23,16 @@ export default async function handler(req, res) {
       port: 465, // Gmail uses port 465 for SSL
       secure: true, // 'true' for port 465, 'false' for other ports (like 587 for TLS)
       auth: {
-        user: process.env.GMAIL_USER,         // Your full Gmail address (e.g., your.email@gmail.com)
-        pass: process.env.GMAIL_APP_PASSWORD, // The 16-character App Password you generated
+        user: process.env.GMAIL_USER,         // Your full Gmail address from Vercel env vars
+        pass: process.env.GMAIL_APP_PASSWORD, // The 16-character App Password from Vercel env vars
       },
     });
 
     // Define the email options
     const mailOptions = {
-      from: `"${contactName} via Website" <${process.env.GMAIL_USER}>`, // Sender address: Use your Gmail address here for better deliverability.
-                                                                      // The name part can be dynamic.
-      to: process.env.RECIPIENT_EMAIL, // Your email address where you want to receive these messages
+      from: `"${contactName} via Website" <${process.env.GMAIL_USER}>`, // Sender address: Use your Gmail address here.
+                                                                      // The name part is dynamic from the form.
+      to: process.env.RECIPIENT_EMAIL, // Your email address where you want to receive these messages (from Vercel env vars)
       replyTo: contactEmail, // Set the Reply-To header to the email of the person who filled the form
       subject: `New Contact Form Submission from ${contactName}`,
       text: `You have received a new message from your website contact form:\n\nName: ${contactName}\nEmail: ${contactEmail}\nMessage:\n${contactMessage}`, // Plain text body
@@ -57,10 +57,13 @@ export default async function handler(req, res) {
 
     // Prepare a more user-friendly error message
     let userErrorMessage = 'Failed to send message due to a server error.';
-    if (err.code === 'EAUTH' || (err.responseCode && err.responseCode === 535)) {
-        userErrorMessage = 'Authentication error with Gmail. Please check server configuration.';
+    // Specific check for authentication issues
+    if (err.code === 'EAUTH' || (err.response && err.response.includes("Username and Password not accepted"))) { // Common Gmail auth error text
+        userErrorMessage = 'Authentication error with Gmail. Please double-check your App Password and Gmail settings (2-Step Verification). Ensure environment variables are correctly set in Vercel and the project is redeployed.';
     } else if (err.code === 'ECONNECTION') {
         userErrorMessage = 'Could not connect to Gmail. Please try again later.';
+    } else if (err.message && err.message.includes("Missing credentials")) { // Catching the specific "Missing credentials"
+        userErrorMessage = 'Server configuration error: Email sending credentials are missing. Please check Vercel environment variables and redeploy.'
     }
     
     // Send an error response back to the client
