@@ -91,10 +91,43 @@ img { max-width: 100%; height: auto; display: block; }
 .profile-section { padding: 40px 0 60px 0; background-color: var(--secondary-color); }
 .profile-layout { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
 .profile-sidebar { flex: 1; min-width: 250px; max-width: 300px; }
-.profile-picture { width: 210px; height: auto; border: none; padding: 0; margin-bottom: 20px; border-radius: 4px; }
-.profile-name { font-size: 1.1rem; margin-bottom: 0.5rem; text-align: left; }
-.profile-title { font-size: 1rem; color: var(--text-color); line-height: 1.5; margin-bottom: 25px; text-align: left; }
-.profile-links { margin: 0; padding: 0; }
+
+.profile-picture {
+    width: 210px;
+    height: auto;
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    /* Added for centering */
+    display: block; /* Ensured by global img style, but explicit here for clarity */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-name {
+    font-size: 1.1rem; /* Overrides general h2 rule if more specific or if general h2 font-size wasn't !important */
+    margin-bottom: 0.5rem;
+    text-align: left;
+    /* Added for alignment with profile-picture */
+    width: 210px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-title {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-align: left;
+    /* Added for alignment with profile-picture */
+    width: 210px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-links { margin: 0; padding: 0; /* Assuming this should also be within the 210px width or centered below. If so, needs similar treatment or parent text-align:center */ }
 .profile-links li { display: flex; align-items: center; margin-bottom: 3px; font-size: 0.85rem; }
 .profile-links li i { font-size: inherit !important; margin-right: 8px; color: var(--text-color); width: 1.2em; text-align: center; line-height: 1; }
 .profile-links a { color: var(--primary-color); }
@@ -695,7 +728,22 @@ footer a:hover { color: var(--light-color); }
 
     .profile-layout { flex-direction: column; gap: 30px; }
     .profile-sidebar { max-width: 100%; }
-    .profile-picture { max-width: 200px; }
+    .profile-picture {
+        max-width: 200px; /* Existing */
+        /* margin-left: auto; and margin-right: auto; inherited from desktop, still applies */
+    }
+    .profile-name {
+        width: auto; /* Override fixed desktop width */
+        max-width: 200px; /* Match image's max-width constraint */
+        /* margin-left: auto; margin-right: auto; inherited for centering */
+        /* text-align: left; inherited */
+    }
+    .profile-title {
+        width: auto; /* Override fixed desktop width */
+        max-width: 200px; /* Match image's max-width constraint */
+        /* margin-left: auto; margin-right: auto; inherited for centering */
+        /* text-align: left; inherited */
+    }
     .profile-main-content h1 { text-align: center; }
 
     .timeline::after {
@@ -838,7 +886,7 @@ footer a:hover { color: var(--light-color); }
     .contact-privacy-column {
         padding: 15px;
     }
-     #mainContactForm input[type="text"],
+    #mainContactForm input[type="text"],
     #mainContactForm input[type="email"],
     #mainContactForm textarea {
         padding: 10px 12px;
