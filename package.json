@@ -1,15 +1,14 @@
 {
   "name": "jx-muntaner",
   "version": "1.0.0",
-  "description": "Contact form backend for jx-muntaner website",
-  "main": "index.js",  // This might not be strictly necessary for Vercel serverless functions
+  "description": "My website project",
+  "main": "index.js", 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Joseph Xavier Muntaner", // You can put your name here
+  "author": "JX Muntaner",
   "license": "ISC",
   "dependencies": {
-    "nodemailer": "^6.10.1" // Or the specific version installed by `npm install nodemailer`
+    "nodemailer": "^6.10.1" 
   }
 }
