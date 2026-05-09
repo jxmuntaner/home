@@ -53,13 +53,130 @@
     .timeline{display:grid;gap:16px}
     .timeline-item{display:grid;grid-template-columns:58px minmax(0,1fr) 170px;gap:20px;align-items:center;padding:22px 24px;background:var(--surface);border:1px solid rgba(255,255,255,.65);border-radius:18px;box-shadow:0 10px 30px rgba(15,23,42,.04);transition:.28s}
     .timeline-item:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-    .timeline-logo{width:46px;height:46px;border-radius:14px;border:1px solid var(--line);display:grid;place-items:center;background:#fff;transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,border-color .28s ease;transform:translateY(0)}
+    .timeline-logo{width:46px;height:46px;display:grid;place-items:center;background:transparent;transition:transform .28s cubic-bezier(.2,.8,.2,1),filter .28s ease;transform:translateY(0)}
     .timeline-logo img{width:72%;height:72%;object-fit:contain;transition:transform .28s cubic-bezier(.2,.8,.2,1)}
-    .timeline-logo:hover{transform:translateY(-4px) scale(1.04);border-color:rgba(36,95,152,.22);box-shadow:0 10px 24px rgba(36,95,152,.12),0 0 0 6px rgba(255,255,255,.65)}
+    .timeline-logo:hover{transform:translateY(-4px) scale(1.04);filter:drop-shadow(0 8px 18px rgba(36,95,152,.14))}
     .timeline-logo:hover img{transform:scale(1.04)}
-    .timeline-logo:focus-visible{outline:none;transform:translateY(-4px) scale(1.04);border-color:rgba(36,95,152,.26);box-shadow:0 10px 24px rgba(36,95,152,.14),0 0 0 6px rgba(255,255,255,.7)}
+    .timeline-logo:focus-visible{outline:none;transform:translateY(-4px) scale(1.04);filter:drop-shadow(0 8px 18px rgba(36,95,152,.16))}
     .timeline-main h3{font-size:1rem;margin-bottom:4px}
     .timeline-main p{font-size:.95rem}
+    .timeline-meta{text-align:right;font-size:.83rem;color:#64748b;line-height:1.5}
+
+    #experience{position:relative}
+    #experience::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(248,250,252,.85));pointer-events:none}
+    #experience .container{position:relative}
+    #experience .timeline{gap:14px}
+    #experience .timeline-item{position:relative;padding:24px 26px;border:1px solid rgba(255,255,255,.72);background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.76));box-shadow:0 12px 34px rgba(15,23,42,.045)}
+    #experience .timeline-item::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:2px;border-radius:999px;background:linear-gradient(180deg,rgba(36,95,152,.34),rgba(36,95,152,.08));opacity:0;transform:scaleY(.72);transition:opacity .28s ease,transform .28s ease}
+    #experience .timeline-item:hover::before{opacity:1;transform:scaleY(1)}
+    #experience .timeline-main h3{font-size:1.02rem;letter-spacing:-.01em}
+    #experience .timeline-main p{color:#5b6b7f;font-weight:500}
+    #experience .timeline-meta{font-size:.8rem;letter-spacing:.02em;color:#7c8aa0}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .panel{padding:28px}
+    .panel p+p{margin-top:10px}
+
+    footer{padding:30px 0 44px;font-size:.9rem;color:#64748b}
+
+    @media (max-width:900px){
+      .hero-grid,.contact-grid{grid-template-columns:1fr}
+      .timeline-item{grid-template-columns:52px 1fr}
+      .timeline-meta{grid-column:2;text-align:left;margin-top:4px}
+    }
+    @media (max-width:720px){
+      .header-nav{display:none}
+      .hero{padding-top:56px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="header-logo">Xavier Muntaner</a>
+      <nav class="header-nav">
+        <ul><li><a href="#biography">Biography</a></li><li><a href="#education">Education</a></li><li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li></ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="biography">
+    <div class="container hero-grid">
+      <aside class="hero-card reveal">
+        <img src="images/profile.jpg" alt="Xavier Muntaner" class="profile-picture">
+        <h3>Xavier Muntaner</h3>
+        <p>Senior Economic Adviser<br>Banca March</p>
+        <ul class="profile-links">
+          <li>Barcelona, Spain</li>
+          <li>muntaner@icab.cat</li>
+          <li>github.com/jxmuntaner</li>
+        </ul>
+      </aside>
+      <div class="hero-copy reveal" data-parallax>
+        <h1>Economics, law, digital markets.</h1>
+        <p>I am a Senior Economic Adviser at Banca March while completing legal qualification studies in Barcelona.</p>
+        <p>My work focuses on antitrust economics, regulation, financial systems, and the strategic governance of technology.</p>
+        <p>My doctoral work at Yale examined antitrust intervention in platform markets, with particular attention to gatekeeping, digital power, and the economics of ecosystem control.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container reveal">
+      <span class="section-kicker">Education</span>
+      <h2>Academic formation</h2>
+      <div class="timeline">
+        <article class="timeline-item"><div class="timeline-logo"><img src="images/barcelona-uni-logo.png" alt=""></div><div class="timeline-main"><h3>Universitat de Barcelona</h3><p>Máster de Acceso a la Abogacía y Procura</p></div><div class="timeline-meta">2025–2027<br>Barcelona</div></article>
+        <article class="timeline-item"><div class="timeline-logo"><img src="images/uoc-logo.png" alt=""></div><div class="timeline-main"><h3>Open University of Catalonia</h3><p>Bachelor’s Degree in Law</p></div><div class="timeline-meta">2020–2024<br>Barcelona</div></article>
+        <article class="timeline-item"><div class="timeline-logo"><img src="images/lbs-logo.png" alt=""></div><div class="timeline-main"><h3>London Business School</h3><p>MSc in Management</p></div><div class="timeline-meta">2015–2017<br>London</div></article>
+        <article class="timeline-item"><div class="timeline-logo"><img src="images/sciencespo-logo.png" alt=""></div><div class="timeline-main"><h3>Sciences Po Paris / UC Berkeley</h3><p>Bachelor’s Degree in Economics</p></div><div class="timeline-meta">2013–2016<br>Paris / Berkeley</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container reveal">
+      <span class="section-kicker">Experience</span>
+      <h2>Professional trajectory</h2>
+      <div class="timeline">
+        <article class="timeline-item"><a class="timeline-logo" href="https://www.bancamarch.es" target="_blank" rel="noopener noreferrer"><img src="images/banca-march-logo.png" alt="Banca March"></a><div class="timeline-main"><h3>Senior Economic Adviser</h3><p>Banca March</p></div><div class="timeline-meta">Sep 2024 — Present<br>Barcelona</div></article>
+        <article class="timeline-item"><a class="timeline-logo" href="https://analyticaconsulting.ee" target="_blank" rel="noopener noreferrer"><img src="images/analytica-consulting-logo.png" alt="Analytica Consulting"></a><div class="timeline-main"><h3>Founder & CEO</h3><p>Analytica Consulting</p></div><div class="timeline-meta">May 2022 — Aug 2024<br>Tallinn</div></article>
+        <article class="timeline-item"><a class="timeline-logo" href="https://www.worldbank.org" target="_blank" rel="noopener noreferrer"><img src="images/world-bank-logo.png" alt="World Bank"></a><div class="timeline-main"><h3>External Advisor</h3><p>World Bank / OECD</p></div><div class="timeline-meta">Apr 2020 — May 2022<br>Washington / Paris</div></article>
+        <article class="timeline-item"><a class="timeline-logo" href="https://www.almirall.com" target="_blank" rel="noopener noreferrer"><img src="images/almirall-logo.png" alt="Almirall"></a><div class="timeline-main"><h3>Global Pricing & Market Access Manager</h3><p>Almirall</p></div><div class="timeline-meta">Sep 2018 — Dec 2019<br>Barcelona</div></article>
+        <article class="timeline-item"><a class="timeline-logo" href="https://www.deloitte.com" target="_blank" rel="noopener noreferrer"><img src="images/deloitte-logo.png" alt="Deloitte"></a><div class="timeline-main"><h3>Transfer Pricing Consultant</h3><p>Deloitte</p></div><div class="timeline-meta">Sep 2017 — Aug 2018<br>Barcelona</div></article>
+        <article class="timeline-item"><a class="timeline-logo" href="https://www.astrazeneca.com" target="_blank" rel="noopener noreferrer"><img src="images/astrazeneca-logo.png" alt="AstraZeneca"></a><div class="timeline-main"><h3>Business Analyst Intern</h3><p>AstraZeneca</p></div><div class="timeline-meta">Summer 2017<br>Cambridge</div></article>
+        <article class="timeline-item"><a class="timeline-logo" href="https://www.barcelona.cat" target="_blank" rel="noopener noreferrer"><img src="images/barcelona-council-logo.png" alt="Barcelona City Council"></a><div class="timeline-main"><h3>International Relations Intern</h3><p>Barcelona City Council</p></div><div class="timeline-meta">Summer 2014<br>Barcelona</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container reveal">
+      <span class="section-kicker">Contact</span>
+      <h2>Professional inquiries</h2>
+      <div class="contact-grid">
+        <div class="panel"><p>For collaborations, advisory work, speaking engagements, or research invitations.</p><p><strong>muntaner@icab.cat</strong></p></div>
+        <div class="panel"><p>PGP-encrypted email and secure channels are available for confidential communication.</p><p>Barcelona, Catalonia, Spain</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="container">© 2026 Xavier Muntaner. All rights reserved.</div></footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const hero = document.querySelector('[data-parallax]');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY * 0.12;
+      if (hero) hero.style.transform = `translate3d(0, ${y}px, 0)`;
+    }, { passive: true });
+  </script>
+</body>
+</html>
     .timeline-meta{text-align:right;font-size:.83rem;color:#64748b;line-height:1.5}
 
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
