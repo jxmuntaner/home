@@ -1,116 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xavier Muntaner</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Joseph Xavier Muntaner — economist, legal scholar, and adviser specializing in antitrust, digital markets, regulation, and geoeconomics." />
+  <title>Joseph Xavier Muntaner</title>
+  <meta name="theme-color" content="#184c7d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="JXM" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #184c7d;
+      --primary-dark: #11385d;
+      --secondary: #f7f9fb;
+      --text: #52606d;
+      --dark: #18212b;
+      --border: #e5e7eb;
+      --white: #ffffff;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Lato', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      line-height: 1.75;
+      background: var(--white);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--dark);
+      line-height: 1.3;
+    }
+
+    h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); }
+    h2 { font-size: clamp(1.5rem, 2vw, 2rem); margin-bottom: 1.5rem; }
+    h3 { font-size: 1.05rem; }
+
+    a { color: var(--primary); text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    .container {
+      width: min(1140px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section { padding: 84px 0; }
+    .section.alt { background: var(--secondary); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.03);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 74px;
+      gap: 20px;
+    }
+
+    .header-logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .header-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: .95rem;
+    }
+
+    .hero {
+      padding: 72px 0 90px;
+      background: linear-gradient(to bottom, var(--secondary), #fff);
+    }
+
+    .hero-grid,
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 24px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .profile-picture {
+      width: 220px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-links li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: .95rem;
+    }
+
+    .meta {
+      color: #6b7280;
+      font-size: .88rem;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .publication-item + .publication-item {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .courses-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .courses-table th,
+    .courses-table td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-size: .9rem;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.75);
+      text-align: center;
+      padding: 28px 0;
+      font-size: .92rem;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-grid > aside,
+    .hero-grid > div {
+      animation: fadeUp .7s ease both;
+    }
+
+    .hero-grid > div {
+      animation-delay: .12s;
+    }
+
+    .header-nav a,
+    .btn,
+    .profile-picture {
+      transition: transform .25s ease, opacity .25s ease, color .25s ease;
+    }
+
+    .header-nav a:hover {
+      color: var(--primary-dark);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .profile-picture:hover {
+      transform: translateY(-3px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .experience-item {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-picture {
+        width: 180px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealTargets = document.querySelectorAll('.section h2, .card');
+      revealTargets.forEach((el, index) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = `${Math.min(index % 3, 2) * 80}ms`;
+      });
 
-    <header class="site-header">
-        <div class="container header-container">
-            <a href="#" class="header-logo">Xavier Muntaner</a>
-            <nav class="header-nav">
-                <ul>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#honors-awards">Honors & Awards</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#teaching">Teaching</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealTargets.forEach((el) => observer.observe(el));
+    });
+  </script>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="header-logo">Joseph Xavier Muntaner</a>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <aside>
+        <img src="images/profile.jpg" alt="Joseph Xavier Muntaner" class="profile-picture" />
+        <h3>Joseph Xavier Muntaner</h3>
+        <p>Senior Economic Adviser<br />Banca March</p>
+        <ul class="profile-links">
+          <li><i class="fa-solid fa-location-dot"></i> Barcelona, Spain</li>
+          <li><i class="fa-solid fa-envelope"></i> muntaner@icab.cat</li>
+          <li><i class="fa-brands fa-github"></i> github.com/jxmuntaner</li>
+        </ul>
+      </aside>
+      <div>
+        <h1>Economics, law, digital markets.</h1>
+        <p>I am a Senior Economic Adviser at Banca March while completing legal qualification studies in Barcelona.</p>
+        <p>My work sits at the intersection of antitrust economics, regulation, financial systems, and the strategic governance of technology.</p>
+        <p>My doctoral work at Yale focused on antitrust intervention in platform markets, with particular emphasis on Apple’s business practices and the economics of gatekeeping.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="section">
+    <div class="container">
+      <h2>Education</h2>
+      <div class="grid-2">
+        <div class="card"><h3>Universitat de Barcelona</h3><p>Máster de Acceso a la Abogacía y Procura</p><p class="meta">2025–2027</p></div>
+        <div class="card"><h3>Open University of Catalonia</h3><p>Bachelor's Degree in Law</p><p class="meta">2020–2024</p></div>
+        <div class="card"><h3>London Business School</h3><p>MSc in Management</p><p class="meta">2015–2017</p></div>
+        <div class="card"><h3>Sciences Po Paris / UC Berkeley</h3><p>Economics</p><p class="meta">2013–2016</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section alt">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="experience-list">
+        <div class="card experience-item"><div class="meta">2024 — Present</div><div><h3>Banca March</h3><p>Senior Economic Adviser</p></div></div>
+        <div class="card experience-item"><div class="meta">2022 — 2024</div><div><h3>Analytica Consulting</h3><p>Founder & CEO</p></div></div>
+        <div class="card experience-item"><div class="meta">2020 — 2022</div><div><h3>World Bank / OECD</h3><p>External advisory and legal consulting work</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="section">
+    <div class="container">
+      <h2>Research & Publications</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Selected Publications</h3>
+          <div class="publication-item"><strong>The Impact of AI on Financial Markets</strong><p class="meta">Journal of Financial Technology</p></div>
+          <div class="publication-item"><strong>Regulatory Frameworks for Digital Currencies</strong><p class="meta">International Journal of Law and Economics</p></div>
         </div>
-    </header>
+        <div class="card">
+          <h3>Current Research</h3>
+          <div class="publication-item"><strong>Antitrust Challenges in Platform Economies</strong></div>
+          <div class="publication-item"><strong>Behavioral Biases in Investment Decisions</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <main>
-        <section class="profile-section">
-            <div class="container">
-                <div class="profile-layout">
-                    <aside class="profile-sidebar animate-on-scroll">
-                        <img src="images/profile.jpg" alt="Xavier Muntaner" class="profile-picture">
-                        <h2 class="profile-name">Xavier Muntaner</h2>
-                        <p class="profile-title">Senior Economic Adviser<br>Banca March</p>
-                        <ul class="profile-links">
-                            <li><i class="fa-solid fa-location-dot fa-fw"></i><span>Barcelona, Spain</span></li>
-                            <li><i class="fa-solid fa-file-pdf fa-fw"></i><a href="images/CV_Muntaner.pdf" target="_blank">CV</a></li>
-                            <li><i class="fa-solid fa-envelope fa-fw"></i><a href="mailto:muntaner@icab.cat" class="__cf_email__" data-cfemail="YOUR_CLOUDFLARE_ENCODED_EMAIL_IF_USED">muntaner@icab.cat</a></li>
-                            <li><i class="fa-brands fa-github fa-fw"></i><a href="https://github.com/jxmuntaner" target="_blank">GitHub</a></li>
-                        </ul>
-                    </aside>
-                    <div class="profile-main-content animate-on-scroll">
-                        <h1>Hi! My name is Xavier.</h1>
-                        <p>I am a Senior Economic Adviser at Banca March in Barcelona, where I’m simultaneously finishing a master’s to access the legal profession.</p>
-                        <p>Prior to moving back to Barcelona, I completed my PhD in Financial Economics at the University of Yale. My dissertation was entitled <i>Gatekeeping the Gatekeepers: Measuring Outcomes of Antitrust Intervention in Apple's Business Practices</i>, with the great Dr. George L. Priest as my thesis supervisor.
-</p>
-                        <p>I did my undergraduate studies at Sciences Po Paris and the University of California, Berkeley and my master’s degree at the London Business School.</p>
-                        <p>I've worked as an international tax consultant, financial adviser and a health economics expert at multinational companies. I’ve also provided expert advice to private entities, government agencies, the World Bank and the OECD.</p>
-                        <p>My research interests are in antitrust economics, particularly in the context of the digital economy, the economic analysis of international and banking regulation as well as white-collar crime legislation and enforcement. I also have a keen interest in geoeconomics, cybersecurity and artificial intelligence.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <section id="projects" class="section alt">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Aventine Lab</h3><p>Geoeconomic intelligence for a multipolar world.</p></div>
+        <div class="card"><h3>LexiForm</h3><p>AI-assisted legal process infrastructure for Spain.</p></div>
+        <div class="card"><h3>Cybercrime Accountability Consortium</h3><p>Research and accountability around cybercrime enablers.</p></div>
+      </div>
+    </div>
+  </section>
 
-        <section id="education" class="education section-content">
-            <div class="container">
-                <h2 class="animate-on-scroll">Education</h2>
-                <div class="education-grid">
-                    <div class="edu-card in-progress animate-on-scroll">
-                        <img src="images/barcelona-uni-logo.png" alt="Universitat de Barcelona Logo" class="edu-logo-small">
-                        <div class="edu-details-compact">
-                            <h4 class="edu-degree">Máster de Acceso a la Abogacía y Procura</h4>
-                            <p class="edu-institution">Universitat de Barcelona, Spain</p>
-                            <p class="edu-period">2025 - 2027 <span class="status-badge">In Progress</span></p>
-                        </div>
-                    </div>
-                    <div class="edu-card animate-on-scroll">
-                        <img src="images/uoc-logo.png" alt="UOC Logo" class="edu-logo-small">
-                        <div class="edu-details-compact">
-                            <h4 class="edu-degree">Bachelor's Degree in Law</h4>
-                            <p class="edu-institution">Open University of Catalonia, Barcelona, Spain</p>
-                            <p class="edu-period">2020 - 2024</p>
-                        </div>
-                    </div>                  
-                    <div class="edu-card animate-on-scroll">
-                        <img src="images/lbs-logo.png" alt="London Business School Logo" class="edu-logo-small">
-                        <div class="edu-details-compact">
-                            <h4 class="edu-degree">Master of Science in Management</h4>
-                            <p class="edu-institution">London Business School, UK</p>
-                            <p class="edu-period">2015 - 2017</p>
-                        </div>
-                    </div>
-                    <div class="edu-card animate-on-scroll">
-                        <img src="images/berkeley-logo.png" alt="UC Berkeley Logo" class="edu-logo-small">
-                        <div class="edu-details-compact">
-                            <h4 class="edu-degree">Economics Exchange Program</h4>
-                            <p class="edu-institution">University of California, Berkeley, USA</p>
-                            <p class="edu-period">2015 - 2016</p>
-                        </div>
-                    </div>
-                    <div class="edu-card animate-on-scroll">
-                        <img src="images/sciencespo-logo.png" alt="Sciences Po Logo" class="edu-logo-small">
-                        <div class="edu-details-compact">
-                            <h4 class="edu-degree">Bachelor's Degree in Economics</h4>
-                            <p class="edu-institution">Institut d'études politiques de Paris - Sciences Po Paris, France</p>
-                            <p class="edu-period">2013 - 2016</p>
-                        </div>
-                </div>
-            </div>
-        </section>
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Professional Inquiries</h3>
+          <p>For collaborations, advisory work, research invitations, or speaking engagements.</p>
+          <a class="btn" href="mailto:muntaner@icab.cat">Email</a>
+        </div>
+        <div class="card">
+          <h3>Secure Contact</h3>
+          <p>PGP-encrypted email and secure channels are available for confidential communications.</p>
+          <p class="meta">Barcelona, Catalonia, Spain</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section id="experience" class="experience section-content">
-            <div class="container">
-                <h2 class="animate-on-scroll">Experience</h2>
-        <section class="experience-section">
-  <div class="experience-list">
-    <article class="experience-item">
-      <a class="experience-logo" href="https://www.bancamarch.es" target="_blank" rel="noopener noreferrer" aria-label="Banca March"><img src="images/banca-march-logo" alt="Banca March"></a>
-      <div class="experience-year">Sep 2024 — Present</div>
-      <div class="experience-content">
+  <footer>
+    <div class="container">© 2026 Joseph Xavier Muntaner. All rights reserved.</div>
+  </footer>
+</body>
+</html>
         <h3>Senior Economic Advisor P/T</h3>
         <p class="experience-company">Banca March</p>
         <p class="experience-summary">Barcelona, Spain</p>
