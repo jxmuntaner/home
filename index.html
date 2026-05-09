@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Xavier Muntaner — economist, legal scholar, and adviser specializing in antitrust, digital markets, regulation, and geoeconomics." />
   <title>Xavier Muntaner</title>
-  <meta name="theme-color" content="#184c7d" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="JXM" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -27,8 +18,6 @@
       --dark: #18212b;
       --border: #e5e7eb;
       --white: #ffffff;
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
       --font-heading: 'Montserrat', sans-serif;
       --font-body: 'Lato', sans-serif;
     }
@@ -38,60 +27,47 @@
     body {
       font-family: var(--font-body);
       color: var(--text);
-      line-height: 1.75;
       background: var(--white);
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3, h4 {
+    h1, h2, h3 {
       font-family: var(--font-heading);
       color: var(--dark);
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
-    h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); }
-    h2 { font-size: clamp(1.5rem, 2vw, 2rem); margin-bottom: 1.5rem; }
-    h3 { font-size: 1.05rem; }
+    h1 { font-size: clamp(2.35rem, 5vw, 4rem); }
+    h2 { font-size: clamp(1.3rem, 2vw, 1.8rem); }
+    h3 { font-size: 1rem; }
 
-    a { color: var(--primary); text-decoration: none; }
+    a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
     ul { list-style: none; }
 
     .container {
-      width: min(1140px, calc(100% - 32px));
+      width: min(1040px, calc(100% - 36px));
       margin: 0 auto;
     }
 
-    .section { padding: 84px 0; }
+    .section { padding: 68px 0; }
     .section.alt { background: var(--secondary); }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 3px 12px rgba(0,0,0,.03);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,.94);
+      background: rgba(255,255,255,.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
+      min-height: 72px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      min-height: 74px;
+      align-items: center;
       gap: 20px;
     }
 
@@ -99,200 +75,185 @@
       font-family: var(--font-heading);
       font-weight: 700;
       color: var(--dark);
+      letter-spacing: -.01em;
     }
 
     .header-nav ul {
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-size: .95rem;
+      gap: 18px;
+      font-size: .94rem;
+      color: #64748b;
     }
 
+    .header-nav a:hover { color: var(--primary); }
+
     .hero {
-      padding: 72px 0 90px;
+      padding: 56px 0 52px;
       background: linear-gradient(to bottom, var(--secondary), #fff);
     }
 
-    .hero-grid,
-    .grid-2,
-    .grid-3 {
-      display: grid;
-      gap: 24px;
-    }
-
     .hero-grid {
-      grid-template-columns: 280px 1fr;
+      display: grid;
+      grid-template-columns: 230px 1fr;
       gap: 48px;
       align-items: start;
     }
 
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-
     .profile-picture {
-      width: 220px;
+      width: 180px;
       border-radius: 12px;
-      margin-bottom: 18px;
-      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .profile-meta h3 {
+      margin-bottom: 6px;
+    }
+
+    .profile-meta p {
+      font-size: .94rem;
+      margin-bottom: 14px;
     }
 
     .profile-links li {
       display: flex;
       gap: 10px;
+      align-items: center;
+      font-size: .92rem;
       margin-bottom: 8px;
-      font-size: .95rem;
+      color: #64748b;
     }
 
-    .meta {
+    .hero-copy p {
+      max-width: 680px;
+      font-size: 1.02rem;
+      margin-top: 14px;
+    }
+
+    .section-heading {
+      margin-bottom: 20px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
       color: #6b7280;
-      font-size: .88rem;
+      margin-bottom: 4px;
     }
 
-    .experience-list {
-      display: grid;
-      gap: 16px;
+    .timeline-section {
+      max-width: 920px;
     }
 
-    .experience-item {
+    .timeline-item {
       display: grid;
-      grid-template-columns: 150px 1fr;
+      grid-template-columns: 48px minmax(0,1fr) 150px;
       gap: 18px;
-      align-items: start;
-    }
-
-    .publication-item + .publication-item {
-      margin-top: 16px;
-      padding-top: 16px;
+      align-items: center;
+      padding: 18px 0;
       border-top: 1px solid var(--border);
     }
 
-    .courses-table {
-      width: 100%;
-      border-collapse: collapse;
+    .timeline-item:first-child {
+      border-top: 0;
+      padding-top: 0;
     }
 
-    .courses-table th,
-    .courses-table td {
-      text-align: left;
-      padding: 12px;
-      border-bottom: 1px solid var(--border);
+    .timeline-mark {
+      display: none;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: var(--primary);
-      color: #fff;
-      font-size: .9rem;
-      font-weight: 600;
-      margin-top: 12px;
+    .timeline-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .timeline-logo img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+
+    .timeline-main h3 { margin-bottom: 2px; }
+    .timeline-main p { font-size: .95rem; }
+
+    .timeline-meta {
+      text-align: right;
+      font-size: .82rem;
+      color: #6b7280;
+      line-height: 1.45;
+    }
+
+    .timeline-meta span { display: block; }
+
+    .research-grid,
+    .projects-grid,
+    .contact-grid {
+      display: grid;
+      gap: 26px;
+    }
+
+    .research-grid,
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .simple-block h3 {
+      margin-bottom: 10px;
+    }
+
+    .simple-block p,
+    .simple-block li {
+      font-size: .96rem;
+      margin-bottom: 10px;
     }
 
     footer {
-      background: var(--dark);
-      color: rgba(255,255,255,.75);
-      text-align: center;
-      padding: 28px 0;
-      font-size: .92rem;
+      padding: 26px 0;
+      border-top: 1px solid var(--border);
+      font-size: .9rem;
+      color: #64748b;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .7s ease, transform .7s ease;
-      will-change: opacity, transform;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hero-grid > aside,
-    .hero-grid > div {
-      animation: fadeUp .7s ease both;
-    }
-
-    .hero-grid > div {
-      animation-delay: .12s;
-    }
-
-    .header-nav a,
-    .btn,
-    .profile-picture {
-      transition: transform .25s ease, opacity .25s ease, color .25s ease;
-    }
-
-    .header-nav a:hover {
-      color: var(--primary-dark);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .profile-picture:hover {
-      transform: translateY(-3px);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    @media (max-width: 920px) {
+    @media (max-width: 900px) {
       .hero-grid,
-      .grid-2,
-      .grid-3,
-      .experience-item {
+      .research-grid,
+      .projects-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .profile-picture {
-        width: 180px;
+      .timeline-item {
+        grid-template-columns: 42px 1fr;
       }
+
+      .timeline-meta {
+        grid-column: 3;
+        text-align: left;
+        margin-top: 4px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .header-nav { display: none; }
+      .hero-grid { grid-template-columns: 1fr; gap: 26px; }
+      .hero { padding-top: 42px; }
     }
   </style>
 </head>
 <body>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const revealTargets = document.querySelectorAll('.section h2, .card');
-      revealTargets.forEach((el, index) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = `${Math.min(index % 3, 2) * 80}ms`;
-      });
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      });
-
-      revealTargets.forEach((el) => observer.observe(el));
-    });
-  </script>
   <header class="site-header">
     <div class="container header-inner">
       <a href="#" class="header-logo">Xavier Muntaner</a>
@@ -312,100 +273,61 @@
     <div class="container hero-grid">
       <aside>
         <img src="images/profile.jpg" alt="Xavier Muntaner" class="profile-picture" />
-        <h3>Xavier Muntaner</h3>
-        <p>Senior Economic Adviser<br />Banca March</p>
+        <div class="profile-meta">
+          <h3>Xavier Muntaner</h3>
+          <p>Senior Economic Adviser<br />Banca March</p>
+        </div>
         <ul class="profile-links">
           <li><i class="fa-solid fa-location-dot"></i> Barcelona, Spain</li>
           <li><i class="fa-solid fa-envelope"></i> muntaner@icab.cat</li>
           <li><i class="fa-brands fa-github"></i> github.com/jxmuntaner</li>
         </ul>
       </aside>
-      <div>
+
+      <div class="hero-copy">
         <h1>Economics, law, digital markets.</h1>
         <p>I am a Senior Economic Adviser at Banca March while completing legal qualification studies in Barcelona.</p>
-        <p>My work sits at the intersection of antitrust economics, regulation, financial systems, and the strategic governance of technology.</p>
-        <p>My doctoral work at Yale focused on antitrust intervention in platform markets, with particular emphasis on Apple’s business practices and the economics of gatekeeping.</p>
+        <p>My work focuses on antitrust economics, regulation, financial systems, and the strategic governance of technology.</p>
+        <p>My doctoral work at Yale examined antitrust intervention in platform markets, with particular attention to gatekeeping, digital power, and the economics of ecosystem control.</p>
       </div>
     </div>
   </section>
 
-
-      <section id="education" class="section">
-  <div class="container timeline-wrap">
-    <div class="section-heading">
-      <span class="section-kicker">Education</span>
-    </div>
- </div> </div>
-        <div class="timeline-list">
-      <article class="timeline-item">
-        <div class="timeline-mark"></div>
-        <div class="timeline-logo"><img src="images/ub-logo.png" alt=""></div>
-        <div class="timeline-main">
-          <h3>Universitat de Barcelona</h3>
-          <p>Máster de Acceso a la Abogacía y Procura</p>
-        </div>
-        <div class="timeline-meta">
-          <span>2025–2027</span>
-          <span>Barcelona</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>      <div class="grid-2">
-        <div class="card"><h3>Universitat de Barcelona</h3><p>Máster de Acceso a la Abogacía y Procura</p><p class="meta">2025–2027</p></div>
-        <div class="card"><h3>Open University of Catalonia</h3><p>Bachelor's Degree in Law</p><p class="meta">2020–2024</p></div>
-        <div class="card"><h3>London Business School</h3><p>MSc in Management</p><p class="meta">2015–2017</p></div>
-        <div class="card"><h3>Sciences Po Paris / UC Berkeley</h3><p>Economics</p><p class="meta">2013–2016</p></div>
+  <section id="education" class="section">
+    <div class="container timeline-section">
+      <div class="section-heading"><span class="section-kicker">Education</span></div>
+      <div class="timeline-list">
+        <article class="timeline-item"><div class="timeline-mark"></div><div class="timeline-logo"><img src="images/ub-logo.png" alt="" /></div><div class="timeline-main"><h3>Universitat de Barcelona</h3><p>Máster de Acceso a la Abogacía y Procura</p></div><div class="timeline-meta"><span>2025–2027</span><span>Barcelona</span></div></article>
+        <article class="timeline-item"><div class="timeline-mark"></div><div class="timeline-logo"><img src="images/uoc-logo.png" alt="" /></div><div class="timeline-main"><h3>Open University of Catalonia</h3><p>Bachelor’s Degree in Law</p></div><div class="timeline-meta"><span>2020–2024</span><span>Barcelona</span></div></article>
+        <article class="timeline-item"><div class="timeline-mark"></div><div class="timeline-logo"><img src="images/lbs-logo.png" alt="" /></div><div class="timeline-main"><h3>London Business School</h3><p>MSc in Management</p></div><div class="timeline-meta"><span>2015–2017</span><span>London</span></div></article>
       </div>
     </div>
   </section>
 
   <section id="experience" class="section alt">
-    <div class="container">
-      <h2>Experience</h2>
-      <section id="experience" class="section alt">
-  <div class="container timeline-wrap">
-    <div class="section-heading">
-      <span class="section-kicker">Experience</span>
-      <h2>Professional experience</h2>
-    </div>
-
-    <div class="timeline-list">
-      <article class="timeline-item">
-        <div class="timeline-mark"></div>
-        <div class="timeline-logo"><img src="images/bancamarch-logo.png" alt=""></div>
-        <div class="timeline-main">
-          <h3>Senior Economic Adviser</h3>
-          <p>Banca March</p>
-        </div>
-        <div class="timeline-meta">
-          <span>2024 — Present</span>
-          <span>Barcelona</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>      <div class="experience-list">
-        <div class="card experience-item"><div class="meta">2024 — Present</div><div><h3>Banca March</h3><p>Senior Economic Adviser</p></div></div>
-        <div class="card experience-item"><div class="meta">2022 — 2024</div><div><h3>Analytica Consulting</h3><p>Founder & CEO</p></div></div>
-        <div class="card experience-item"><div class="meta">2020 — 2022</div><div><h3>World Bank / OECD</h3><p>External advisory and legal consulting work</p></div></div>
+    <div class="container timeline-section">
+      <div class="section-heading"><span class="section-kicker">Experience</span></div>
+      <div class="timeline-list">
+        <article class="timeline-item"><div class="timeline-mark"></div><div class="timeline-logo"><img src="images/bancamarch-logo.png" alt="" /></div><div class="timeline-main"><h3>Senior Economic Adviser</h3><p>Banca March</p></div><div class="timeline-meta"><span>2024 — Present</span><span>Barcelona</span></div></article>
+        <article class="timeline-item"><div class="timeline-mark"></div><div class="timeline-logo"><img src="images/analytica-logo.png" alt="" /></div><div class="timeline-main"><h3>Founder & CEO</h3><p>Analytica Consulting</p></div><div class="timeline-meta"><span>2022 — 2024</span><span>Tallinn</span></div></article>
+        <article class="timeline-item"><div class="timeline-mark"></div><div class="timeline-logo"><img src="images/worldbank-logo.png" alt="" /></div><div class="timeline-main"><h3>External Advisor</h3><p>World Bank / OECD</p></div><div class="timeline-meta"><span>2020 — 2022</span><span>Washington / Paris</span></div></article>
       </div>
     </div>
   </section>
 
   <section id="research" class="section">
     <div class="container">
-      <h2>Research & Publications</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Selected Publications</h3>
-          <div class="publication-item"><strong>The Impact of AI on Financial Markets</strong><p class="meta">Journal of Financial Technology</p></div>
-          <div class="publication-item"><strong>Regulatory Frameworks for Digital Currencies</strong><p class="meta">International Journal of Law and Economics</p></div>
+      <div class="section-heading"><span class="section-kicker">Research</span><h2>Selected work</h2></div>
+      <div class="research-grid">
+        <div class="simple-block">
+          <h3>Publications</h3>
+          <p>The Impact of AI on Financial Markets</p>
+          <p>Regulatory Frameworks for Digital Currencies</p>
         </div>
-        <div class="card">
-          <h3>Current Research</h3>
-          <div class="publication-item"><strong>Antitrust Challenges in Platform Economies</strong></div>
-          <div class="publication-item"><strong>Behavioral Biases in Investment Decisions</strong></div>
+        <div class="simple-block">
+          <h3>Current research</h3>
+          <p>Antitrust challenges in platform economies</p>
+          <p>Geoeconomic governance of digital infrastructure</p>
         </div>
       </div>
     </div>
@@ -413,717 +335,34 @@
 
   <section id="projects" class="section alt">
     <div class="container">
-      <h2>Projects</h2>
-      <div class="grid-3">
-        <div class="card"><h3>Aventine Lab</h3><p>Geoeconomic intelligence for a multipolar world.</p></div>
-        <div class="card"><h3>LexiForm</h3><p>AI-assisted legal process infrastructure for Spain.</p></div>
-        <div class="card"><h3>Cybercrime Accountability Consortium</h3><p>Research and accountability around cybercrime enablers.</p></div>
+      <div class="section-heading"><span class="section-kicker">Projects</span><h2>Current initiatives</h2></div>
+      <div class="projects-grid">
+        <div class="simple-block"><h3>Aventine Lab</h3><p>Geoeconomic intelligence for a multipolar world.</p></div>
+        <div class="simple-block"><h3>LexiForm</h3><p>AI-assisted legal process infrastructure for Spain.</p></div>
+        <div class="simple-block"><h3>Cybercrime Accountability Consortium</h3><p>Research and accountability around cybercrime enablers.</p></div>
       </div>
     </div>
   </section>
 
   <section id="contact" class="section">
     <div class="container">
-      <h2>Contact</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Professional Inquiries</h3>
-          <p>For collaborations, advisory work, research invitations, or speaking engagements.</p>
-          <a class="btn" href="mailto:muntaner@icab.cat">Email</a>
+      <div class="section-heading"><span class="section-kicker">Contact</span><h2>Professional inquiries</h2></div>
+      <div class="contact-grid">
+        <div class="simple-block">
+          <p>For collaborations, advisory work, speaking engagements, or research invitations.</p>
+          <p><strong>muntaner@icab.cat</strong></p>
         </div>
-        <div class="card">
-          <h3>Secure Contact</h3>
-          <p>PGP-encrypted email and secure channels are available for confidential communications.</p>
-          <p class="meta">Barcelona, Catalonia, Spain</p>
+        <div class="simple-block">
+          <p>PGP-encrypted email and secure channels are available for confidential communication.</p>
+          <p>Barcelona, Catalonia, Spain</p>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">© 2026 Joseph Xavier Muntaner. All rights reserved.</div>
+    <div class="container">© 2026 Xavier Muntaner. All rights reserved.</div>
   </footer>
 </body>
 </html>
-        <h3>Senior Economic Advisor P/T</h3>
-        <p class="experience-company">Banca March</p>
-        <p class="experience-summary">Barcelona, Spain</p>
-      </div>
-    </article>
 
-    <article class="experience-item">
-      <a class="experience-logo" href="https://analyticaconsulting.ee" target="_blank" rel="noopener noreferrer" aria-label="Analytica Consulting"><img src="https://logo.clearbit.com/analyticaconsulting.ee" alt="Analytica Consulting"></a>
-      <div class="experience-year">May 2022 — Aug 2024</div>
-      <div class="experience-content">
-        <h3>Founder and CEO</h3>
-        <p class="experience-company">Analytica Consulting</p>
-        <p class="experience-summary">Tallinn, Estonia</p>
-      </div>
-    </article>
-
-    <article class="experience-item">
-      <a class="experience-logo" href="https://www.worldbank.org" target="_blank" rel="noopener noreferrer" aria-label="World Bank"><img src="https://logo.clearbit.com/worldbank.org" alt="World Bank"></a>
-      <div class="experience-year">Apr 2020 — May 2022</div>
-      <div class="experience-content">
-        <h3>External Advisor</h3>
-        <p class="experience-company">World Bank</p>
-        <p class="experience-summary">Washington, D.C., USA</p>
-      </div>
-    </article>
-
-    <article class="experience-item">
-      <a class="experience-logo" href="https://www.oecd.org" target="_blank" rel="noopener noreferrer" aria-label="OECD"><img src="https://logo.clearbit.com/oecd.org" alt="OECD"></a>
-      <div class="experience-year">Mar 2020 — Mar 2021</div>
-      <div class="experience-content">
-        <h3>International Legal Consultant</h3>
-        <p class="experience-company">OECD</p>
-        <p class="experience-summary">Paris, France</p>
-      </div>
-    </article>
-
-    <article class="experience-item">
-      <a class="experience-logo" href="https://www.almirall.com" target="_blank" rel="noopener noreferrer" aria-label="Almirall"><img src="https://logo.clearbit.com/almirall.com" alt="Almirall"></a>
-      <div class="experience-year">Sep 2018 — Dec 2019</div>
-      <div class="experience-content">
-        <h3>Global Pricing &amp; Market Access Manager</h3>
-        <p class="experience-company">Almirall</p>
-        <p class="experience-summary">Barcelona, Spain</p>
-      </div>
-    </article>
-
-    <article class="experience-item">
-      <a class="experience-logo" href="https://www.deloitte.com" target="_blank" rel="noopener noreferrer" aria-label="Deloitte"><img src="https://logo.clearbit.com/deloitte.com" alt="Deloitte"></a>
-      <div class="experience-year">Sep 2017 — Aug 2018</div>
-      <div class="experience-content">
-        <h3>Transfer Pricing Consultant</h3>
-        <p class="experience-company">Deloitte</p>
-        <p class="experience-summary">Barcelona, Spain</p>
-      </div>
-    </article>
-
-    <article class="experience-item">
-      <a class="experience-logo" href="https://www.astrazeneca.com" target="_blank" rel="noopener noreferrer" aria-label="AstraZeneca"><img src="https://logo.clearbit.com/astrazeneca.com" alt="AstraZeneca"></a>
-      <div class="experience-year">Summer 2017</div>
-      <div class="experience-content">
-        <h3>Business Analyst Intern</h3>
-        <p class="experience-company">AstraZeneca</p>
-        <p class="experience-summary">Cambridge, UK</p>
-      </div>
-    </article>
-
-    <article class="experience-item">
-      <a class="experience-logo" href="https://www.barcelona.cat" target="_blank" rel="noopener noreferrer" aria-label="Barcelona City Council"><img src="https://logo.clearbit.com/barcelona.cat" alt="Barcelona City Council"></a>
-      <div class="experience-year">Summer 2014</div>
-      <div class="experience-content">
-        <h3>International Relations Intern</h3>
-        <p class="experience-company">Barcelona City Council</p>
-        <p class="experience-summary">Barcelona, Spain</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<style>
-  .experience-section {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 60px 15px;
-    font-family: var(--font-secondary);
-    color: var(--text-color);
-    background-color: var(--secondary-color);
-  }
-
-  .experience-header {
-    margin-bottom: 1.5rem;
-  }
-
-  .experience-kicker {
-    margin: 0 0 0.5rem;
-    font-size: 0.74rem;
-    font-weight: 500;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-    color: #6c757d;
-  }
-
-  .experience-header h2 {
-    margin: 0;
-    max-width: 720px;
-    font-size: clamp(1.1rem, 2.5vw + 0.3rem, 1.5rem);
-    font-family: var(--font-primary);
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--dark-color);
-  }
-
-  .experience-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-top: 1.5rem;
-  }
-
-  .experience-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    background-color: var(--light-color);
-    border-radius: 8px;
-    box-shadow: var(--shadow-light);
-    padding: 20px;
-    transition: var(--base-transition), transform 0.3s ease;
-    border: 1px solid var(--border-color);
-    width: 100%;
-    height: auto;
-  }
-
-  .experience-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-dark);
-  }
-
-  .experience-logo {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    flex-shrink: 0;
-    border-radius: 6px;
-    background-color: #fff;
-    padding: 3px;
-    border: 1px solid #eee;
-    align-self: flex-start;
-    order: 2;
-  }
-
-  .experience-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .experience-year {
-    width: 150px;
-    flex-shrink: 0;
-    padding-top: 0.15rem;
-    font-size: 0.8rem;
-    color: #6c757d;
-    margin: 0;
-    line-height: 1.4;
-    white-space: nowrap;
-    font-family: var(--font-secondary);
-    order: 1;
-  }
-
-  .experience-content {
-    flex-grow: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    order: 3;
-  }
-
-  .experience-item .experience-content h3 {
-    font-size: 1rem;
-    color: var(--primary-color);
-    margin: 0 0 0.3rem;
-    font-family: var(--font-primary);
-    font-weight: 600;
-    line-height: 1.3;
-  }
-
-  .experience-company {
-    font-size: 0.9rem;
-    color: var(--dark-color);
-    margin: 0 0 0.2rem;
-    line-height: 1.4;
-    font-family: var(--font-secondary);
-    font-weight: 500;
-  }
-
-  .experience-summary {
-    font-size: 0.85rem;
-    color: #6c757d;
-    margin: 0;
-    line-height: 1.4;
-    font-family: var(--font-secondary);
-  }
-
-  @media (max-width: 767.98px) {
-    .experience-section {
-      padding: 40px 15px;
-    }
-
-    .experience-list {
-      gap: 15px;
-    }
-
-    .experience-item {
-      padding: 15px;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .experience-year {
-      width: 100%;
-      order: 1;
-    }
-
-    .experience-logo {
-      width: 45px;
-      height: 45px;
-      order: 2;
-    }
-
-    .experience-content {
-      width: calc(100% - 57px);
-      order: 3;
-    }
-
-    .experience-item .experience-content h3 {
-      font-size: 0.95rem;
-    }
-
-    .experience-company {
-      font-size: 0.85rem;
-    }
-
-    .experience-summary,
-    .experience-year {
-      font-size: 0.78rem;
-    }
-  }
-</style>
-
-        <section id="honors-awards" class="honors-awards section-content">
-            <div class="container">
-                <h2 class="animate-on-scroll">Honors & Awards</h2>
-                <div class="honors-grid">
-                    <div class="honor-item animate-on-scroll">
-                        <i class="fas fa-trophy"></i>
-                        <span>Winner: Best Doctoral Thesis in Law & Economics (2024)</span>
-                    </div>
-                    <div class="honor-item animate-on-scroll">
-                        <i class="fas fa-award"></i>
-                        <span>Fundación Ramon Areces Scholar (2017)</span>
-                    </div>
-                    <div class="honor-item animate-on-scroll">
-                        <i class="fas fa-medal"></i>
-                        <span>Dean's List (London Business School, 2017)</span>
-                    </div>
-                    <div class="honor-item animate-on-scroll">
-                        <i class="fas fa-star"></i>
-                        <span>Cum Laude Honors (Sciences Po Paris, 2016)</span>
-                    </div>
-                </div>
-
-                <div class="certifications-subsection">
-                    <h3 class="subsection-title animate-on-scroll">Certifications</h3>
-                    <div class="certifications-grid">
-                        <div class="certification-item animate-on-scroll">
-                            <i class="fas fa-certificate"></i>
-                            <span>AWS Certified Machine Learning - Specialty (AWS Training & Certification, 2021)</span>
-                        </div>
-                        <div class="certification-item animate-on-scroll">
-                            <i class="fab fa-python"></i>
-                            <span>AWS Certified Solutions Architect - Professional (AWS Training & Certification, 2021)</span>
-                        </div>
-                        <div class="certification-item animate-on-scroll">
-                            <i class="fas fa-shield-alt"></i>
-                            <span> AM Cost-Effectiveness Analysis - Sponsored by Employer (University of Oxford, 2021)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="research" class="research section-content">
-            <div class="container">
-                <h2 class="animate-on-scroll">Research & Publications</h2>
-                <div class="research-columns">
-                    <div class="research-category animate-on-scroll">
-                        <h3>Publications</h3>
-                        <ul class="publication-list">
-                            <li class="publication-item">
-                                <h4>"The Impact of AI on Financial Markets: An Econometric Analysis"</h4>
-                                <p class="publication-authors">Muntaner, J.X., Doe, J., Smith, A.</p>
-                                <p class="publication-details"><em>Journal of Financial Technology</em>, Vol. 5, No. 2, pp. 45-67 (2023). <a href="LINK_TO_PUBLICATION_1" target="_blank" rel="noopener noreferrer">[DOI/Link]</a></p>
-                            </li>
-                            <li class="publication-item">
-                                <h4>"Regulatory Frameworks for Digital Currencies: A Comparative Study"</h4>
-                                <p class="publication-authors">Muntaner, J.X.</p>
-                                <p class="publication-details"><em>International Journal of Law and Economics</em>, Vol. 12, pp. 101-120 (2022). <a href="LINK_TO_PUBLICATION_2" target="_blank" rel="noopener noreferrer">[DOI/Link]</a></p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="research-category animate-on-scroll">
-                        <h3>Working Papers</h3>
-                        <ul class="publication-list">
-                            <li class="publication-item">
-                                <h4>"Antitrust Challenges in Platform Economies"</h4>
-                                <p class="publication-authors">Muntaner, J.X.</p>
-                                <p class="publication-details">(2024). Available at SSRN or upon request.</p>
-                            </li>
-                            <li class="publication-item">
-                                <h4>"Behavioral Biases in Investment Decisions: Evidence from Retail Investors"</h4>
-                                <p class="publication-authors">Muntaner, J.X., Coauthor, B.</p>
-                                <p class="publication-details">(2024). Presented at Future Finance Conference.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="teaching" class="teaching section-content">
-            <div class="container">
-                <h2 class="animate-on-scroll">Teaching</h2>
-                <div class="teaching-statement-link animate-on-scroll">
-                    <a href="YOUR_PATH_TO/teaching_statement.pdf" target="_blank" class="btn btn-secondary">
-                        <i class="fas fa-chalkboard-teacher"></i> View Teaching Statement
-                    </a>
-                </div>
-                <div class="teaching-courses-wrapper animate-on-scroll">
-                    <h3 class="subsection-title">Courses Taught at Yale</h3>
-                    <div class="table-responsive-wrapper">
-                        <table class="courses-table">
-                            <thead>
-                                <tr>
-                                    <th>Course Name</th>
-                                    <th>Level</th>
-                                    <th>Role</th>
-                                    <th>Period</th>
-                                    <th>Evaluations</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Introduction to Macroeconomics</td>
-                                    <td>Undergraduate</td>
-                                    <td>Teaching Assistant</td>
-                                    <td>Fall 2022</td>
-                                    <td><a href="YOUR_PATH_TO/eval_macro_f23.pdf" target="_blank" aria-label="Evaluations for Intro to Macroeconomics Fall 2022"><i class="fas fa-external-link-alt"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>Econometrics</td>
-                                    <td>Undergraduate</td>
-                                    <td>Teaching Assistant</td>
-                                    <td>Spring 2021</td>
-                                    <td><a href="YOUR_PATH_TO/eval_metrics_s23.pdf" target="_blank" aria-label="Evaluations for Econometrics Spring 2021"><i class="fas fa-external-link-alt"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>Antitrust Law & Economics</td>
-                                    <td>Undergraduate</td>
-                                    <td>Teaching Assistant</td>
-                                    <td>Fall 2021</td>
-                                    <td><a href="YOUR_PATH_TO/eval_behavioral_f22.pdf" target="_blank" aria-label="Evaluations for Antitrust Fall 2021"><i class="fas fa-external-link-alt"></i></a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="projects section-content">
-            <div class="container">
-                <h2 class="animate-on-scroll">Project collaboration</h2>
-                <div class="project-grid">
-                    <div class="project-card animate-on-scroll">
-                        <div class="project-image-wrapper">
-                            <img src="images/aventinelab.gif" alt="Aventine Lab Project">
-                        </div>
-                        <div class="project-content">
-                            <h3>Aventine Lab</h3>
-                            <p>A non-aligned collaborative initiative to offer geoeconomic intelligence and strategies in a multipolar world.</p>
-                            <div class="project-links">
-                                <button class="btn btn-primary project-button">Live Demo</button>
-                                <button class="btn btn-secondary project-button">View Code</button>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="project-card animate-on-scroll">
-                        <div class="project-image-wrapper">
-                            <img src="images/lexiform.jpg" alt="LexiForm Project">
-                        </div>
-                        <div class="project-content">
-                            <h3>LexiForm</h3>
-                            <p>A project focused on streamlining legal processes in Spain leveraging the power of AI Agents.</p>
-                            <div class="project-links">
-                                <button class="btn btn-primary project-button">Live Demo</button>
-                                <button class="btn btn-secondary project-button">View Code</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card animate-on-scroll">
-                        <div class="project-image-wrapper">
-                            <img src="images/CAA.jpg" alt="Cybercrime Accountability Consortium Project">
-                        </div>
-                        <div class="project-content">
-                            <h3>Cybercrime Accountability Consortium</h3>
-                            <p>The internet crime business worldwide has reached epic proportions. Overlooked actors and enablers need to be held accountable.</p>
-                            <div class="project-links">
-                                <button class="btn btn-primary project-button">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact section-content">
-            <div class="container">
-                <h2 class="animate-on-scroll">Contact</h2>
-                <div class="contact-layout">
-                    <div class="contact-form-column animate-on-scroll">
-                        <h3>Contact Me</h3>
-                        <form id="mainContactForm" action="/api/contact" method="POST">
-                            <div class="form-group">
-                                <label for="contactName">Name:</label>
-                                <input type="text" id="contactName" name="contactName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactEmail">Email:</label>
-                                <input type="email" id="contactEmail" name="contactEmail" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactMessage">Message:</label>
-                                <textarea id="contactMessage" name="contactMessage" rows="6" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                            <div id="formStatusMessage" style="margin-top: 15px; font-weight: bold;"></div>
-                        </form>
-                    </div>
-
-                    <div class="contact-privacy-column animate-on-scroll">
-                        <h3>Privacy matters</h3>
-                        <p class="privacy-subtitle">If your contact request is sensitive or confidential in nature, please contact me securely using one of the following options.</p>
-                        <div class="privacy-options">
-                            <details class="privacy-option">
-                                <summary>SecureDrop</summary>
-                                <div class="privacy-option-content">
-                                    <p><strong>What is SecureDrop?</strong> SecureDrop is an open-source whistleblower submission system that media organizations and NGOs can use to securely accept documents from and communicate with anonymous sources.</p>
-                                    <p><strong>How to use:</strong> <em>Our organization uses SecureDrop. You can access our SecureDrop instance by visiting [SecureDrop Onion Address] using the Tor Browser. Follow the on-screen instructions to submit information."</em></p>
-                                    <p></p>
-                                </div>
-                            </details>
-
-                            <details class="privacy-option">
-                                <summary>Encrypted Email (PGP/GPG)</summary>
-                                <div class="privacy-option-content">
-                                    <p>You can send me an encrypted email using PGP/GPG. This ensures that only I can read the content of your message.</p>
-                                    <p><strong>My PGP Public Key:</strong></p>
-                                    <pre><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
-Comment: Joseph Xavier Muntaner - PGP Key
-
-[Actual PGP Public Key Block ASCII Armor]
-
-xjMEX.........long string of characters...................
-..........................................................
-=17
------END PGP PUBLIC KEY BLOCK-----</code></pre>
-                                    <p><strong>Fingerprint:</strong> <em>[Your PGP Key Fingerprint, e.g., XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX]</em></p>
-                                    <p><strong>Email for PGP:</strong> <a href="mailto:your-secure-pgp-email@example.com">your-secure-pgp-email@example.com</a></p>
-                                    <p>You can use tools like GPG Suite (macOS), Kleopatra (Windows/Linux), or Mailvelope (browser extension) to encrypt your message.</p>
-                                </div>
-                            </details>
-
-                            <details class="privacy-option">
-                                <summary>Post / Physical Mail</summary>
-                                <div class="privacy-option-content">
-                                    <p>For highly sensitive materials where digital methods are not preferred, you can send physical mail to the following address:</p>
-                                    <address>
-                                        Joseph Xavier Muntaner<br>
-                                        <em>Carrer de Padilla, 236</em><br>
-                                        <em>Barcelona, 08013</em><br>
-                                        <em>Spain</em>
-                                    </address>
-                                    <p>Consider taking precautions such as not including a return address on the envelope and mailing it from an unfamiliar postbox if anonymity is critical.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <p class="privacy-final-note">
-                            <i class="fas fa-info-circle"></i> Please note that telephone or mobile messaging, including apps like Signal or Telegram, are not secure forms of communication for all threat models and are therefore not offered for initial confidential contact. If we establish contact through a secure channel, we can discuss further communication options if necessary.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>© <script>document.write(new Date().getFullYear())</script> Joseph Xavier Muntaner. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <div id="accessModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">×</span>
-            <h2>Access Restricted</h2>
-            <p>If you are a partner or collaborator, please introduce your credentials below.</p>
-            <p id="modalErrorMessage" class="modal-error-message" style="display:none;"></p> <form id="accessForm">
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script>
-        // Scroll Animation Script
-        const an_scroll = () => {
-            const e = document.querySelectorAll(".animate-on-scroll");
-            e.forEach(e => {
-                const t = e.getBoundingClientRect().top,
-                    n = window.innerHeight;
-                t < n - 50 ? e.classList.add("is-visible") : e.classList.remove("is-visible")
-            })
-        };
-        window.addEventListener("scroll", an_scroll);
-        an_scroll(); // Initialize on page load
-
-        // Modal JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('accessModal');
-            const projectButtons = document.querySelectorAll('.project-button');
-            const closeButton = document.querySelector('#accessModal .close-button');
-            const accessForm = document.getElementById('accessForm');
-            const modalErrorMessage = document.getElementById('modalErrorMessage'); // Get error message element
-
-            function openModal() {
-                if (modal) {
-                    modal.style.display = 'flex'; // Changed to flex for centering
-                    if(modalErrorMessage) { // Clear previous errors when opening
-                        modalErrorMessage.textContent = '';
-                        modalErrorMessage.style.display = 'none';
-                    }
-                    if(accessForm) accessForm.reset(); // Reset form on open
-                    setTimeout(() => {
-                        modal.classList.add('modal-show');
-                    }, 10);
-                }
-            }
-
-            function closeModal() {
-                if (modal) {
-                    modal.classList.remove('modal-show');
-                    setTimeout(() => {
-                        modal.style.display = 'none';
-                    }, 300);
-                }
-            }
-
-            projectButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    openModal();
-                });
-            });
-
-            if (closeButton) {
-                closeButton.addEventListener('click', function() {
-                    closeModal();
-                });
-            }
-
-            window.addEventListener('click', function(event) {
-                if (event.target == modal) {
-                    closeModal();
-                }
-            });
-
-            window.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape' && modal && modal.classList.contains('modal-show')) {
-                    closeModal();
-                }
-            });
-
-            if (accessForm) {
-                accessForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    
-                    const usernameInput = document.getElementById('username');
-                    const passwordInput = document.getElementById('password');
-                    const username = usernameInput ? usernameInput.value.trim() : '';
-                    const password = passwordInput ? passwordInput.value.trim() : '';
-
-                    if (modalErrorMessage) {
-                        modalErrorMessage.textContent = ''; // Clear previous message
-                        modalErrorMessage.style.display = 'none';
-                    } else {
-                        console.error("Error message element not found in modal.");
-                        return; // Critical element missing
-                    }
-
-                    if (username === '' || password === '') {
-                        modalErrorMessage.textContent = 'Username and Password cannot be empty.';
-                        modalErrorMessage.style.display = 'block';
-                    } else {
-                        // Since there's no backend, any filled input is treated as "incorrect" for this demo
-                        modalErrorMessage.textContent = 'Invalid credentials. Please try again.';
-                        modalErrorMessage.style.display = 'block';
-                    }
-                    // Do NOT close modal or reset form here, so user can see the error and correct input
-                });
-            }
-        });
-    </script>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const contactForm = document.getElementById('mainContactForm');
-        const formStatusMessage = document.getElementById('formStatusMessage'); // Make sure this div exists in your HTML
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', async function(event) {
-                event.preventDefault(); // Prevent the default form submission (page reload)
-
-                formStatusMessage.textContent = 'Sending...';
-                formStatusMessage.style.color = 'var(--text-color)'; // Use your CSS variable
-
-                // Collect form data
-                const formData = new FormData(contactForm);
-                const data = {};
-                formData.forEach((value, key) => {
-                    data[key] = value;
-                });
-
-                try {
-                    // Send data to your serverless function
-                    const response = await fetch('/api/contact', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data),
-                    });
-
-                    const result = await response.json(); // Try to parse the response as JSON
-
-                    if (response.ok && result.success) {
-                        formStatusMessage.textContent = result.message || 'Message sent successfully! Thank you.';
-                        formStatusMessage.style.color = 'green'; // Or a success color from your CSS variables
-                        contactForm.reset(); // Clear the form fields
-                    } else {
-                        // Display error message from server or a generic one
-                        formStatusMessage.textContent = `Error: ${result.error || 'Failed to send message. Please try again.'}`;
-                        formStatusMessage.style.color = 'var(--error-color)'; // Use your CSS variable
-                    }
-                } catch (error) {
-                    // Network error or other issues with the fetch call
-                    console.error('Form submission error:', error);
-                    formStatusMessage.textContent = 'An unexpected error occurred. Please check your connection and try again.';
-                    formStatusMessage.style.color = 'var(--error-color)';
-                }
-            });
-        }
-    });
-    </script>
-</body>
-</html>
