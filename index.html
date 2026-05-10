@@ -3,63 +3,366 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Xavier Muntaner — economist, legal scholar, and adviser specializing in antitrust, digital markets, regulation, and geoeconomics." />
+
   <title>Xavier Muntaner</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Xavier Muntaner — economist, legal scholar, and adviser specializing in antitrust, digital markets, regulation, and geoeconomics." />
+  <meta name="author" content="Xavier Muntaner" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.xaviermuntaner.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Xavier Muntaner" />
+  <meta property="og:description" content="Economist, legal scholar, and adviser focused on antitrust, digital markets, regulation, and geoeconomics." />
+  <meta property="og:url" content="https://www.xaviermuntaner.com/" />
+  <meta property="og:image" content="https://www.xaviermuntaner.com/images/og-image.jpg" />
+  <meta property="og:site_name" content="Xavier Muntaner" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Xavier Muntaner" />
+  <meta name="twitter:description" content="Economist, legal scholar, and adviser focused on antitrust, digital markets, regulation, and geoeconomics." />
+  <meta name="twitter:image" content="https://www.xaviermuntaner.com/images/og-image.jpg" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Xavier Muntaner",
+    "url": "https://www.xaviermuntaner.com/",
+    "image": "https://www.xaviermuntaner.com/images/profile.jpg",
+    "jobTitle": "Senior Economic Adviser",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Banca March"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Barcelona",
+      "addressCountry": "ES"
+    },
+    "email": "mailto:muntaner@icab.cat"
+  }
+  </script>
+
   <style>
-    :root{
-      --bg:#f8fafc;--surface:rgba(255,255,255,.78);--line:rgba(15,23,42,.08);
-      --text:#475569;--heading:#0f172a;--primary:#184c7d;--primary-2:#245f98;
-      --shadow:0 20px 60px rgba(15,23,42,.08);--radius:22px;
+    :root {
+      --bg: #fafafa;
+      --line: #e5e7eb;
+      --text: #4b5563;
+      --heading: #111827;
+      --accent: #1f3b57;
+      --max: 980px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:Inter,sans-serif;background:linear-gradient(180deg,#f8fafc,#fff 22%,#f8fafc);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
-    h1,h2,h3{font-family:Montserrat,sans-serif;color:var(--heading);line-height:1.15}
-    a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
-    .container{width:min(1120px,calc(100% - 40px));margin:auto}
-    .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
-    .reveal.visible{opacity:1;transform:none}
 
-    .site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-    .header-inner{min-height:78px;display:flex;justify-content:space-between;align-items:center}
-    .header-logo{font-family:Montserrat,sans-serif;font-weight:700;letter-spacing:-.02em}
-    .header-nav ul{display:flex;gap:24px;list-style:none;font-size:.94rem}
-    .header-nav a{color:#64748b;transition:.25s}
-    .header-nav a:hover{color:var(--primary)}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-    .hero{position:relative;padding:88px 0 68px;overflow:hidden}
-    .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
-    .hero::before{width:340px;height:340px;background:rgba(36,95,152,.12);top:-60px;right:-80px}
-    .hero::after{width:280px;height:280px;background:rgba(24,76,125,.08);left:-80px;bottom:0}
-    .hero-grid{display:grid;grid-template-columns:250px 1fr;gap:56px;align-items:start}
-    .hero-card,.panel{background:var(--surface);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.65);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .hero-card{padding:0;position:relative;transform:translateY(0);transition:transform .35s ease;background:transparent;border:none;box-shadow:none;backdrop-filter:none}
-    .hero-card:hover{transform:translateY(-6px)}
-    .profile-picture{width:100%;max-width:420px;border-radius:14px;margin-bottom:28px;object-fit:cover}
-    .hero-card h3{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
-    .hero-card .profile-role{font-size:.98rem;line-height:1.55;color:#4b5563;margin-bottom:30px}
-    .profile-links{list-style:none;margin-top:18px;font-size:.93rem;color:#64748b}
-    .profile-links li{margin-top:10px}
-    .profile-links a{display:flex;align-items:center;gap:10px;color:#64748b;transition:color .25s ease, transform .25s ease}
-    .profile-links a:hover{color:var(--primary);transform:translateX(4px)}
-    .profile-links svg{width:18px;height:18px;flex-shrink:0;stroke:#94a3b8;transition:transform .25s cubic-bezier(.2,.8,.2,1), stroke .25s ease, opacity .25s ease}
-    .profile-links a:hover svg{transform:translateX(3px);stroke:var(--primary);opacity:.9}
-    .profile-links li{display:flex;align-items:center;gap:10px;padding:6px 0}
-    .profile-links a{color:#2563eb;transition:.2s}
-    .profile-links a:hover{text-decoration:underline}
-    .icon{font-size:1rem;opacity:.8}
-    .profile-links li{display:flex;align-items:center;gap:14px;line-height:1.35}
-    .profile-links .icon{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;color:#4b5563;flex-shrink:0}
-    .profile-links .icon svg{width:21px;height:21px;display:block}
-    .profile-links a{color:#0b63c9;transition:color .2s ease}
-    .profile-links a:hover{color:#084c9a}
-    .hero-copy{padding-top:8px;will-change:transform}
-    h1{font-size:clamp(2.8rem,7vw,5rem);letter-spacing:-.04em;max-width:780px}
-    .hero-copy p{font-size:1.04rem;max-width:760px;margin-top:16px}
+    body {
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,250,250,.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-logo,
+    h1, h2, h3 {
+      font-family: "Source Serif 4", serif;
+      color: var(--heading);
+    }
+
+    .header-logo { font-size: 1.15rem; }
+
+    .header-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      font-size: .94rem;
+      color: #6b7280;
+    }
+
+    .header-nav a:hover,
+    .profile-links a { color: var(--accent); }
+
+    section { padding: 64px 0; }
+    .hero { padding-top: 72px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 220px minmax(0,1fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .profile-picture {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      max-width: 700px;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-bottom: 22px;
+      line-height: 1.15;
+    }
+
+    .hero-copy p,
+    .panel p {
+      max-width: 720px;
+      margin-top: 14px;
+      font-size: 1rem;
+    }
+
+    .profile-role,
+    .profile-links {
+      margin-top: 12px;
+      font-size: .93rem;
+    }
+
+    .profile-links {
+      list-style: none;
+    }
+
+    .profile-links li + li { margin-top: 8px; }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .75rem;
+      font-weight: 600;
+      color: #6b7280;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) 140px;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-main h3 { font-size: 1rem; }
+
+    .timeline-meta {
+      text-align: right;
+      font-size: .85rem;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 24px;
+    }
+
+    .panel {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: .02em;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      font-size: .9rem;
+      color: #6b7280;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-picture { max-width: 220px; }
+    }
+
+    @media (max-width: 720px) {
+      .header-nav { display: none; }
+      .hero { padding-top: 42px; }
+      section { padding: 48px 0; }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .timeline-meta {
+        text-align: left;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="header-logo">Xavier Muntaner</a>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#biography">Biography</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="biography">
+      <div class="container hero-grid">
+        <aside>
+          <img src="images/profile.jpg" alt="Portrait of Xavier Muntaner" class="profile-picture" />
+          <h3>Xavier Muntaner</h3>
+          <p class="profile-role">Senior Economic Adviser<br />Banca March</p>
+          <ul class="profile-links">
+            <li>Barcelona, Spain</li>
+            <li><a href="cv.pdf" target="_blank" rel="noopener">Curriculum Vitae</a></li>
+            <li><a href="mailto:muntaner@icab.cat">muntaner@icab.cat</a></li>
+            <li><a href="https://github.com/jxmuntaner" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </aside>
+
+        <div class="hero-copy">
+          <h1>Economics, law, and digital markets.</h1>
+          <p>I am a Senior Economic Adviser at Banca March while completing legal qualification studies in Barcelona.</p>
+          <p>My work focuses on antitrust economics, regulation, financial systems, and the governance of technology.</p>
+          <p>My doctoral work at Yale examined antitrust intervention in platform markets, with particular attention to gatekeeping, digital power, and ecosystem control.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <span class="section-kicker">Education</span>
+        <h2>Academic formation</h2>
+        <div class="education-grid">
+          <div class="panel"><h3>Universitat de Barcelona</h3><p>Máster de Acceso a la Abogacía y Procura</p><p>2025–2027 · Barcelona</p></div>
+          <div class="panel"><h3>Open University of Catalonia</h3><p>Bachelor’s Degree in Law</p><p>2020–2024 · Barcelona</p></div>
+          <div class="panel"><h3>London Business School</h3><p>MSc in Management</p><p>2015–2017 · <span class="badge">Fundación Ramon Areces Scholar</span></p></div>
+          <div class="panel"><h3>Sciences Po Paris / UC Berkeley</h3><p>Bachelor’s Degree in Economics, Cum Laude</p><p>2013–2016 · <span class="badge">Cum Laude Honors</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <span class="section-kicker">Certifications</span>
+        <h2>Professional certifications</h2>
+        <div class="education-grid">
+          <div class="panel">
+            <h3>AWS Certified Machine Learning - Specialty</h3>
+            <p>AWS Training &amp; Certification</p>
+            <p>2021</p>
+          </div>
+          <div class="panel">
+            <h3>AWS Certified Solutions Architect - Professional</h3>
+            <p>AWS Training &amp; Certification</p>
+            <p>2021</p>
+          </div>
+          <div class="panel">
+            <h3>AM Cost-Effectiveness Analysis</h3>
+            <p>University of Oxford</p>
+            <p>2021 · <span class="badge">Sponsored by Employer</span></p>
+          </div>
+        </div>
+
+        <h2 style="margin-top: 48px;">Languages</h2>
+        <div class="education-grid">
+          <div class="panel">
+            <h3>Languages</h3>
+            <p>Add language proficiency here</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <span class="section-kicker">Experience</span>
+        <h2>Professional trajectory</h2>
+        <article class="timeline-item"><div class="timeline-main"><h3>Senior Economic Adviser</h3><p>Banca March</p></div><div class="timeline-meta">2024–Present<br />Barcelona</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>Founder & CEO</h3><p>Analytica Consulting</p></div><div class="timeline-meta">2022–2024<br />Tallinn</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>External Advisor</h3><p>World Bank / OECD</p></div><div class="timeline-meta">2020–2022<br />Washington / Paris</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>Global Pricing & Market Access Manager</h3><p>Almirall</p></div><div class="timeline-meta">2018–2019<br />Barcelona</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>Transfer Pricing Consultant</h3><p>Deloitte</p></div><div class="timeline-meta">2017–2018<br />Barcelona</div></article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <span class="section-kicker">Contact</span>
+        <h2>Professional inquiries</h2>
+        <div class="panel">
+          <p>For collaborations, advisory work, speaking engagements, or research invitations.</p>
+          <p><strong>muntaner@icab.cat</strong></p>
+          <p>Barcelona, Catalonia, Spain</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Xavier Muntaner. All rights reserved.</div>
+  </footer>
+</body>
+</html>
 
     section{padding:78px 0}
     .section-kicker{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#64748b;display:block;margin-bottom:8px}
