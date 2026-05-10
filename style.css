@@ -2392,6 +2392,16 @@ footer a:hover { color: var(--light-color); }
     white-space: normal;
   }
 }
+
+#certifications .panel {
+  padding-top: 12px;
+}
+
+#certifications .panel p {
+  margin-top: 6px;
+  line-height: 1.45;
+}
+
 =======
 >>>>>>> parent of 2d31b36 (Add styles for experience dropdown component)
 =======
