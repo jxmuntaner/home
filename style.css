@@ -2250,6 +2250,7 @@ footer a:hover { color: var(--light-color); }
         margin-top: 0.1em;
     }
 }
+<<<<<<< HEAD
 #experience .timeline-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 140px;
@@ -2394,3 +2395,5 @@ footer a:hover { color: var(--light-color); }
     white-space: normal;
   }
 }
+=======
+>>>>>>> parent of 2d31b36 (Add styles for experience dropdown component)
