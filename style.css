@@ -2251,6 +2251,7 @@ footer a:hover { color: var(--light-color); }
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 #experience .timeline-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 140px;
@@ -2285,66 +2286,57 @@ footer a:hover { color: var(--light-color); }
 
 /* Accordion */
 
+=======
+>>>>>>> parent of 6600f62 (Update style.css)
 .experience-dropdown {
   margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
 }
 
 .experience-dropdown summary {
   list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: Inter, sans-serif;
+  font-size: .88rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  color: #6b7280;
+
+  transition: color .22s ease;
 }
 
 .experience-dropdown summary::-webkit-details-marker {
   display: none;
 }
 
-.experience-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  padding: 5px 11px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-
-  font-family: Inter, sans-serif;
-  font-size: .8rem;
-  font-weight: 500;
-  letter-spacing: .01em;
-  color: #6b7280;
-  background: rgba(255,255,255,.45);
-  cursor: pointer;
-
-  transition:
-    color .22s ease,
-    border-color .22s ease,
-    background-color .22s ease;
-}
-
-.experience-button::after {
+.experience-dropdown summary::before {
   content: "+";
-  font-size: .88rem;
+  font-family: Inter, sans-serif;
+  font-size: .92rem;
   line-height: 1;
   color: #9ca3af;
-  transition: color .22s ease;
+  transform: translateY(-0.5px);
+  transition: color .22s ease, transform .22s ease;
 }
 
-.experience-button:hover {
-  color: var(--accent);
-  border-color: #d1d5db;
-  background: rgba(255,255,255,.7);
-}
-
-.experience-button:hover::after {
+.experience-dropdown summary:hover {
   color: var(--accent);
 }
 
-.experience-dropdown[open] .experience-button {
+.experience-dropdown summary:hover::before {
   color: var(--accent);
-  border-color: #d1d5db;
-  background: rgba(255,255,255,.82);
 }
 
-.experience-dropdown[open] .experience-button::after {
+.experience-dropdown[open] summary {
+  color: var(--accent);
+}
+
+.experience-dropdown[open] summary::before {
   content: "−";
   color: var(--accent);
 }
@@ -2353,18 +2345,17 @@ footer a:hover { color: var(--light-color); }
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  margin-top: 0;
-
   transition:
-    grid-template-rows .3s ease,
-    opacity .24s ease,
-    margin-top .3s ease;
+    grid-template-rows .28s ease,
+    opacity .22s ease,
+    margin-top .28s ease;
+  margin-top: 0;
 }
 
 .experience-dropdown[open] .accordion-content {
   grid-template-rows: 1fr;
   opacity: 1;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 .experience-dropdown .accordion-inner {
@@ -2373,15 +2364,16 @@ footer a:hover { color: var(--light-color); }
 
 .experience-dropdown p {
   margin-top: 10px;
-  font-size: .96rem;
+  font-size: .97rem;
   line-height: 1.72;
   color: var(--text);
-  max-width: 720px;
+  max-width: 700px;
 }
 
 .experience-dropdown p:first-child {
   margin-top: 0;
 }
+<<<<<<< HEAD
 
 
 @media (max-width: 720px) {
@@ -2397,3 +2389,5 @@ footer a:hover { color: var(--light-color); }
 }
 =======
 >>>>>>> parent of 2d31b36 (Add styles for experience dropdown component)
+=======
+>>>>>>> parent of 6600f62 (Update style.css)
