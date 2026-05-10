@@ -300,6 +300,299 @@
         </div>
       </div>
     </section>
+
+    <section id="experience">
+      <div class="container">
+        <span class="section-kicker">Experience</span>
+        <article class="timeline-item"><div class="timeline-main"><h3>Senior Economic Adviser</h3><p>Banca March</p></div><div class="timeline-meta">2024–Present<br />Barcelona</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>Founder & CEO</h3><p>Analytica Consulting</p></div><div class="timeline-meta">2022–2024<br />Tallinn</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>External Advisor</h3><p>World Bank / OECD</p></div><div class="timeline-meta">2020–2022<br />Washington / Paris</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>Global Pricing & Market Access Manager</h3><p>Almirall</p></div><div class="timeline-meta">2018–2019<br />Barcelona</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>Transfer Pricing Consultant</h3><p>Deloitte</p></div><div class="timeline-meta">2017–2018<br />Barcelona</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>Business Analyst Intern</h3><p>AstraZeneca</p></div><div class="timeline-meta">Summer 2017<br />Cambridge</div></article>
+        <article class="timeline-item"><div class="timeline-main"><h3>International Relations Intern</h3><p>Barcelona City Council</p></div><div class="timeline-meta">Summer 2014<br />Barcelona</div></article>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <span class="section-kicker">Certifications</span>
+        <div class="education-grid">
+          <div class="panel">
+            <h3>AWS Certified Machine Learning - Specialty</h3>
+            <p>AWS Training &amp; Certification</p>
+            <p>2021</p>
+          </div>
+          <div class="panel">
+            <h3>AWS Certified Solutions Architect - Professional</h3>
+            <p>AWS Training &amp; Certification</p>
+            <p>2021</p>
+          </div>
+          <div class="panel">
+            <h3>Applied Methods of Cost-Effectiveness Analysis</h3>
+            <p>University of Oxford</p>
+            <p>2021 · <span class="badge">Sponsored by Employer</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <span class="section-kicker">Contact</span>
+        <div class="panel">
+          <p>For collaborations, advisory work, speaking engagements, or research invitations.</p>
+          <p><strong>muntaner@icab.cat</strong></p>
+          <p>Barcelona, Catalonia, Spain</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Xavier Muntaner. All rights reserved.</div>
+  </footer>
+</body>
+</html>    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,250,250,.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-logo,
+    h1, h2, h3 {
+      font-family: "Source Serif 4", serif;
+      color: var(--heading);
+    }
+
+    .header-logo { font-size: 1.15rem; }
+
+    .header-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      font-size: .94rem;
+      color: #6b7280;
+    }
+
+    .header-nav a:hover,
+    .profile-links a { color: var(--accent); }
+
+    section { padding: 64px 0; }
+    .hero { padding-top: 72px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 220px minmax(0,1fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .profile-picture {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      max-width: 700px;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-bottom: 22px;
+      line-height: 1.15;
+    }
+
+    .hero-copy p,
+    .panel p {
+      max-width: 720px;
+      margin-top: 14px;
+      font-size: 1rem;
+    }
+
+    .profile-role,
+    .profile-links {
+      margin-top: 12px;
+      font-size: .93rem;
+    }
+
+    .profile-links {
+      list-style: none;
+    }
+
+    .profile-links li + li { margin-top: 8px; }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .75rem;
+      font-weight: 600;
+      color: #6b7280;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) 140px;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-main h3 { font-size: 1rem; }
+
+    .timeline-meta {
+      text-align: right;
+      font-size: .85rem;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 24px;
+    }
+
+    .panel {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: .02em;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      font-size: .9rem;
+      color: #6b7280;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-picture { max-width: 220px; }
+    }
+
+    @media (max-width: 720px) {
+      .header-nav { display: none; }
+      .hero { padding-top: 42px; }
+      section { padding: 48px 0; }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .timeline-meta {
+        text-align: left;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="header-logo">Xavier Muntaner</a>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#biography">Bio</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="biography">
+      <div class="container hero-grid">
+        <aside>
+          <img src="images/profile.jpg" alt="Portrait of Xavier Muntaner" class="profile-picture" />
+          <h3>Xavier Muntaner</h3>
+          <p class="profile-role">Senior Economic Adviser<br />Banca March</p>
+          <ul class="profile-links">
+            <li>Barcelona, Spain</li>
+            <li><a href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></li>
+            <li><a href="mailto:muntaner@icab.cat">muntaner@icab.cat</a></li>
+            <li><a href="https://github.com/jxmuntaner" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </aside>
+
+        <div class="hero-copy">
+          <h1>Economics, law, and digital markets.</h1>
+          <p>I am a Senior Economic Adviser at Banca March while completing legal qualification studies in Barcelona.</p>
+          <p>My work focuses on antitrust economics, regulation, financial systems, and the governance of technology.</p>
+          <p>My doctoral work at Yale examined antitrust intervention in platform markets, with particular attention to gatekeeping, digital power, and ecosystem control.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <span class="section-kicker">Education</span>
+        <div class="education-grid">
+          <div class="panel"><h3>Universitat de Barcelona</h3><p>Máster de Acceso a la Abogacía y Procura</p><p>2025–2027 · Barcelona</p></div>
+          <div class="panel"><h3>Open University of Catalonia</h3><p>Bachelor’s Degree in Law</p><p>2020–2024 · Barcelona</p></div>
+          <div class="panel"><h3>London Business School</h3><p>MSc in Management</p><p>2015–2017 · <span class="badge">Fundación Ramon Areces Scholar</span></p></div>
+          <div class="panel"><h3>Sciences Po Paris / UC Berkeley</h3><p>Bachelor’s Degree in Economics</p><p>2013–2016 · <span class="badge">Cum Laude Honors</span></p></div>
+        </div>
+      </div>
+    </section>
     
     <section id="experience">
       <div class="container">
