@@ -2467,6 +2467,54 @@ footer a:hover { color: var(--light-color); }
 .experience-details li + li {
   margin-top: 10px;
 }
+.timeline-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.expand-btn {
+  border: none;
+  background: transparent;
+  color: var(--heading);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 2px;
+  transition: transform .2s ease, color .2s ease;
+  flex-shrink: 0;
+}
+
+.expand-btn:hover {
+  color: var(--accent);
+}
+
+.expand-btn.active {
+  transform: rotate(180deg);
+}
+
+.timeline-details {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height .35s ease,
+    margin-top .35s ease;
+}
+
+.timeline-details.open {
+  max-height: 500px;
+  margin-top: 14px;
+}
+
+.timeline-details ul {
+  padding-left: 18px;
+}
+
+.timeline-details li {
+  margin-bottom: 10px;
+}
 =======
 >>>>>>> parent of 2d31b36 (Add styles for experience dropdown component)
 =======
